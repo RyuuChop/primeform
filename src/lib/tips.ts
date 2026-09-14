@@ -4,8 +4,15 @@
 //  goal so users only see what's relevant to them.
 // ─────────────────────────────────────────────────────────────
 import type { Tip, Goal } from "./types";
+import { NUTRITION_TIPS } from "./tips-nutrition";
+import { TRAINING_TIPS } from "./tips-training";
+import { FATLOSS_TIPS, CARDIO_TIPS } from "./tips-fatloss-cardio";
+import { RECOVERY_TIPS, SLEEP_TIPS } from "./tips-recovery-sleep";
+import { LOOKS_TIPS } from "./tips-looks";
+import { FORM_TIPS, POSTURE_TIPS } from "./tips-form-posture";
+import { SUPPLEMENT_TIPS, MINDSET_TIPS } from "./tips-supplements-mindset";
 
-export const TIPS: Tip[] = [
+const CORE_TIPS: Tip[] = [
   {
     id: "protein", title: "Eat 1.6–2.2g Protein Per Kg", icon: "beef", category: "Nutrition",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 3,
@@ -334,7 +341,7 @@ export const TIPS: Tip[] = [
     ],
     refs: [
       "Windhager S et al. Am J Hum Biol 2011 — facial adiposity perception studies.",
-      "Liljemark WF. J Dent Res overview — masticatory muscle adaptation literature.",
+      "Kiliaridis S. Acta Odontol Scand 1995 — masticatory muscle function & craniofacial morphology.",
     ],
   },
   {
@@ -572,7 +579,7 @@ export const TIPS: Tip[] = [
       "Ongoing: morning face photo log — spot your personal puff triggers within a month.",
     ],
     refs: [
-      "Nkengne A et al. J Eur Acad Dermatol Venereol — eye contour physiology literature.",
+      "Sundelin T et al. R Soc Open Sci 2013 — sleep-deprivation cues: eye redness, swelling & hanging eyelids.",
       "American Academy of Allergy/AAAAI patient guidance on allergic rhinitis & 'shiners'.",
     ],
   },
@@ -672,4 +679,24 @@ export function tipsForGoals(goals: Goal[]): Tip[] {
   const selected = goals.length ? goals : ALL_GOALS;
   return TIPS.filter((t) => t.goals.some((g) => selected.includes(g)));
 }
-export const TIP_CATEGORIES = Array.from(new Set(TIPS.map((t) => t.category)));
+
+export const TIPS: Tip[] = [
+  ...CORE_TIPS,
+  ...NUTRITION_TIPS,
+  ...TRAINING_TIPS,
+  ...FATLOSS_TIPS,
+  ...CARDIO_TIPS,
+  ...RECOVERY_TIPS,
+  ...SLEEP_TIPS,
+  ...LOOKS_TIPS,
+  ...FORM_TIPS,
+  ...POSTURE_TIPS,
+  ...SUPPLEMENT_TIPS,
+  ...MINDSET_TIPS,
+];
+
+const CATEGORY_ORDER = [
+  "Nutrition", "Training", "Fat Loss", "Cardio", "Recovery", "Sleep",
+  "Form", "Posture", "Looks", "Supplements", "Mindset",
+];
+export const TIP_CATEGORIES = CATEGORY_ORDER.filter((c) => TIPS.some((t) => t.category === c));
