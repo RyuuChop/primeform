@@ -53,23 +53,44 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
   const [type, setType] = useState<ReqType>("Tip Request");
   const [message, setMessage] = useState("");
   const [contact, setContact] = useState("");
-  const [opened, setOpened] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const [gmailBlocked, setGmailBlocked] = useState(false);
 
   const links = buildLinks(type, message, contact);
 
   const send = () => {
     if (message.trim().length < 5) return;
-    setOpened(true);
     window.location.href = links.mailto;
   };
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(CONTACT_EMAIL);
+      } else {
+        // iframe / non-secure contexts: legacy path
+        const ta = document.createElement("textarea");
+        ta.value = CONTACT_EMAIL;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
       setCopied(true);
+      setCopyFailed(false);
       setTimeout(() => setCopied(false), 1800);
-    } catch { /* clipboard unavailable — address is visible right below */ }
+    } catch {
+      setCopyFailed(true);
+    }
+  };
+
+  const openGmail = () => {
+    const w = window.open(links.gmail, "_blank", "noopener");
+    if (!w) setGmailBlocked(true);
   };
 
   return (
@@ -184,25 +205,33 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
               <ShieldCheck size={12} className="text-gold-2/70" /> Opens your email app — message pre-filled, you stay in control
             </p>
 
-            {/* fallback row after first attempt */}
-            {opened && (
-              <div className="rounded-xl border border-gold/25 bg-gold/[0.04] p-4">
-                <p className="text-sm leading-relaxed text-muted">
-                  If your email app didn't open, use Gmail in the browser or copy the address:
-                </p>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <a href={links.gmail} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gold-2 transition-colors hover:bg-gold/[0.16] cursor-pointer">
-                    <Mail size={12} /> Open In Gmail
-                  </a>
-                  <button onClick={copyEmail}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line-2 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer">
-                    {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-                    {copied ? "Copied!" : CONTACT_EMAIL}
-                  </button>
-                </div>
+            {/* fallback — always visible, works in embedded previews too */}
+            <div className="rounded-xl border border-gold/25 bg-gold/[0.04] p-4">
+              <p className="text-sm leading-relaxed text-muted">
+                Mail app didn't open? Send the same request from Gmail in your browser — or copy the address:
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <button onClick={openGmail}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gold-2 transition-colors hover:bg-gold/[0.16] cursor-pointer">
+                  <Mail size={12} /> Open In Gmail
+                </button>
+                <button onClick={copyEmail}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line-2 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer">
+                  {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                  {copied ? "Copied!" : CONTACT_EMAIL}
+                </button>
               </div>
-            )}
+              {gmailBlocked && (
+                <p className="mt-2.5 text-[12px] leading-relaxed text-amber-200/90">
+                  This preview blocks new tabs — copy the address above and compose manually. On the live site this button opens Gmail directly.
+                </p>
+              )}
+              {copyFailed && (
+                <p className="mt-2.5 text-[12px] leading-relaxed text-amber-200/90">
+                  Copy blocked here too — select the address by hand: {CONTACT_EMAIL}
+                </p>
+              )}
+            </div>
           </div>
         </section>
 
