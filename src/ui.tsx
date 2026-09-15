@@ -1,6 +1,7 @@
 import type { ReactNode, CSSProperties } from "react";
 import { Heart, X } from "lucide-react";
 import { cn } from "./utils/cn";
+import logoUrl from "./assets/logo.png";
 
 // ── Buttons ───────────────────────────────────────────────────
 export function Btn({
@@ -89,35 +90,17 @@ export function SupportLink({
   );
 }
 
-// ── Brand logo — PF monogram (P + F merged stem, gold gradient) ──
+// ── Brand logo — PF monogram (gold on dark tile) ─────────────
 export function LogoMark({ size = 40, className }: { size?: number; className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" width={size} height={size}
-      role="img" aria-label="Primeform logo"
+    <img
+      src={logoUrl}
+      alt="Primeform logo"
+      width={size}
+      height={size}
+      draggable={false}
       className={cn("shrink-0 select-none", className)}
-      style={{ width: size, height: size }}>
-      <defs>
-        <linearGradient id="pf-gold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f0dcae" />
-          <stop offset="1" stopColor="#c9a25c" />
-        </linearGradient>
-        <linearGradient id="pf-bg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#1d1d24" />
-          <stop offset="1" stopColor="#0e0e11" />
-        </linearGradient>
-      </defs>
-      <rect x="1" y="1" width="62" height="62" rx="16"
-        fill="url(#pf-bg)" stroke="rgba(216,180,106,0.45)" strokeWidth="2" />
-      <g fill="url(#pf-gold)">
-        {/* P bowl — filled ring, clear counter hole */}
-        <path fillRule="evenodd"
-          d="M25 21a11 11 0 1 0 22 0a11 11 0 1 0-22 0Zm7 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z" />
-        {/* shared stem — P aur F dono isse judte hain */}
-        <rect x="18" y="10" width="8" height="44" rx="3.5" />
-        {/* F arms */}
-        <rect x="22" y="36" width="25" height="7" rx="3.5" />
-        <rect x="22" y="47" width="16" height="7" rx="3.5" />
-      </g>
-    </svg>
+      style={{ width: size, height: size }}
+    />
   );
 }
