@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://prime-form1.netlify.app/sitemap.xml
