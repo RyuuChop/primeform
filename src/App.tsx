@@ -16,7 +16,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { err: Error | nu
     return (
       <div className="flex min-h-screen items-center justify-center bg-ink px-6 text-center">
         <div className="max-w-sm">
-          <div className="mx-auto w-max"><LogoMark size={48} className="glow-red" /></div>
+          <div className="mx-auto w-max"><LogoMark size={48} className="glow-gold" /></div>
           <h1 className="mt-4 font-display text-2xl font-medium">Quick systems check</h1>
           <p className="mt-2 text-sm text-muted">
             Something glitched — reload to continue browsing the library.
@@ -47,7 +47,7 @@ function Main() {
       <header className="sticky top-0 z-40 border-b border-line/60 bg-ink/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
-            <LogoMark size={32} className="glow-red" />
+            <LogoMark size={40} className="glow-gold" />
             <span className="font-display text-lg font-semibold uppercase tracking-[0.24em]">Primeform</span>
           </div>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.34em] text-faint md:block">
@@ -161,7 +161,7 @@ function Main() {
       <footer className="border-t border-line/70 bg-ink-2/40">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
           <div className="flex items-center gap-3">
-            <LogoMark size={26} />
+            <LogoMark size={32} />
             <span className="font-display text-sm font-semibold uppercase tracking-[0.24em]">Primeform</span>
           </div>
           <SupportLink variant="ghost" label="Support the Mission" />

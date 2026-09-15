@@ -99,6 +99,7 @@ body {
   );
 }
 .glow-red { box-shadow: 0 0 44px -8px rgba(225, 29, 46, 0.5); }
+.glow-gold { box-shadow: 0 0 40px -6px rgba(216, 180, 106, 0.5); }
 
 /* focus rings */
 :focus-visible {

@@ -62,9 +62,6 @@ export function Overlay({ children, onClose, wide }: { children: ReactNode; onCl
   );
 }
 
-// ── Brand logo (exact image, used as-is) ──────────────────────
-export const LOGO_URL = "https://i.postimg.cc/cHKBFy01/COSRc.jpg";
-
 // ── Support (Patreon) — utm_source tags visits from this site ──
 export const SUPPORT_URL = "https://www.patreon.com/PrimeForm12?utm_source=primeform";
 
@@ -92,16 +89,34 @@ export function SupportLink({
   );
 }
 
-export function LogoMark({ size = 32, className }: { size?: number; className?: string }) {
+// ── Brand logo — PF monogram (P + F merged stem, gold gradient) ──
+export function LogoMark({ size = 40, className }: { size?: number; className?: string }) {
   return (
-    <img
-      src={LOGO_URL}
-      alt="Primeform logo"
-      width={size}
-      height={size}
-      draggable={false}
-      className={cn("shrink-0 rounded-lg object-cover select-none", className)}
-      style={{ width: size, height: size }}
-    />
+    <svg viewBox="0 0 64 64" width={size} height={size}
+      role="img" aria-label="Primeform logo"
+      className={cn("shrink-0 select-none", className)}
+      style={{ width: size, height: size }}>
+      <defs>
+        <linearGradient id="pf-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#f0dcae" />
+          <stop offset="1" stopColor="#c9a25c" />
+        </linearGradient>
+        <linearGradient id="pf-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#1d1d24" />
+          <stop offset="1" stopColor="#0e0e11" />
+        </linearGradient>
+      </defs>
+      <rect x="1" y="1" width="62" height="62" rx="16"
+        fill="url(#pf-bg)" stroke="rgba(216,180,106,0.45)" strokeWidth="2" />
+      <g stroke="url(#pf-gold)" strokeWidth="7" strokeLinecap="round" fill="none">
+        {/* shared stem — P aur F dono isse judte hain */}
+        <path d="M22 13v40" />
+        {/* P bowl */}
+        <path d="M23.5 17h6a9.5 9.5 0 0 1 0 19h-6" />
+        {/* F arms */}
+        <path d="M22 43.5h19" />
+        <path d="M22 53h11" />
+      </g>
+    </svg>
   );
 }
