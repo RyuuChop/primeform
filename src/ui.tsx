@@ -108,14 +108,15 @@ export function LogoMark({ size = 40, className }: { size?: number; className?: 
       </defs>
       <rect x="1" y="1" width="62" height="62" rx="16"
         fill="url(#pf-bg)" stroke="rgba(216,180,106,0.45)" strokeWidth="2" />
-      <g stroke="url(#pf-gold)" strokeWidth="7" strokeLinecap="round" fill="none">
+      <g fill="url(#pf-gold)">
+        {/* P bowl — filled ring, clear counter hole */}
+        <path fillRule="evenodd"
+          d="M25 21a11 11 0 1 0 22 0a11 11 0 1 0-22 0Zm7 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z" />
         {/* shared stem — P aur F dono isse judte hain */}
-        <path d="M22 13v40" />
-        {/* P bowl */}
-        <path d="M23.5 17h6a9.5 9.5 0 0 1 0 19h-6" />
+        <rect x="18" y="10" width="8" height="44" rx="3.5" />
         {/* F arms */}
-        <path d="M22 43.5h19" />
-        <path d="M22 53h11" />
+        <rect x="22" y="36" width="25" height="7" rx="3.5" />
+        <rect x="22" y="47" width="16" height="7" rx="3.5" />
       </g>
     </svg>
   );
