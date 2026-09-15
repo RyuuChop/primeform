@@ -1,7 +1,7 @@
 import { Component, useMemo, type ReactNode } from "react";
-import { ArrowDown, RefreshCw, Sparkles, Star } from "lucide-react";
+import { ArrowDown, Heart, RefreshCw, Sparkles, Star } from "lucide-react";
 import TipsSection from "./components/TipsSection";
-import { Btn, LogoMark } from "./ui";
+import { Btn, LogoMark, SupportLink } from "./ui";
 import { TIPS, TIP_CATEGORIES } from "./lib/tips";
 
 // ─────────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { err: Error | nu
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-const TICKER = [...TIP_CATEGORIES, "Peer-Reviewed", "Zero Fluff"];
+const TICKER = [...TIP_CATEGORIES, "Peer-Reviewed", "Zero Fluff", "Reader-Powered"];
 
 function Main() {
   const totalRefs = useMemo(() => TIPS.reduce((n, t) => n + t.refs.length, 0), []);
@@ -53,9 +53,12 @@ function Main() {
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.34em] text-faint md:block">
             The Protocol Library
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-line-2 bg-panel px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-            <Sparkles size={11} className="text-gold-2" /> {TIPS.length} protocols
-          </span>
+          <div className="flex items-center gap-2.5">
+            <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-line-2 bg-panel px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+              <Sparkles size={11} className="text-gold-2" /> {TIPS.length} protocols
+            </span>
+            <SupportLink label="Support" />
+          </div>
         </div>
       </header>
 
@@ -118,6 +121,42 @@ function Main() {
         <TipsSection />
       </main>
 
+      {/* ── Support the mission ── */}
+      <section id="support" className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+        <div className="anim-rise rounded-2xl bg-gradient-to-br from-gold/50 via-line-2/50 to-line/40 p-px shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]">
+          <div className="relative overflow-hidden rounded-[calc(1rem-1px)] bg-panel bg-noise px-6 py-14 text-center sm:px-12 sm:py-16">
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-gold/[0.09] blur-[90px]" />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.08] px-4 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-2">
+                <Heart size={11} fill="currentColor" strokeWidth={0} /> Support the Mission
+              </span>
+              <h2 className="mx-auto mt-6 max-w-2xl font-display text-3xl font-medium leading-[1.15] sm:text-[2.6rem]">
+                Good research deserves
+                <em className="block italic text-gold-2"
+                  style={{ textShadow: "0 0 60px rgba(216,180,106,0.3)" }}>
+                  good fuel.
+                </em>
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted">
+                Primeform is free, ad-free, and reader-powered — every protocol is built from
+                peer-reviewed research, with no sponsors and no agenda. If this library helped you,
+                your support keeps it independent and fuels more helpful sites like this one.
+              </p>
+              <div className="mt-9 flex justify-center">
+                <SupportLink label="Become a Supporter" className="px-9 py-3.5 text-[13px]" />
+              </div>
+              <div className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
+                <span>Free forever</span>
+                <span className="text-gold-2">◆</span>
+                <span>No ads</span>
+                <span className="text-gold-2">◆</span>
+                <span>Reader-powered</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Footer ── */}
       <footer className="border-t border-line/70 bg-ink-2/40">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
@@ -125,9 +164,7 @@ function Main() {
             <LogoMark size={26} />
             <span className="font-display text-sm font-semibold uppercase tracking-[0.24em]">Primeform</span>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
-            Discipline over motivation — knowledge over noise
-          </p>
+          <SupportLink variant="ghost" label="Support the Mission" />
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
             Educational only · Not medical advice
           </p>

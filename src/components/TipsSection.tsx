@@ -19,7 +19,7 @@ import {
 import type { Goal, Tip } from "../lib/types";
 import { GOAL_LABEL, GOAL_TAG_COLOR } from "../lib/types";
 import { TIPS, TIP_CATEGORIES, tipsForGoals } from "../lib/tips";
-import { Btn, Overlay, Tag } from "../ui";
+import { Btn, Overlay, SupportLink, Tag } from "../ui";
 import { cn } from "../utils/cn";
 
 // ── icon registry ─────────────────────────────────────────────
@@ -292,7 +292,9 @@ function Reader({ tip, onClose }: { tip: Tip; onClose: () => void }) {
   const n = TIPS.findIndex((t) => t.id === tip.id) + 1;
   return (
     <Overlay onClose={onClose} wide>
-      <article className="px-6 pb-9 pt-12 sm:px-11 sm:pt-14">
+      <article className="relative px-6 pb-9 pt-12 sm:px-11 sm:pt-14">
+        {/* support — top-right, beside the close button */}
+        <SupportLink variant="ghost" label="Support" className="absolute right-16 top-4" />
         <header className="border-b border-line/70 pb-9 text-center">
           <div className="flex justify-center">
             <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] text-gold-2 shadow-[0_0_50px_-10px_rgba(216,180,106,0.5)]">

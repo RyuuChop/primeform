@@ -1,5 +1,5 @@
 import type { ReactNode, CSSProperties } from "react";
-import { X } from "lucide-react";
+import { Heart, X } from "lucide-react";
 import { cn } from "./utils/cn";
 
 // ── Buttons ───────────────────────────────────────────────────
@@ -64,6 +64,33 @@ export function Overlay({ children, onClose, wide }: { children: ReactNode; onCl
 
 // ── Brand logo (exact image, used as-is) ──────────────────────
 export const LOGO_URL = "https://i.postimg.cc/cHKBFy01/COSRc.jpg";
+
+// ── Support (Patreon) — utm_source tags visits from this site ──
+export const SUPPORT_URL = "https://www.patreon.com/PrimeForm12?utm_source=primeform";
+
+export function SupportLink({
+  variant = "gold", label = "Support", className,
+}: {
+  variant?: "gold" | "ghost"; label?: string; className?: string;
+}) {
+  const styles = {
+    gold:
+      "bg-gradient-to-b from-gold-2 to-gold text-ink hover:brightness-105 active:scale-[0.98] shadow-[0_10px_30px_-10px_rgba(216,180,106,0.55)] font-display text-xs font-semibold uppercase tracking-[0.14em] px-4.5 py-2.5",
+    ghost:
+      "border border-gold/35 bg-gold/[0.07] text-gold-2 hover:bg-gold/[0.16] active:scale-[0.98] font-mono text-[10px] font-semibold uppercase tracking-[0.14em] px-3.5 py-2",
+  } as const;
+  return (
+    <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer"
+      className={cn(
+        "inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full transition-all duration-200 select-none cursor-pointer",
+        styles[variant],
+        className,
+      )}>
+      <Heart size={variant === "gold" ? 13 : 11} fill="currentColor" strokeWidth={0} />
+      {label}
+    </a>
+  );
+}
 
 export function LogoMark({ size = 32, className }: { size?: number; className?: string }) {
   return (
