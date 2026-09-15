@@ -4,8 +4,15 @@
 //  goal so users only see what's relevant to them.
 // ─────────────────────────────────────────────────────────────
 import type { Tip, Goal } from "./types";
+import { NUTRITION_TIPS } from "./tips-nutrition";
+import { TRAINING_TIPS } from "./tips-training";
+import { FATLOSS_TIPS, CARDIO_TIPS } from "./tips-fatloss-cardio";
+import { RECOVERY_TIPS, SLEEP_TIPS } from "./tips-recovery-sleep";
+import { LOOKS_TIPS } from "./tips-looks";
+import { FORM_TIPS, POSTURE_TIPS } from "./tips-form-posture";
+import { SUPPLEMENT_TIPS, MINDSET_TIPS } from "./tips-supplements-mindset";
 
-export const TIPS: Tip[] = [
+const CORE_TIPS: Tip[] = [
   {
     id: "protein", title: "Eat 1.6–2.2g Protein Per Kg", icon: "beef", category: "Nutrition",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 3,
@@ -72,15 +79,15 @@ export const TIPS: Tip[] = [
   {
     id: "overload", title: "Progressive Overload Is The Whole Game", icon: "trending-up", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 3,
-    summary: "Your body adapts to stress and then stops changing. If the challenge doesn't go up, neither do you. Add a rep, a set, or a harder variation — every week.",
+    summary: "Your body adapts to stress and then stops changing. If the workload doesn't go up, neither do you. Add a rep, a set, or a harder variation — every week.",
     why: [
       "Muscle and strength adapt to imposed demand (Selye's GAS). Same demand = same body.",
-      "This app already applies it automatically: every 2 completions of a movement, your target reps increase.",
+      "Each session of a movement makes the next one slightly easier — which is exactly why the next one must be slightly harder.",
       "Small weekly jumps compound brutally: +1 rep/week = +52 reps per set per year.",
     ],
     steps: [
-      "Do the prescribed sets × reps with clean form — that's the baseline.",
-      "When a target feels easy, complete it and let the system bump your next prescription.",
+      "Do your planned sets × reps with clean form — that's the baseline.",
+      "When a target feels easy, finish it and make the next session a little harder — +1–2 reps or +2.5 kg.",
       "Rep ladder: easier variation → harder variation (knee push-up → full → diamond → archer).",
       "If you fail a target, repeat it until you clear it. Failing forward is still progress if form stays clean.",
     ],
@@ -90,9 +97,9 @@ export const TIPS: Tip[] = [
       "Chasing soreness. Soreness is a byproduct, not a scoreboard.",
     ],
     progression: [
-      "Level 1: finish every prescribed session for 2 weeks straight.",
-      "Level 2: your reps auto-increase — hold form standard ruthlessly.",
-      "Level 3: harder variations unlock as your numbers climb.",
+      "Weeks 1–2: finish every planned session.",
+      "Weeks 3–8: add reps or load weekly — hold the form standard ruthlessly.",
+      "Month 3+: harder variations become appropriate as your numbers climb.",
     ],
     refs: [
       "ACSM Progression Models in Resistance Training (2009).",
@@ -191,7 +198,7 @@ export const TIPS: Tip[] = [
   {
     id: "consistency", title: "Consistency Beats Intensity — By A Mile", icon: "flame", category: "Mindset",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 2,
-    summary: "Three average sessions a week for a year destroys one monster workout followed by two weeks off. Your streak is the most important number on this app.",
+    summary: "Three average sessions a week for a year destroys one monster workout followed by two weeks off. Your training streak is the most important number in your log.",
     why: [
       "Adaptations are dose-cumulative: total weekly volume predicts growth better than single-workout effort.",
       "Habit research: behavior repeated in a stable context becomes automatic in ~66 days on average.",
@@ -288,7 +295,7 @@ export const TIPS: Tip[] = [
     ],
     steps: [
       "Chin tucks 2 × 10 daily: glide the head straight back (make a double chin), hold 3s, relax.",
-      "Train the Prone Y-T-W raise from your challenge list — it directly targets the posture chain.",
+      "Add the Prone Y-T-W raise to your weekly plan — it directly targets the posture chain.",
       "Phone at eye level, always. Desk screen top at eye height.",
       "Every hour: 30-second wall stand — heels, glutes, shoulders, head all touching.",
     ],
@@ -334,7 +341,7 @@ export const TIPS: Tip[] = [
     ],
     refs: [
       "Windhager S et al. Am J Hum Biol 2011 — facial adiposity perception studies.",
-      "Liljemark WF. J Dent Res overview — masticatory muscle adaptation literature.",
+      "Kiliaridis S. Acta Odontol Scand 1995 — masticatory muscle function & craniofacial morphology.",
     ],
   },
   {
@@ -466,7 +473,7 @@ export const TIPS: Tip[] = [
       "A lean waist completes the illusion: the taper is a ratio, and you control both numbers.",
     ],
     steps: [
-      "Lateral raises 3–4×/week, 10–20 reps, pain-free range, strict tempo (in your challenges).",
+      "Lateral raises 3–4×/week, 10–20 reps, pain-free range, strict tempo.",
       "Pull-ups for lat width — full stretch, drive elbows to hips.",
       "Keep waist lean via the fat-loss protocol. No taper exists at high body fat.",
       "Posture work (Y-T-W) visibly opens the chest and widens the stance of the shoulders.",
@@ -496,7 +503,7 @@ export const TIPS: Tip[] = [
       "Chronic under-recovery shows up as flat mood, dropping numbers, and elevated resting heart rate before it shows up as injury.",
     ],
     steps: [
-      "3–5 training days weekly beats 7. This app's daily challenges are calibrated to be repeatable — done right, they leave you able to train tomorrow.",
+      "3–5 training days weekly beats 7. Design every session to be repeatable — done right, you leave the gym able to train tomorrow.",
       "Sleep + protein + steps on rest days. Rest ≠ couch rot.",
       "Weekly check: resting HR up 5–8 bpm for 3+ days + motivation gone? Take 2 full days off.",
       "Every 6–8 weeks of hard progress, take a lighter week (halve your sets). You'll come back stronger.",
@@ -519,7 +526,7 @@ export const TIPS: Tip[] = [
   {
     id: "warmup", title: "The 3-Minute Warm-Up That Prevents 3-Month Injuries", icon: "gauge", category: "Form",
     goals: ["muscle", "fitness", "strength"], minutes: 1,
-    summary: "Cold tissue tears; warm tissue performs. Three minutes of ramping beats a foam-roller dissertation — and saves you from the injury that erases your streak.",
+    summary: "Cold tissue tears; warm tissue performs. Three minutes of ramping beats a foam-roller dissertation — and saves you from the injury that erases months of progress.",
     why: [
       "Dynamic warm-ups improve force output ~2–5% and reduce soft-tissue strain risk.",
       "Specificity matters most: rehearse the actual movement easier before doing it hard.",
@@ -529,7 +536,7 @@ export const TIPS: Tip[] = [
       "60s: get temperature up — jumping jacks, brisk march in place, arm circles.",
       "60s: mobilize today's joints — shoulder rolls + hip circles for upper/lower days.",
       "60s: rehearsal sets — half your first exercise's reps at easy difficulty (incline push-ups before real ones).",
-      "Then attack the challenge.",
+      "Then attack the working sets.",
     ],
     mistakes: [
       "Zero-to-max on the first set of the day. That's how 25-year-olds get 40-year-old shoulders.",
@@ -572,14 +579,14 @@ export const TIPS: Tip[] = [
       "Ongoing: morning face photo log — spot your personal puff triggers within a month.",
     ],
     refs: [
-      "Nkengne A et al. J Eur Acad Dermatol Venereol — eye contour physiology literature.",
+      "Sundelin T et al. R Soc Open Sci 2013 — sleep-deprivation cues: eye redness, swelling & hanging eyelids.",
       "American Academy of Allergy/AAAAI patient guidance on allergic rhinitis & 'shiners'.",
     ],
   },
   {
     id: "grip-neck", title: "Neck Training: The Ignored 5% That Changes Photos", icon: "anchor", category: "Looks",
     goals: ["looksmax", "strength"], minutes: 2,
-    summary: "A thick neck signals athleticism even in a t-shirt and frames the jaw. Direct neck work 2–3×/week is safe when loaded progressively — and it's why your challenges include it.",
+    summary: "A thick neck signals athleticism even in a t-shirt and frames the jaw. Direct neck work 2–3×/week is safe when loaded progressively — and it repays the effort faster than almost any other muscle.",
     why: [
       "Combat and collision sports use direct neck training routinely — it measurably increases neck circumference (+2–4 cm typical over months) and reduces injury risk.",
       "The trapezius/neck complex is visible in every photo and every shirt.",
@@ -597,7 +604,7 @@ export const TIPS: Tip[] = [
       "Skipping the back of the neck — extension work balances the front.",
     ],
     progression: [
-      "Phase 1: bodyweight curls + extensions (your challenges handle dosing).",
+      "Phase 1: bodyweight curls + extensions — start light, 2–3 sets each.",
       "Phase 2: add a light plate (towel on forehead) once 25 strict bodyweight reps are easy.",
       "Measure track: soft tape around neck monthly — 0.5 cm changes are noticeable.",
     ],
@@ -609,7 +616,7 @@ export const TIPS: Tip[] = [
   {
     id: "track", title: "Measure Everything (Weekly, Not Daily)", icon: "notebook-pen", category: "Mindset",
     goals: ["muscle", "fatloss", "looksmax", "fitness", "strength"], minutes: 2,
-    summary: "What gets measured gets managed. Weight, waist, progress photos, and your streak — captured weekly, judged monthly. This app stores the training side automatically.",
+    summary: "What gets measured gets managed. Weight, waist, progress photos, and a simple training log — captured weekly, judged monthly.",
     why: [
       "Self-monitoring is one of the strongest predictors of weight-loss and training success across behavioral studies.",
       "Daily scale readings fluctuate ±1–2 kg with water/sodium/gut content — weekly averages reveal the truth.",
@@ -619,7 +626,7 @@ export const TIPS: Tip[] = [
       "Pick one morning weekly: weight, waist at navel, front/side photos in the same light/pose.",
       "Log it somewhere fixed (notes app is fine). No obsessing, just data.",
       "Judge every 4 weeks, not 4 days. Trend is the signal.",
-      "Use this app's charts for training — volume, XP, and streak tell the effort story.",
+      "Keep a training log (notebook or app) — sets, reps, and load tell the effort story.",
     ],
     mistakes: [
       "Weighing at random times in random states (post-meal, post-drink).",
@@ -672,4 +679,24 @@ export function tipsForGoals(goals: Goal[]): Tip[] {
   const selected = goals.length ? goals : ALL_GOALS;
   return TIPS.filter((t) => t.goals.some((g) => selected.includes(g)));
 }
-export const TIP_CATEGORIES = Array.from(new Set(TIPS.map((t) => t.category)));
+
+export const TIPS: Tip[] = [
+  ...CORE_TIPS,
+  ...NUTRITION_TIPS,
+  ...TRAINING_TIPS,
+  ...FATLOSS_TIPS,
+  ...CARDIO_TIPS,
+  ...RECOVERY_TIPS,
+  ...SLEEP_TIPS,
+  ...LOOKS_TIPS,
+  ...FORM_TIPS,
+  ...POSTURE_TIPS,
+  ...SUPPLEMENT_TIPS,
+  ...MINDSET_TIPS,
+];
+
+const CATEGORY_ORDER = [
+  "Nutrition", "Training", "Fat Loss", "Cardio", "Recovery", "Sleep",
+  "Form", "Posture", "Looks", "Supplements", "Mindset",
+];
+export const TIP_CATEGORIES = CATEGORY_ORDER.filter((c) => TIPS.some((t) => t.category === c));
