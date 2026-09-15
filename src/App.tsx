@@ -1,6 +1,7 @@
-import { Component, useMemo, type ReactNode } from "react";
-import { ArrowDown, Heart, RefreshCw, Sparkles, Star } from "lucide-react";
+import { Component, useMemo, useState, type ReactNode } from "react";
+import { ArrowDown, CircleHelp, Heart, RefreshCw, Sparkles, Star } from "lucide-react";
 import TipsSection from "./components/TipsSection";
+import HelpModal from "./components/HelpModal";
 import { Btn, LogoMark, SupportLink } from "./ui";
 import { TIPS, TIP_CATEGORIES } from "./lib/tips";
 
@@ -40,6 +41,7 @@ const TICKER = [...TIP_CATEGORIES, "Peer-Reviewed", "Zero Fluff", "Reader-Powere
 
 function Main() {
   const totalRefs = useMemo(() => TIPS.reduce((n, t) => n + t.refs.length, 0), []);
+  const [helpOpen, setHelpOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-ink bg-grid text-fg">
@@ -57,6 +59,10 @@ function Main() {
             <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-line-2 bg-panel px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
               <Sparkles size={11} className="text-gold-2" /> {TIPS.length} protocols
             </span>
+            <button onClick={() => setHelpOpen(true)}
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line-2 bg-panel px-3.5 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-all duration-200 hover:border-gold/40 hover:text-gold-2 active:scale-[0.98] cursor-pointer">
+              <CircleHelp size={11} /> Help
+            </button>
             <SupportLink label="Support" />
           </div>
         </div>
@@ -157,6 +163,9 @@ function Main() {
         </div>
       </section>
 
+      {/* ── Help & Requests modal ── */}
+      {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
+
       {/* ── Footer ── */}
       <footer className="border-t border-line/70 bg-ink-2/40">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
@@ -164,6 +173,10 @@ function Main() {
             <LogoMark size={32} />
             <span className="font-display text-sm font-semibold uppercase tracking-[0.24em]">Primeform</span>
           </div>
+          <button onClick={() => setHelpOpen(true)}
+            className="inline-flex items-center gap-1.5 rounded-full border border-line-2 bg-transparent px-3.5 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer">
+            <CircleHelp size={11} /> Help & Requests
+          </button>
           <SupportLink variant="ghost" label="Support the Mission" />
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
             Educational only · Not medical advice
