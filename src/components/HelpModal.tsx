@@ -1,16 +1,14 @@
 import { useState } from "react";
 import {
-  BookOpen, CheckCircle2, ChevronDown, CircleAlert,
-  CircleHelp, SendHorizontal, ShieldCheck,
+  BookOpen, Check, ChevronDown, Copy, Mail,
+  SendHorizontal, ShieldCheck,
 } from "lucide-react";
 import { Btn, Overlay, Tag } from "../ui";
 import { cn } from "../utils/cn";
 import { TIP_CATEGORIES, TIPS } from "../lib/tips";
 
-// ── Web3Forms access key — yahan apni key paste karo ──────────
-// web3forms.com pe free account banao (sirf email chahiye), key
-// email me mil jayegi. Key ke bina form submit nahi hoga.
-const WEB3FORMS_ACCESS_KEY = "";
+// ── Request inbox — requests go straight here via the mail app ──
+const CONTACT_EMAIL = "lenenstew@gmail.com";
 
 type ReqType = "Tip Request" | "New Category" | "Bug Report" | "Something Else";
 
@@ -39,35 +37,39 @@ const FAQS = [
   },
 ];
 
+function buildLinks(type: ReqType, message: string, contact: string) {
+  const subject = encodeURIComponent(`Primeform Help: ${type}`);
+  const body = encodeURIComponent(
+    `${message.trim()}\n\n——————————\nType: ${type}\nContact: ${contact.trim() || "not provided"}\nSent from the Primeform site`,
+  );
+  return {
+    mailto: `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`,
+    gmail: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${subject}&body=${body}`,
+  };
+}
+
 export default function HelpModal({ onClose }: { onClose: () => void }) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [type, setType] = useState<ReqType>("Tip Request");
   const [message, setMessage] = useState("");
   const [contact, setContact] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "no-key">("idle");
+  const [opened, setOpened] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const submit = async () => {
+  const links = buildLinks(type, message, contact);
+
+  const send = () => {
     if (message.trim().length < 5) return;
-    if (!WEB3FORMS_ACCESS_KEY) { setStatus("no-key"); return; }
+    setOpened(true);
+    window.location.href = links.mailto;
+  };
+
+  const copyEmail = async () => {
     try {
-      setStatus("sending");
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Primeform Help: ${type}`,
-          from_name: "Primeform Site",
-          name: contact.trim() || "Anonymous reader",
-          message: `Type: ${type}\n\n${message.trim()}\n\nReply-to: ${contact.trim() || "not provided"}`,
-          botcheck: "",
-        }),
-      });
-      const data = await res.json();
-      setStatus(data.success ? "sent" : "error");
-    } catch {
-      setStatus("error");
-    }
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch { /* clipboard unavailable — address is visible right below */ }
   };
 
   return (
@@ -76,7 +78,7 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
         {/* header */}
         <header className="flex items-center gap-4">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] text-gold-2 shadow-[0_0_30px_-8px_rgba(216,180,106,0.5)]">
-            <CircleHelp size={22} />
+            <Mail size={22} />
           </div>
           <div>
             <h2 className="font-display text-2xl font-medium leading-tight">Help &amp; Requests</h2>
@@ -126,93 +128,82 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
             <SendHorizontal size={12} /> Request Something Specific
           </p>
 
-          {status === "sent" ? (
-            <div className="mt-5 flex flex-col items-center gap-3 rounded-xl border border-gold/30 bg-gold/[0.05] px-6 py-10 text-center">
-              <CheckCircle2 size={40} className="text-gold-2" />
-              <p className="font-display text-xl font-medium">Request received!</p>
-              <p className="max-w-xs text-sm text-muted">
-                Thank you — real reader requests decide what gets built next.
-                {contact.trim() && " I'll get back to you at the contact you left."}
-              </p>
-              <Btn variant="outline" onClick={onClose} className="mt-2">Back To The Library</Btn>
+          <div className="mt-5 space-y-4">
+            {/* type chips */}
+            <div className="flex flex-wrap gap-2">
+              {REQ_TYPES.map((t) => (
+                <button key={t} onClick={() => setType(t)}
+                  className={cn(
+                    "rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer",
+                    type === t
+                      ? "border-gold/60 bg-gold/10 text-gold-2 shadow-[0_0_20px_-8px_rgba(216,180,106,0.55)]"
+                      : "border-line-2 bg-panel text-muted hover:border-gold/30 hover:text-fg",
+                  )}>
+                  {type === t ? "◆ " : ""}{t}
+                </button>
+              ))}
             </div>
-          ) : (
-            <div className="mt-5 space-y-4">
-              {/* type chips */}
-              <div className="flex flex-wrap gap-2">
-                {REQ_TYPES.map((t) => (
-                  <button key={t} onClick={() => setType(t)}
-                    className={cn(
-                      "rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer",
-                      type === t
-                        ? "border-gold/60 bg-gold/10 text-gold-2 shadow-[0_0_20px_-8px_rgba(216,180,106,0.55)]"
-                        : "border-line-2 bg-panel text-muted hover:border-gold/30 hover:text-fg",
-                    )}>
-                    {type === t ? "◆ " : ""}{t}
+
+            {/* message */}
+            <label className="block">
+              <span className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
+                What are you looking for?
+              </span>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={4}
+                maxLength={1000}
+                placeholder="e.g. 'A tip on training while fasting' or 'Add a Mental Health category'…"
+                className="w-full resize-none rounded-xl border border-line-2 bg-ink-2 px-4 py-3 text-sm font-medium text-fg outline-none transition-colors placeholder:font-normal placeholder:text-faint focus:border-gold/50"
+              />
+              <span className="mt-1 block text-right font-mono text-[10px] text-faint">
+                {message.length}/1000
+              </span>
+            </label>
+
+            {/* contact */}
+            <label className="block">
+              <span className="mb-1.5 flex items-baseline justify-between font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
+                Your name or WhatsApp
+                <span className="text-[10px] font-mono text-faint normal-case tracking-normal">optional — for a reply</span>
+              </span>
+              <input
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                maxLength={120}
+                placeholder="e.g. Ali / +92 3xx xxxxxxx"
+                className="w-full rounded-xl border border-line-2 bg-ink-2 px-4 py-3 text-sm font-medium text-fg outline-none transition-colors placeholder:font-normal placeholder:text-faint focus:border-gold/50"
+              />
+            </label>
+
+            <Btn variant="gold" onClick={send} disabled={message.trim().length < 5} className="w-full">
+              <SendHorizontal size={15} /> Send Request
+            </Btn>
+            <p className="flex items-center justify-center gap-1.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
+              <ShieldCheck size={12} className="text-gold-2/70" /> Opens your email app — message pre-filled, you stay in control
+            </p>
+
+            {/* fallback row after first attempt */}
+            {opened && (
+              <div className="rounded-xl border border-gold/25 bg-gold/[0.04] p-4">
+                <p className="text-sm leading-relaxed text-muted">
+                  If your email app didn't open, use Gmail in the browser or copy the address:
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <a href={links.gmail} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gold-2 transition-colors hover:bg-gold/[0.16] cursor-pointer">
+                    <Mail size={12} /> Open In Gmail
+                  </a>
+                  <button onClick={copyEmail}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line-2 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer">
+                    {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                    {copied ? "Copied!" : CONTACT_EMAIL}
                   </button>
-                ))}
+                </div>
               </div>
-
-              {/* message */}
-              <label className="block">
-                <span className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-                  What are you looking for?
-                </span>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={4}
-                  maxLength={1000}
-                  placeholder="e.g. 'A tip on training while fasting' or 'Add a Mental Health category'…"
-                  className="w-full resize-none rounded-xl border border-line-2 bg-ink-2 px-4 py-3 text-sm font-medium text-fg outline-none transition-colors placeholder:font-normal placeholder:text-faint focus:border-gold/50"
-                />
-                <span className="mt-1 block text-right font-mono text-[10px] text-faint">
-                  {message.length}/1000
-                </span>
-              </label>
-
-              {/* contact */}
-              <label className="block">
-                <span className="mb-1.5 flex items-baseline justify-between font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-                  Email or WhatsApp
-                  <span className="text-[10px] font-mono text-faint normal-case tracking-normal">optional — for a reply</span>
-                </span>
-                <input
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  maxLength={120}
-                  placeholder="you@example.com or +92 3xx xxxxxxx"
-                  className="w-full rounded-xl border border-line-2 bg-ink-2 px-4 py-3 text-sm font-medium text-fg outline-none transition-colors placeholder:font-normal placeholder:text-faint focus:border-gold/50"
-                />
-              </label>
-
-              {/* status notes */}
-              {status === "sending" && (
-                <p className="text-sm text-muted">Sending your request…</p>
-              )}
-              {status === "no-key" && (
-                <p className="flex items-start gap-2 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-3.5 py-2.5 text-[13px] leading-relaxed text-amber-200/90">
-                  <CircleAlert size={14} className="mt-0.5 shrink-0 text-amber-400" />
-                  The request inbox is being set up — it will be live shortly. Meanwhile, use the Support button for anything urgent.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="flex items-start gap-2 rounded-lg border border-red-500/25 bg-red-500/[0.06] px-3.5 py-2.5 text-[13px] leading-relaxed text-red-200/90">
-                  <CircleAlert size={14} className="mt-0.5 shrink-0 text-red-400" />
-                  Couldn't send right now — please try again in a moment.
-                </p>
-              )}
-
-              <Btn variant="gold" onClick={submit} disabled={status === "sending" || message.trim().length < 5}
-                className="w-full">
-                <SendHorizontal size={15} /> Send Request
-              </Btn>
-
-              <p className="flex items-center justify-center gap-1.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
-                <ShieldCheck size={12} className="text-gold-2/70" /> Goes straight to the creator — no spam, ever
-              </p>
-            </div>
-          )}
+            )}
+          </div>
         </section>
 
         {/* categories hint */}
