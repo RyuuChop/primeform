@@ -49,15 +49,18 @@ export function Overlay({ children, onClose, wide }: { children: ReactNode; onCl
       onClick={onClose}>
       <div
         className={cn(
-          "relative max-h-[92vh] w-full overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-line-2 bg-panel anim-sheet sm:anim-pop shadow-[0_40px_120px_-30px_rgba(0,0,0,0.95)]",
+          "relative w-full overflow-hidden rounded-t-2xl sm:rounded-2xl border border-line-2 bg-panel shadow-[0_40px_120px_-30px_rgba(0,0,0,0.95)] anim-sheet sm:anim-pop",
           wide ? "sm:max-w-3xl" : "sm:max-w-lg",
         )}
         onClick={(e) => e.stopPropagation()}>
+        {/* floating close — lives outside the scroll area, stays put while content scrolls */}
         <button onClick={onClose} aria-label="Close"
-          className="absolute right-3 top-3 z-10 rounded-full border border-line-2 bg-ink-2/80 p-2.5 text-muted transition-colors hover:border-gold/50 hover:text-gold-2 cursor-pointer">
+          className="absolute right-3 top-3 z-20 rounded-full border border-line-2 bg-ink-2/90 p-2.5 text-muted shadow-[0_10px_28px_-8px_rgba(0,0,0,0.85)] backdrop-blur-md transition-colors hover:border-gold/50 hover:text-gold-2 cursor-pointer">
           <X size={16} />
         </button>
-        {children}
+        <div className="max-h-[92vh] overflow-y-auto overscroll-contain">
+          {children}
+        </div>
       </div>
     </div>
   );
