@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && esbuild src/lib/tips.ts --bundle --format=esm --outfile=node_modules/.tmp/tips.mjs --log-level=error && node scripts/generate-tip-pages.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
