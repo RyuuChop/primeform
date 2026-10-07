@@ -3,7 +3,7 @@ import {
   Activity, Anchor, ArrowDownToLine, ArrowRight, ArrowUpFromLine, ArrowUpDown,
   AlertTriangle, BadgeCheck, Ban, BatteryCharging, BedDouble, Beaker, Beef, Bike,
   Blender, Blocks, Brain, Brush, Calculator, CalendarCheck2, Carrot, ChevronsUp,
-  Armchair, Banana, Candy, CircleAlert, Cigarette, Clock3, Coffee, Cookie, CookingPot,
+  Armchair, Banana, Candy, Cigarette, Clock3, Coffee, Cookie, CookingPot,
   CupSoda, Droplet, Dumbbell, FlameKindling, Smartphone, Sunrise,
   Drumstick, Droplets, Ear, Egg, Eye, Fish, Flame, FlaskConical, Flower,
   Footprints, Gauge, GlassWater, Hand, HeartPulse, Hourglass, IceCreamBowl,
@@ -19,7 +19,7 @@ import {
 import type { Goal, Tip } from "../lib/types";
 import { GOAL_LABEL, GOAL_TAG_COLOR } from "../lib/types";
 import { TIPS, TIP_CATEGORIES, tipsForGoals } from "../lib/tips";
-import { Btn, Overlay, SupportLink, Tag } from "../ui";
+import { Btn, Tag } from "../ui";
 import { cn } from "../utils/cn";
 
 // ── icon registry ─────────────────────────────────────────────
@@ -72,13 +72,13 @@ function featuredTip(): Tip {
 }
 
 // ─────────────────────────────────────────────────────────────
-//  TipsSection — the whole library: featured, filters, grid, reader
+//  TipsSection — the whole library: featured, filters, grid.
+//  Cards link to the dedicated static pages (/tip/<id>/).
 // ─────────────────────────────────────────────────────────────
 export default function TipsSection() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("All");
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [open, setOpen] = useState<Tip | null>(null);
 
   const featured = featuredTip();
 
@@ -99,7 +99,7 @@ export default function TipsSection() {
     <div className="relative">
       {/* ── Featured protocol ─────────────────────────────── */}
       <section id="featured" className="mx-auto max-w-6xl scroll-mt-24 px-4 pt-6 pb-16 sm:px-6">
-        <FeaturedCard tip={featured} onOpen={() => setOpen(featured)} />
+        <FeaturedCard tip={featured} />
       </section>
 
       {/* ── Library toolbar ───────────────────────────────── */}
@@ -175,20 +175,18 @@ export default function TipsSection() {
           <div className="grid gap-5 md:grid-cols-2">
             {list.map((t, i) => (
               <TipCard key={t.id} tip={t} index={TIPS.findIndex((x) => x.id === t.id) + 1}
-                onOpen={() => setOpen(t)} delay={i} />
+                delay={i} />
             ))}
           </div>
         )}
       </section>
 
-      {/* ── Reader ────────────────────────────────────────── */}
-      {open && <Reader tip={open} onClose={() => setOpen(null)} />}
     </div>
   );
 }
 
 // ── Featured card ─────────────────────────────────────────────
-function FeaturedCard({ tip, onOpen }: { tip: Tip; onOpen: () => void }) {
+function FeaturedCard({ tip }: { tip: Tip }) {
   const n = TIPS.findIndex((t) => t.id === tip.id) + 1;
   return (
     <div className="anim-rise rounded-2xl bg-gradient-to-br from-gold/50 via-line-2/50 to-line/40 p-px shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]">
@@ -216,9 +214,10 @@ function FeaturedCard({ tip, onOpen }: { tip: Tip; onOpen: () => void }) {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Btn variant="gold" onClick={onOpen}>
+              <a href={`/tip/${tip.id}/`}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold-2 to-gold text-ink font-display text-[13px] font-semibold uppercase tracking-[0.16em] px-7 py-3 shadow-[0_12px_40px_-12px_rgba(216,180,106,0.55)] transition-all duration-200 select-none hover:brightness-105 active:scale-[0.98]">
                 Read Full Protocol <ArrowRight size={15} />
-              </Btn>
+              </a>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
                 {tip.why.length} reasons · {tip.steps.length} steps · {tip.refs.length} sources
               </span>
@@ -244,10 +243,10 @@ function FeaturedCard({ tip, onOpen }: { tip: Tip; onOpen: () => void }) {
 }
 
 // ── Library card ──────────────────────────────────────────────
-function TipCard({ tip, index, onOpen, delay }: { tip: Tip; index: number; onOpen: () => void; delay: number }) {
+function TipCard({ tip, index, delay }: { tip: Tip; index: number; delay: number }) {
   return (
-    <article
-      onClick={onOpen}
+    <a
+      href={`/tip/${tip.id}/`}
       style={{ animationDelay: `${Math.min(delay, 8) * 0.05}s` }}
       className="anim-rise group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-line bg-panel/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/35 hover:bg-panel hover:shadow-[0_28px_60px_-24px_rgba(0,0,0,0.85),0_0_44px_-22px_rgba(216,180,106,0.4)]">
       {/* gold hairline on hover */}
@@ -280,125 +279,10 @@ function TipCard({ tip, index, onOpen, delay }: { tip: Tip; index: number; onOpe
           {tip.goals.length > 2 && <Tag className="border-line-2 text-faint">+{tip.goals.length - 2}</Tag>}
         </div>
         <span className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-faint transition-colors duration-300 group-hover:text-gold-2">
-          Read <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
+          Read Protocol <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </div>
-    </article>
-  );
-}
-
-// ── Reader (full protocol overlay) ────────────────────────────
-function Reader({ tip, onClose }: { tip: Tip; onClose: () => void }) {
-  const n = TIPS.findIndex((t) => t.id === tip.id) + 1;
-  return (
-    <Overlay onClose={onClose} wide>
-      <article className="relative px-6 pb-9 pt-12 sm:px-11 sm:pt-14">
-        {/* support — top-right, beside the close button */}
-        <SupportLink variant="ghost" label="Support" className="absolute right-16 top-4" />
-        <header className="border-b border-line/70 pb-9 text-center">
-          <div className="flex justify-center">
-            <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] text-gold-2 shadow-[0_0_50px_-10px_rgba(216,180,106,0.5)]">
-              <TipIcon name={tip.icon} size={28} />
-            </div>
-          </div>
-          <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-2">
-            Protocol N°{pad(n)} · {tip.category} · {tip.minutes} min read
-          </p>
-          <h2 className="mx-auto mt-3.5 max-w-xl font-display text-3xl font-medium leading-[1.15] sm:text-[2.6rem]">
-            {tip.title}
-          </h2>
-          <div className="mt-5 flex flex-wrap justify-center gap-1.5">
-            {tip.goals.map((g) => (
-              <Tag key={g} className={GOAL_TAG_COLOR[g]}>{GOAL_LABEL[g]}</Tag>
-            ))}
-          </div>
-        </header>
-
-        {/* in brief */}
-        <div className="mt-9 rounded-r-xl border-l-2 border-gold bg-gold/[0.05] p-5 sm:p-6">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-2">
-            The Protocol — In Brief
-          </p>
-          <p className="mt-2.5 text-[15px] leading-relaxed text-fg/90">{tip.summary}</p>
-        </div>
-
-        <ReaderSection n="I" title="Why It Works">
-          <ul className="space-y-3.5">
-            {tip.why.map((w, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
-                <span className="mt-[5px] shrink-0 text-[8px] text-gold-2">◆</span>
-                <span>{w}</span>
-              </li>
-            ))}
-          </ul>
-        </ReaderSection>
-
-        <ReaderSection n="II" title="How To Apply It">
-          <ol className="space-y-2.5">
-            {tip.steps.map((s, i) => (
-              <li key={i} className="flex items-start gap-4 rounded-xl border border-line bg-ink-2/70 px-4 py-3.5">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 font-display text-sm italic text-gold-2">
-                  {i + 1}
-                </span>
-                <span className="pt-1 text-sm leading-relaxed text-fg/90">{s}</span>
-              </li>
-            ))}
-          </ol>
-        </ReaderSection>
-
-        <ReaderSection n="III" title="Common Mistakes">
-          <ul className="grid gap-2 sm:grid-cols-2">
-            {tip.mistakes.map((m, i) => (
-              <li key={i} className="flex items-start gap-2.5 rounded-lg border border-red-500/15 bg-red-500/[0.05] px-3.5 py-3 text-[13px] leading-relaxed text-red-200/85">
-                <CircleAlert size={14} className="mt-0.5 shrink-0 text-red-400/80" />
-                {m}
-              </li>
-            ))}
-          </ul>
-        </ReaderSection>
-
-        <ReaderSection n="IV" title="Progression Plan">
-          <div>
-            {tip.progression.map((p, i) => (
-              <div key={i} className="relative flex items-start gap-4 pb-5 last:pb-0">
-                {i < tip.progression.length - 1 && (
-                  <span className="absolute left-[5px] top-4 h-full w-px bg-gradient-to-b from-gold/40 to-transparent" />
-                )}
-                <span className="relative mt-1.5 h-[11px] w-[11px] shrink-0 rounded-full border border-gold/60 bg-ink shadow-[0_0_10px_rgba(216,180,106,0.45)]" />
-                <p className="pt-0.5 text-sm leading-relaxed text-muted">{p}</p>
-              </div>
-            ))}
-          </div>
-          </ReaderSection>
-
-        {/* sources */}
-        <section className="mt-11 rounded-xl border border-line/80 bg-ink-2/60 p-5 sm:p-6">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-faint">
-            Appendix — Sources & References
-          </p>
-          <ul className="mt-3.5 space-y-1.5">
-            {tip.refs.map((r, i) => (
-              <li key={i} className="font-mono text-[11.5px] leading-relaxed text-faint">{r}</li>
-            ))}
-          </ul>
-        </section>
-
-        <Btn variant="gold" onClick={onClose} className="mt-9 w-full">Back To The Library</Btn>
-      </article>
-    </Overlay>
-  );
-}
-
-function ReaderSection({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
-  return (
-    <section className="mt-10">
-      <div className="flex items-center gap-3.5">
-        <span className="font-display text-xl font-light italic text-gold-2">{n}</span>
-        <span className="h-px w-7 bg-gradient-to-r from-gold/60 to-transparent" />
-        <h3 className="font-display text-base font-semibold uppercase tracking-[0.16em] text-fg">{title}</h3>
-      </div>
-      <div className="mt-4.5">{children}</div>
-    </section>
+    </a>
   );
 }
 
