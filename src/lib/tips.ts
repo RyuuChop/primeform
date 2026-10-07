@@ -435,7 +435,7 @@ const CORE_TIPS: Tip[] = [
     ],
   },
   {
-    id: "creatine", title: "Creatine Monohydrate: TheOne Legal Cheat Code", icon: "pill", category: "Supplements",
+    id: "creatine", title: "Creatine Monohydrate: The One Legal Cheat Code", icon: "pill", category: "Supplements",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
     summary: "5 g daily, any time, forever. The most studied supplement in sports science: +5–15% strength and power output, slight lean-mass gain, near-zero downside.",
     why: [
