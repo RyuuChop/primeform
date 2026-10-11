@@ -67,7 +67,7 @@ export function Overlay({ children, onClose, wide }: { children: ReactNode; onCl
 }
 
 // ── Support (Patreon) — utm_source tags visits from this site ──
-export const SUPPORT_URL = "https://www.patreon.com/PrimeForm12?utm_source=primeform";
+export const SUPPORT_URL = import.meta.env.VITE_PATREON_URL || "https://patreon.com/RyuuDen";
 
 export function SupportLink({
   variant = "gold", label = "Support", className,
