@@ -169,7 +169,7 @@ function tipPage(tip) {
     <img src="${SITE}/logo.png" alt="Primeform logo"/>
     <span>Primeform</span>
   </a>
-  <a class="sup" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
+  <a class="sup" href="${process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen'}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
 </div></header>
 
 <main class="wrap">
