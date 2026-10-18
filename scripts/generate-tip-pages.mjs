@@ -223,7 +223,7 @@ function tipPage(tip) {
     <p>The full library — training, nutrition, recovery, sleep and more. Every claim sourced.</p>
     <div class="btnrow">
       <a class="btn gold" href="${SITE}/">Browse The Library</a>
-      <a class="btn ghost" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
+      <a class="btn ghost" href="${process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen'}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
     </div>
   </section>
 </main>
