@@ -579,4 +579,60 @@ export const LOOKS_TIPS: Tip[] = [
       "Piérard-Franchimont C et al. Dermatology 1998 — ketoconazole shampoo efficacy.",
     ],
   },
+  {
+    "id": "mewing-posture-protocol",
+    "title": "Mewing Tongue‑Posture Routine",
+    "icon": "activity",
+    "category": "Looks",
+    "goals": [
+      "looksmax"
+    ],
+    "minutes": 10,
+    "summary": "A low‑impact daily routine that teaches a neutral tongue‑on‑roof posture, breathing with closed lips, and gentle swallowing motions. The protocol is framed by the current lack of robust scientific evidence for facial reshaping, and it emphasizes safety and realistic expectations.",
+    "why": [
+      "Evidence-based rationale for Mewing Tongue‑Posture Routine in Looks.",
+      "Current clinical evidence for permanent facial bone reshaping in adults is limited.",
+      "Focuses on comfortable tongue posture and nasal breathing without jaw strain."
+    ],
+    "steps": [
+      "Sit or stand upright with shoulders relaxed.",
+      "Close your lips gently; teeth should be lightly together or slightly apart—not clenched.",
+      "Flatten the entire tongue against the hard palate, feeling the tip just behind the upper front teeth and the posterior third touching the roof.",
+      "Maintain soft, nasal breathing for 30‑second intervals, then relax for 10 seconds. Repeat for a total of 5‑10 minutes spread throughout the day (e.g., morning, midday, evening).",
+      "When swallowing, gently press the tongue upward before the swallow to reinforce the posture, but avoid forceful sucking or excessive pressure."
+    ],
+    "mistakes": [
+      "Pressing the tongue so hard that it causes pain or jaw fatigue.",
+      "Keeping the teeth clenched, which can strain the temporomandibular joint.",
+      "Holding the posture for extremely long periods without breaks, leading to muscle fatigue or headaches.",
+      "Using the technique as a substitute for professional orthodontic or myofunctional therapy when bite issues exist."
+    ],
+    "progression": [
+      "Start with 2‑minute sessions and gradually increase to 10 minutes as comfort allows.",
+      "If you have an existing bite or TMJ concern, consult a dentist or orthodontist before extending duration.",
+      "Consider adding a brief myofunctional therapy evaluation (e.g., tongue‑strengthening exercises) under professional guidance for targeted issues such as sleep‑apnea or open bite."
+    ],
+    "safety": [
+      "This protocol is educational and not medical advice. The evidence base for facial remodeling via tongue posture in adults is currently limited to anecdotal reports; no randomized or cohort studies have demonstrated structural change.",
+      "If you experience pain, TMJ clicking, headaches, or changes in bite alignment, stop the routine and seek evaluation from a qualified dental or medical professional.",
+      "Do not attempt aggressive suction or prolonged forceful tongue presses, as these may increase risk of temporomandibular dysfunction or dental misalignment."
+    ],
+    "keywords": [
+      "mewing",
+      "tongue posture",
+      "jawline",
+      "looksmax",
+      "myofunctional therapy",
+      "facial posture",
+      "TMJ safety"
+    ],
+    "refs": [
+      "Mewing: What Orthodontists Say About the Evidence — https://acibademinternational.com/blog/mewing-what-orthodontists-say-about-tongue-posture-jawlines-and-the-evidence",
+      "Does mewing work? What the research says — https://www.medicalnewstoday.com/articles/mewing",
+      "MEWING JAWLINE & Orthotropics – Busting the Myths | What Science Really Says | Truth or Trend? — https://www.youtube.com/watch?v=r3pzcruMEjI",
+      "What is Mewing, and Does it Work? | American Association of Orthodontists — https://aaoinfo.org/whats-trending/is-mewing-bad-for-you",
+      "Risky Business? The Mewing Trend Exposed — https://www.youtube.com/watch?v=AfCnpZtHGSw",
+      "Let’s talk about “Mewing” the astonishing internet sensation. — https://kevinobrienorthoblog.com/lets-talk-about-the-mewing-the-astonishing-internet-sensation"
+    ]
+  },
 ];
