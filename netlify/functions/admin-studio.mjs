@@ -144,42 +144,28 @@ async function callGroq(groqKey, systemPrompt, userContent) {
   const baseUrl = (process.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1')
     .trim()
     .replace(/\/+$/, '');
-  const primaryModel = (process.env.GROQ_MODEL || 'llama-3.3-70b-versatile').trim();
-  const modelsToTry = [primaryModel, 'llama-3.1-8b-instant'].filter(
-    (m, idx, arr) => m && arr.indexOf(m) === idx
-  );
+  const model = (process.env.GROQ_MODEL || 'llama-3.3-70b-versatile').trim();
 
-  let lastError = null;
-  for (const model of modelsToTry) {
-    try {
-      return await api(
-        `${baseUrl}/chat/completions`,
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${groqKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            model,
-            response_format: { type: 'json_object' },
-            temperature: 0.3,
-            messages: [
-              { role: 'system', content: systemPrompt },
-              { role: 'user', content: userContent },
-            ],
-          }),
-        },
-        `Groq (${model})`
-      );
-    } catch (err) {
-      lastError = err;
-      if (!(err instanceof UserError) || !err.message.includes('HTTP 404')) {
-        throw err;
-      }
-    }
-  }
-  throw lastError || new UserError('Groq request failed.', 502);
+  return await api(
+    `${baseUrl}/chat/completions`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${groqKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model,
+        response_format: { type: 'json_object' },
+        temperature: 0.3,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userContent },
+        ],
+      }),
+    },
+    `Groq (${model})`
+  );
 }
 
 async function research(payload) {
