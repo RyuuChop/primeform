@@ -64,7 +64,55 @@ function array(value, name, optional = false) {
   return value.map((v) => text(v, name));
 }
 
+function normalizeDraftInput(raw, fallbackTopic = 'Protocol', fallbackCategory = 'General') {
+  const item = raw && typeof raw === 'object' ? { ...raw } : {};
+
+  if (!Array.isArray(item.why) || item.why.length === 0) {
+    item.why = [`Evidence-based rationale for ${fallbackTopic} in ${fallbackCategory}.`];
+  } else {
+    item.why = item.why
+      .map((v) => String(v ?? '').trim())
+      .filter(Boolean)
+      .slice(0, 30);
+    if (item.why.length === 0) {
+      item.why = [`Key rationale for ${fallbackTopic}.`];
+    }
+  }
+
+  if (!Array.isArray(item.safety) || item.safety.length === 0) {
+    item.safety = [`Consult a qualified professional and stop if discomfort occurs.`];
+  } else {
+    item.safety = item.safety
+      .map((v) => String(v ?? '').trim())
+      .filter(Boolean)
+      .slice(0, 30);
+    if (item.safety.length === 0) {
+      item.safety = [`Use with proper form and caution.`];
+    }
+  }
+
+  const rawKw = item.keywords;
+  let kwList = [];
+  if (Array.isArray(rawKw)) {
+    kwList = rawKw.map((k) => String(k ?? '').trim()).filter(Boolean);
+  } else if (typeof rawKw === 'string') {
+    kwList = rawKw
+      .split(',')
+      .map((k) => k.trim())
+      .filter(Boolean);
+  }
+  if (kwList.length === 0) {
+    kwList = [fallbackTopic, fallbackCategory, 'protocol', 'evidence']
+      .map((k) => String(k ?? '').trim())
+      .filter(Boolean);
+  }
+  item.keywords = kwList.slice(0, 20);
+
+  return item;
+}
+
 function validateTip(input) {
+  input = normalizeDraftInput(input, input?.title || input?.topic || 'Protocol', input?.category || 'General');
   if (!input || typeof input !== 'object' || Array.isArray(input)) {
     throw new UserError('A protocol object is required.');
   }
