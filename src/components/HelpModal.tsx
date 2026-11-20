@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AdminStudio from "./AdminStudio";
 import {
   BookOpen, Check, ChevronDown, Copy, Mail,
   SendHorizontal, ShieldCheck,
@@ -49,6 +50,19 @@ function buildLinks(type: ReqType, message: string, contact: string) {
 }
 
 export default function HelpModal({ onClose }: { onClose: () => void }) {
+  const [adminVisible, setAdminVisible] = useState(false);
+  const [headerClicks, setHeaderClicks] = useState(0);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "a") {
+        event.preventDefault();
+        setAdminVisible(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [type, setType] = useState<ReqType>("Tip Request");
   const [message, setMessage] = useState("");
@@ -97,7 +111,12 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
     <Overlay onClose={onClose} wide>
       <div className="px-6 pb-9 pt-11 sm:px-10">
         {/* header */}
-        <header className="flex items-center gap-4">
+        <header className="flex items-center gap-4" onClick={() => {
+          if (!adminVisible) {
+            if (headerClicks + 1 >= 5) { setAdminVisible(true); setHeaderClicks(0); }
+            else setHeaderClicks(headerClicks + 1);
+          }
+        }}>
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] text-gold-2 shadow-[0_0_30px_-8px_rgba(216,180,106,0.5)]">
             <Mail size={22} />
           </div>
@@ -108,6 +127,8 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
             </p>
           </div>
         </header>
+
+        {adminVisible && <AdminStudio onExit={() => { setAdminVisible(false); setHeaderClicks(0); }} />}
 
         {/* FAQ */}
         <section className="mt-8">
