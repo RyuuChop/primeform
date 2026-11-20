@@ -176,7 +176,7 @@ function tipPage(tip) {
     <img src="/logo.png" alt="Primeform logo"/>
     <span>Primeform</span>
   </a>
-  <a class="sup" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
+  <a class="sup" href="${(process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen').replace(/\/+$/, '')}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
 </div></header>
 
 <main class="wrap">
@@ -232,7 +232,7 @@ function tipPage(tip) {
     <p>The full library — training, nutrition, recovery, sleep and more. Every claim sourced.</p>
     <div class="btnrow">
       <a class="btn gold" href="/">Browse The Library</a>
-      <a class="btn ghost" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
+      <a class="btn ghost" href="${(process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen').replace(/\/+$/, '')}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
     </div>
   </section>
 </main>
