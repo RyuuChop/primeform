@@ -7,6 +7,7 @@ export const FORM_TIPS: Tip[] = [
   {
     id: "full-rom", title: "Full Range Of Motion Wins The Rep", icon: "move-vertical", category: "Form",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["range of motion", "depth", "full reps", "stretch under load"],
     summary: "Half reps build half the muscle. Trials comparing squat depths and curl ranges consistently favor full range for growth — especially the lengthened position, which appears to be where the hypertrophy signal is strongest. Depth first, then load.",
     why: [
       "The Bloomquist squat trial found deep squats produced significantly more quadriceps and glute growth than shallow squats at matched training effort.",
@@ -37,6 +38,7 @@ export const FORM_TIPS: Tip[] = [
   {
     id: "neutral-spine", title: "Neutral Spine Is A Skill — Train It Like One", icon: "ruler", category: "Form",
     goals: ["strength", "fitness", "muscle"], minutes: 2,
+    keywords: ["spine", "back pain", "deadlift form", "neutral back"],
     summary: "Your spine tolerates enormous load when it moves as one piece and complains when discs take bending stress under load. 'Neutral spine' isn't a mystical posture — it's keeping your natural curve while hinging at the hips, bracing, and moving load with the hips and shoulders instead of the lower back.",
     why: [
       "Spinal biomechanics research (McGill and others) shows repeated loaded flexion is the damaging pattern for lumbar discs — the mechanism behind lifting injuries, not 'squats are bad'.",
@@ -66,6 +68,7 @@ export const FORM_TIPS: Tip[] = [
   {
     id: "cadence", title: "Run With A Shorter, Quicker Stride", icon: "footprints", category: "Form",
     goals: ["fitness", "fatloss"], minutes: 2,
+    keywords: ["running form", "stride", "steps per minute", "running technique"],
     summary: "Overstriding — foot landing far ahead of the hips, often heel-first with a locked knee — multiplies braking and impact. The fix is mechanical, not mystical: increase step rate ~5–10% and land under your center of mass. Research shows this single cue reduces braking forces and joint load immediately.",
     why: [
       "The Heiderscheit trial showed increasing step rate by 5–10% reduced stride length, braking impulse, and hip/knee joint loading — same speed, less impact.",
@@ -95,6 +98,7 @@ export const FORM_TIPS: Tip[] = [
   {
     id: "landing", title: "Land Soft: Jump, Sprint, Squat Without Wrecking Your Knees", icon: "arrow-down-to-line", category: "Form",
     goals: ["fitness", "strength", "muscle"], minutes: 2,
+    keywords: ["knee pain", "jumping", "landing mechanics", "joint health"],
     summary: "Jumping and sprinting build serious athleticism — if you land like an athlete. Soft knees tracking over the toes, quiet feet, hips back. The research on ACL injury shows landing mechanics are trainable and matter, especially for anyone whose knees have a history of complaining.",
     why: [
       "Prospective research (Hewett and colleagues) identified knee-valgus and stiff, knee-dominant landing as strong predictors of ACL injury — mechanics are measurable risk.",
@@ -128,6 +132,7 @@ export const POSTURE_TIPS: Tip[] = [
   {
     id: "sitting-breaks", title: "Sitting Kills Slowly — Move Every 30–60 Minutes", icon: "armchair", category: "Posture",
     goals: ["fitness", "fatloss", "looksmax"], minutes: 2,
+    keywords: ["sitting", "sedentary", "desk breaks", "back pain", "movement"],
     summary: "Long uninterrupted sitting is a health risk even for people who train — but the data also show the risk shrinks dramatically with regular movement breaks and adequate daily activity. The fix is rhythm, not furniture: stand or walk for 2–5 minutes every half hour to hour.",
     why: [
       "The Ekelund meta-analysis of >1 million people found high daily activity (60–75 min) substantially attenuated the sitting-mortality link — movement is the antidote, posture-of-the-moment less so.",
@@ -158,6 +163,7 @@ export const POSTURE_TIPS: Tip[] = [
   {
     id: "sit-stand-honest", title: "Standing Desks: Honest Review", icon: "person-standing", category: "Posture",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["standing desk", "sitting vs standing", "desk setup"],
     summary: "The honest read on standing desks: Cochrane found sit-stand desks reduce sitting time somewhat, with small, low-certainty effects on wellbeing — and standing still all day isn't the win either. Desks are one tool in the movement-break system (see the sitting-breaks protocol), not a health device.",
     why: [
       "The Cochrane review of sit-stand workstation studies found modest reductions in sitting (~30–60 min/day shorter-term) with unclear, small effects on health markers.",
@@ -188,6 +194,7 @@ export const POSTURE_TIPS: Tip[] = [
   {
     id: "chin-tucks", title: "Chin Tucks: The Forward-Head Corrective", icon: "chevrons-up", category: "Posture",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["chin tucks", "neck exercise", "forward head fix", "posture"],
     summary: "Hours of screens slide the head forward and down — adding visible neck load and strain. The deep-neck-flexor 'chin tuck' is the standard corrective with trial support: it retrains the muscles that stack the head back over the shoulders. Two minutes, twice daily.",
     why: [
       "Biomechanical modeling shows neck flexion angle multiplies effective head load on the cervical spine — from ~5kg upright to 27kg at 60° flexion (the famous Hansraj table).",
@@ -218,6 +225,7 @@ export const POSTURE_TIPS: Tip[] = [
   {
     id: "phone-neck", title: "Raise The Phone, Save The Neck", icon: "monitor-smartphone", category: "Posture",
     goals: ["looksmax", "fitness"], minutes: 1,
+    keywords: ["phone posture", "texting neck", "neck pain", "screen height"],
     summary: "The average person logs hours daily looking down at a phone held at chest height — the single biggest postural load of modern life. The fix is embarrassingly simple: raise the device to near eye level, and your neck stops training flexion 4 hours a day.",
     why: [
       "The Hansraj biomechanical analysis quantified it: 45–60° of neck flexion turns a 5kg head into 22–27kg of effective cervical load — sustained for hours daily.",
@@ -248,6 +256,7 @@ export const POSTURE_TIPS: Tip[] = [
   {
     id: "kyphosis", title: "Un-Slump The Upper Back: Strength Beats Stretching", icon: "stretch-horizontal", category: "Posture",
     goals: ["looksmax", "fitness", "strength"], minutes: 2,
+    keywords: ["upper back", "hunched back", "thoracic", "slouching", "rounding"],
     summary: "Age- and desk-driven upper-back rounding (kyphosis) responds to training: trials show targeted back-extensor strengthening and posture-training (including yoga-based programs) measurably reduce hyperkyphosis. Rows and back extensions aren't just gym moves — they're posture surgery.",
     why: [
       "The Sinaki study found women with stronger back extensors had significantly less kyphosis progression over years — spinal extensor strength tracks upright posture.",

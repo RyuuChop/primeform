@@ -7,6 +7,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "sunscreen", title: "SPF 30+ Every Morning — The Single Best Skin Move", icon: "sun", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["SPF", "sun protection", "UV rays", "sun damage"],
     summary: "UV drives the majority of visible facial aging — wrinkles, spots, sagging, uneven tone. The definitive Australian RCT showed daily sunscreen users showed no detectable skin aging over 4.5 years, while discretionary users aged visibly. No serum comes close. Rain or shine.",
     why: [
       "The Nambour trial (published in Annals of Internal Medicine) randomized people to daily vs discretionary sunscreen — the daily group showed 24% less skin aging over 4.5 years.",
@@ -37,27 +38,35 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "retinoid", title: "Retinoids: The Only Anti-Aging Drug Class That Earns The Name", icon: "sparkles", category: "Looks",
     goals: ["looksmax"], minutes: 3,
-    summary: "Tretinoin and its gentler cousin adapalene are the most evidence-backed topical for wrinkles, texture, tone, and acne — decades of trials, visible histological change. Start adapalene 0.1% (OTC in many countries), pea-sized amount at night, moisturizer, patience measured in months.",
+    keywords: ["retinol", "tretinoin", "adapalene", "anti-aging", "wrinkles", "acne"],
+    summary: "Tretinoin and its gentler cousin adapalene are the most proven anti-aging creams science has ever tested. Decades of studies show they visibly reduce wrinkles, smooth skin texture, even out skin tone, and fight acne — working deep in the skin, not just on the surface. Start with adapalene 0.1% (sold over the counter in many countries): a pea-sized amount at night, followed by moisturizer. Results take months, not weeks — patience is part of the protocol.",
     why: [
-      "RCTs show tretinoin significantly improves fine wrinkles, mottled pigmentation, and roughness, with biopsy-confirmed new collagen — a rare 'cosmetic' claim with histology behind it.",
-      "Reviews of retinoid mechanisms document increased collagen synthesis, normalized keratinization, and accelerated cell turnover — effects compound over 6–12 months.",
-      "Adapalene 0.1% delivers much of the benefit with markedly less irritation — and it's an approved acne drug, doubling the utility.",
+      "Controlled trials show tretinoin visibly reduces fine wrinkles, uneven dark patches, and rough skin — and skin samples confirmed fresh collagen growth underneath. Very few \'cosmetic\' products have proof this strong.",
+      "Retinoids speed up skin cell renewal, help the skin build new collagen, and keep pores clearing normally. The effects build on each other over 6–12 months — like interest in a savings account.",
+      "Adapalene 0.1% gives most of the same benefits with much less irritation — and it doubles as an approved acne treatment, so it fixes two problems at once.",
     ],
     steps: [
-      "Start adapalene 0.1% gel at night: pea-sized for the whole face, on dry skin, then moisturizer on top ('sandwich' if sensitive).",
-      "Begin 2 nights/week for 2 weeks → alternate nights for 2 weeks → nightly if tolerated.",
-      "Expect an adjustment phase: mild dryness and flaking for 2–4 weeks. Moisturize mornings (see the barrier protocol); don't quit at week two.",
-      "Sunscreen is mandatory companionship — retinoids increase photosensitivity, and UV would undo the work (see the sunscreen protocol).",
+      "Start with adapalene 0.1% gel at night. Squeeze a pea-sized amount — that is enough for your whole face. Apply it to completely dry skin, then put moisturizer on top. If your skin is sensitive, try the \'sandwich\' method: moisturizer first, then the gel, then moisturizer again.",
+      "Go slow at the start: 2 nights a week for the first 2 weeks, then every other night for 2 weeks, then every night if your skin handles it well.",
+      "Expect an adjustment phase: mild dryness and light peeling during the first 2–4 weeks is completely normal. Keep moisturizing every morning, and don\'t quit at week two — that\'s where most people give up.",
+      "Sunscreen every morning is non-negotiable — retinoids make your skin more sensitive to sunlight, and UV damage will quietly undo the progress (see the sunscreen protocol).",
     ],
     mistakes: [
-      "Using a walnut-sized blob nightly from day one — the resulting dermatitis ends most retinoid journeys. Pea-sized, sparse schedule.",
-      "Mixing with strong acids/BPO in the same routine initially — stack one active at a time.",
-      "Judging at week 3 — retinoids are a 6-month game. Photos every 4 weeks beat mirror-microscopy.",
+      "Starting with a big blob every night — this causes angry, red, irritated skin and ends most retinoid journeys. Pea-sized amount, slow schedule.",
+      "Mixing it with strong acids or benzoyl peroxide in the same routine from day one — add one active product at a time, and only after your skin is used to retinoids.",
+      "Judging results at week 3 — retinoids are a 6-month game. Take photos every 4 weeks; the mirror lies, photos don\'t.",
     ],
     progression: [
-      "Months 1–2: adapalene 0.1%, 2–3 nights/week.",
-      "Months 3–6: alternate nights → nightly if skin allows.",
-      "Month 6+: if well-tolerated and goals are anti-aging, a dermatologist can step you up to tretinoin 0.025–0.05%.",
+      "Months 1–2: adapalene 0.1%, 2–3 nights a week.",
+      "Months 3–6: every other night, then every night if your skin allows.",
+      "Month 6+: if your skin handles it well and your goal is anti-aging, a dermatologist can step you up to tretinoin 0.025–0.05%.",
+    ],
+    safety: [
+      "External use only. Tretinoin and adapalene are creams and gels applied to the skin only. Don\'t confuse tretinoin with isotretinoin — that is a completely different, much stronger oral acne medication with serious internal side effects.",
+      "Sunscreen is mandatory. Retinoids make skin very sensitive to the sun. Apply a broad-spectrum SPF 30+ every morning to prevent sunburn and dark spots — and to protect the work the treatment is doing.",
+      "Start slow and expect mild peeling. Begin 2–3 nights a week on completely dry skin, followed by a basic moisturizer. Mild dryness or peeling at first is normal — but stop and ease back if you get strong burning or swelling.",
+      "Don\'t mix harsh products. While starting out, don\'t combine retinoids with strong exfoliants (like AHAs, BHAs, or benzoyl peroxide) in the same routine — one active at a time.",
+      "Not during pregnancy or breastfeeding. Tretinoin usually needs a prescription, so talk to a dermatologist before starting — especially if you are pregnant, planning pregnancy, or breastfeeding.",
     ],
     refs: [
       "Kafi R et al. Arch Dermatol 2007 — tretinoin improves photoaging: molecular/histological RCT.",
@@ -67,6 +76,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "barrier", title: "Moisturizer Is Load-Bearing: Protect The Skin Barrier", icon: "droplets", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["moisturizer", "skin barrier", "dry skin", "ceramides"],
     summary: "The stratum corneum is your face's armor: when it's intact, skin looks plump, even, and calm; when it's stripped, everything else — actives, shaving, weather — compounds into redness and flaking. A simple ceramide moisturizer, morning and night, is the cheapest multiplier in skincare.",
     why: [
       "Reviews of emollient therapy document that ceramide-containing moisturizers measurably improve hydration, barrier function, and reduce transepidermal water loss.",
@@ -97,6 +107,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "acne-stack", title: "The Proven Acne Stack: Benzoyl Peroxide + Adapalene", icon: "scan-face", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["acne", "pimples", "benzoyl peroxide", "breakouts", "spots"],
     summary: "Acne's best-supported OTC/rx combo is decades old and still the benchmark: adapalene 0.1% (normalizes pores, prevents new lesions) plus benzoyl peroxide 2.5–5% (kills C. acnes, no resistance). Applied correctly, this beats nearly every expensive routine sold on social media.",
     why: [
       "The landmark Lancet trial found fixed adapalene-BPO combination outperformed each agent alone and other regimens — the combination is the standard of care.",
@@ -119,6 +130,13 @@ export const LOOKS_TIPS: Tip[] = [
       "Weeks 3–12: introduce adapalene and BPO alternately, consolidate.",
       "Month 3+: reassess. Maintenance can drop to adapalene nightly.",
     ],
+    safety: [
+    "Benzoyl peroxide bleaches fabrics — it will ruin towels, pillowcases, and shirt collars. Use white towels.",
+    "Do not start both products on the same day. Begin adapalene alone for 1–2 weeks, then introduce benzoyl peroxide slowly, alternating nights first.",
+    "Use pea-sized amounts of each. More product does not clear acne faster — it only guarantees red, peeling skin.",
+    "BPO goes on completely dry skin; keep it away from eyes, eyebrows, lips, and the corners of the nose. Wash your hands after.",
+    "Mild dryness is normal; severe burning, swelling, or blistering means stop and see a doctor. If pregnant or breastfeeding, check with a dermatologist first.",
+    ],
     refs: [
       "Ozolins M et al. Lancet 2005 — comparison of five antimicrobial regimens: adapalene-BPO combination.",
       "Zaenglein AL et al. J Am Acad Dermatol 2016 — AAD guidelines for acne vulgaris management.",
@@ -127,6 +145,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "acne-diet", title: "Acne Starts On The Plate: GI & Skim Milk", icon: "milk", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["acne", "sugar", "milk", "diet and skin", "breakouts"],
     summary: "The food-acne link has real controlled evidence now: high-glycemic diets worsen acne, and the low-GI trial improved lesions significantly. Skim milk associates with acne in large cohorts (whole milk less so). Chocolate and greasy food myths are mostly retired — insulin spikes and milk proteins aren't.",
     why: [
       "Smith's RCT put acne patients on a low-glycemic-load diet: significantly greater lesion reduction versus high-GL controls, alongside improved insulin sensitivity.",
@@ -157,6 +176,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "niacinamide", title: "Niacinamide 5%: The Quiet Multi-Tool", icon: "flask-conical", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["niacinamide", "vitamin B3", "redness", "oil control", "pores"],
     summary: "Niacinamide (vitamin B3) at 4–5% is the rare active with trials behind multiple claims: reduced sebum, smaller-looking pores, improved barrier, faded pigmentation, calmed redness. Gentle, cheap, stacks with everything. It won't transform you — it will quietly improve everything.",
     why: [
       "Bissett's controlled work documented 5% niacinamide reducing hyperpigmentation and improving skin texture and fine lines over 8–12 weeks.",
@@ -187,6 +207,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "bha", title: "Salicylic Acid 2% For Clogged Pores & Texture", icon: "brush", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["salicylic acid", "BHA", "blackheads", "clogged pores", "exfoliation"],
     summary: "Salicylic acid is oil-soluble, meaning it gets inside pores and clears the plugs that become blackheads and whiteheads. At 2% in a daily toner/serum it smooths texture and prevents congestion — especially on oily skin and the T-zone.",
     why: [
       "Reviews of chemical exfoliants document salicylic acid's keratolytic and comedolytic action — it dissolves the intracellular glue holding dead cells in pores.",
@@ -209,6 +230,12 @@ export const LOOKS_TIPS: Tip[] = [
       "Weeks 3–8: alternate nights with retinoid if tolerated.",
       "Ongoing: drop it if it stops earning its slot — retinoids often make it redundant.",
     ],
+    safety: [
+    "If you are allergic to aspirin, you can also react to salicylic acid — patch-test on a small area first or ask a dermatologist before using it.",
+    "Start 2–3 nights a week, not daily. Daily use only once your skin has clearly tolerated it for a few weeks.",
+    "Do not stack it with retinoids or other strong acids in the same routine when starting out — one active at a time (same rule as the retinoid protocol).",
+    "Light tingling for a few minutes is normal. Burning, itching, or lasting redness means it is too much — stop and switch to a gentler formula.",
+    ],
     refs: [
       "Arif T. Clin Cosmet Investig Dermatol 2015 — salicylic acid as a peeling agent: comprehensive review.",
       "Zaenglein AL et al. J Am Acad Dermatol 2016 — AAD acne guidelines (topical agents).",
@@ -217,6 +244,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "collagen-peptides", title: "Collagen Peptides: Modest But Real Skin Evidence", icon: "beaker", category: "Looks",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["collagen", "skin elasticity", "wrinkles", "protein powder"],
     summary: "Collagen supplements survived the hype-filter better than most: randomized trials and a meta-analysis show modest improvements in skin elasticity and hydration after 8–12 weeks of 2.5–10g/day. Not magic, not useless — a reasonable, low-risk add for skin and joints.",
     why: [
       "A systematic review/meta-analysis of RCTs found significant improvement in skin elasticity and hydration with collagen peptide supplementation versus placebo.",
@@ -239,6 +267,12 @@ export const LOOKS_TIPS: Tip[] = [
       "Week 12: compare skin elasticity/photos; keep if you notice benefit, retire if not.",
       "Training overlap: emerging data on tendon/ligament support with pre-training dosing — low risk, plausible upside.",
     ],
+    safety: [
+    "Check the source: it is usually bovine (cow) or marine (fish). If you have a fish or shellfish allergy, choose bovine — and read labels for cross-contamination.",
+    "It is a protein — about 10 g a day counts toward your daily protein total, it is not extra on top.",
+    "If you have kidney disease, include it in the protein budget your doctor set for you.",
+    "It is still a supplement category with quality problems — buy third-party tested powder only.",
+    ],
     refs: [
       "de Miranda RB et al. Int J Dermatol 2021 — collagen supplementation & skin: meta-analysis.",
       "Proksch E et al. Skin Pharmacol Physiol 2014 — oral collagen peptide supplementation RCT.",
@@ -247,6 +281,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "minoxidil", title: "Hair Loss? Act Early: Minoxidil 5%", icon: "spray-can", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["hair loss", "rogaine", "regrowth", "balding", "topical"],
     summary: "Male/female pattern hair loss only accelerates with time — the follicles you don't save, you lose. Topical minoxidil 5% twice daily is the most-accessible proven treatment: FDA-approved, decent regrowth/stabilization data. The rule is simple: start early, apply consistently, expect 4–6 months before judging.",
     why: [
       "Controlled trials established 5% topical minoxidil increases hair counts and hair weight versus placebo in androgenetic alopecia.",
@@ -269,6 +304,13 @@ export const LOOKS_TIPS: Tip[] = [
       "Months 1–6: twice daily without exception.",
       "Month 6 review: keep, optimize (combine with keto shampoo — see that protocol), or escalate with a dermatologist.",
     ],
+    safety: [
+    "Topical use only. Never swallow or drink it, and keep the bottle away from pets — even a licked drop of residue can be fatal to cats.",
+    "Increased shedding in weeks 2–6 is normal and actually a sign the drug is working — do not quit during it.",
+    "Apply to a healthy, dry, unbroken scalp. Do not use on sunburnt or irritated skin, and wash your hands after applying.",
+    "If you have heart problems, low blood pressure, or take BP medication, ask your doctor before starting.",
+    "More product or twice-daily 'extras' do not speed results — follow the label. Keep it off your forehead and face to avoid growing hair where you don't want it.",
+    ],
     refs: [
       "Olsen EA et al. J Am Acad Dermatol 2002 — minoxidil 5% topical foam trials.",
       "Suchonwanit P et al. Drug Des Devel Ther 2019 — minoxidil and its use in hair disorders: review.",
@@ -277,6 +319,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "finasteride", title: "Pattern Loss's Strongest Tool Is Medical — Talk To A Doctor", icon: "stethoscope", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["hair loss", "DHT", "prescription", "male pattern baldness"],
     summary: "For male pattern hair loss, the most effective proven drug is finasteride 1mg — a DHT blocker with strong trial data for halting loss and regrowth. It's prescription for good reasons: a small percentage of users report sexual side effects, usually reversible. This is a dermatologist conversation, not a social-media decision.",
     why: [
       "The pivotal trials (Kaufman and follow-ups) showed finasteride 1mg increased hair counts and slowed progression in the large majority of men over years of study.",
@@ -299,6 +342,12 @@ export const LOOKS_TIPS: Tip[] = [
       "Months 1–12: treatment + 3-month photo cadence.",
       "Annual review: efficacy, side-effect check, dose/route adjustments with the doctor.",
     ],
+    safety: [
+    "Prescription only — have a real conversation with a dermatologist or doctor, not an online shortcut.",
+    "A small percentage of men get sexual side effects (lower libido, erection changes). Most cases reverse after stopping, but report anything that persists — do not just push through.",
+    "Women who are or may become pregnant must not handle crushed or broken tablets — the drug can harm a male fetus.",
+    "Tell your doctor about all medications and upcoming blood donation (rules differ); mood changes or depression deserve immediate attention too.",
+    ],
     refs: [
       "Kaufman KD et al. J Am Acad Dermatol 1998 — finasteride in male pattern hair loss.",
       "Suchonwanit P et al. Drug Des Devel Ther 2019 — pharmacotherapy of androgenetic alopecia: review.",
@@ -307,6 +356,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "keto-shampoo", title: "Ketoconazole Shampoo: Dandruff Fix + Hair-Loss Adjuvant", icon: "shower-head", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["ketoconazole", "dandruff", "antifungal", "scalp"],
     summary: "2% ketoconazole shampoo does two evidence-backed jobs: it's a first-line antifungal for dandruff/seborrheic dermatitis, and a small trial found it added to minoxidil's effect on hair density. Twice weekly, lather, wait 3–5 minutes, rinse. Cheap and underrated.",
     why: [
       "The Piérard-Franchimont trial found ketoconazole 2% shampoo used with minoxidil increased hair density similarly to minoxidil alone at higher intensity — plus antifungal benefit.",
@@ -329,6 +379,12 @@ export const LOOKS_TIPS: Tip[] = [
       "Week 4+: reduce to 1× weekly maintenance once controlled.",
       "Refractory flaking/itching after 4 weeks → dermatologist (prescription-strength options exist).",
     ],
+    safety: [
+    "It is a medicated shampoo, not a cosmetic — use it as directed (typically 2–3 times a week), leave it on the scalp 3–5 minutes, then rinse.",
+    "Keep it out of eyes; rinse thoroughly if contact happens. Scalp dryness or mild irritation can occur — reduce frequency if so.",
+    "Do not use if you are allergic to azole antifungals (like some athlete's-foot creams).",
+    "For dandruff it works within weeks; for hair-loss support it takes months of consistent use alongside your other treatments.",
+    ],
     refs: [
       "Piérard-Franchimont C et al. Dermatology 1998 — ketoconazole shampoo: effect on hair loss & sebum.",
     ],
@@ -336,6 +392,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "microneedling", title: "Microneedling: Real Data, Real Safety Rules", icon: "syringe", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["derma roller", "microneedling", "scars", "collagen induction"],
     summary: "Microneedling creates controlled micro-injuries that trigger collagen remodeling — decent trial data for acne scars and as a hair-loss adjuvant with minoxidil. But depth, sterility, and frequency decide whether you get results or an infection. Professional or strictly-hygienic home use at shallow depths only.",
     why: [
       "The Dhurat trial found weekly microneedling + minoxidil roughly tripled hair count gains versus minoxidil alone in men with pattern loss.",
@@ -358,6 +415,13 @@ export const LOOKS_TIPS: Tip[] = [
       "Track with photos every 4–6 weeks — both applications move slowly.",
       "Any sign of infection (spreading redness, pus, fever) = doctor, immediately.",
     ],
+    safety: [
+    "Sterility is everything. Use a quality derma roller or stamp, disinfect with 70% alcohol before and after, never share it with anyone, and replace it when dull.",
+    "Stay in the 0.25–0.5 mm range at home. Needles longer than that are professional territory — going deep at home causes infection and scars.",
+    "Do not needle over active acne, eczema, psoriasis, moles, or broken skin — it spreads bacteria and worsens the problem.",
+    "No retinoids, acids, or benzoyl peroxide for 24–48 hours after a session, and sunscreen is mandatory on healing skin.",
+    "If your immune system is weakened (illness or medication), skip home microneedling entirely — infection risk is too high.",
+    ],
     refs: [
       "Dhurat R et al. Int J Trichology 2013 — microneedling + minoxidil vs minoxidil alone RCT.",
       "Singh A, Yadav S. J Cosmet Dermatol 2016 — microneedling in acne scars: review of efficacy/safety.",
@@ -366,6 +430,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "smoking-skin", title: "Smoking Ages Skin On A Schedule", icon: "cigarette", category: "Looks",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["smoking", "wrinkles", "skin aging", "quit smoking"],
     summary: "Smoking constricts skin microvasculature, degrades collagen, and produces a recognizable facial pattern: deeper perioral lines, dullness, slower healing. The classic twin and cohort data make it visual: smokers' faces age measurably faster. Vaping's long-term skin data are thinner, but nicotine's vasoconstriction is not in dispute.",
     why: [
       "The Kadunce case-control study found smoking was an independent, strong predictor of prominent facial wrinkling — dose-dependent, beyond sun exposure.",
@@ -396,6 +461,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "sleep-skin", title: "Skin Repairs On Sleep — Faces Don't Lie", icon: "star", category: "Looks",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["beauty sleep", "skin repair", "glow", "dark circles"],
     summary: "Sleep debt shows on your face within days: dark circles, dullness, redness, droopy lids. Experimental studies found observers rate sleep-deprived faces as less attractive and less healthy — and controlled work shows skin recovery from UV damage runs slower in poor sleepers. Sleep is the free cosmetic.",
     why: [
       "The Sundelin lab exposed people to sleep restriction: independent raters judged their faces as less attractive, less healthy, more tired — measurable, not vanity.",
@@ -426,6 +492,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "ages-skin", title: "Sugar Glycates Your Collagen — Go Slow On The Sweet Stuff", icon: "cookie", category: "Looks",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["sugar", "glycation", "wrinkles", "skin aging", "collagen damage"],
     summary: "Excess sugar binds to collagen and elastin in a process called glycation, forming AGEs — stiff, yellowed, less bouncy fibers. It's one of the few diet-skin mechanisms with solid biochemistry behind it. The dose matters over years: chronic high-sugar diets literally stiffen the scaffold of your face.",
     why: [
       "Reviews of AGEs in skin document their accumulation with age, acceleration by high-glycemic diets, and crosslinking effects on collagen — stiffness and reduced turnover.",
@@ -455,6 +522,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "facial-exercises", title: "Facial Exercises: Small Honest Evidence — If You Like The Ritual", icon: "smile", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["face exercises", "jowls", "facial toning", "face yoga"],
     summary: "Unlike most jawline-hack content, facial exercises actually got a trial: 20 weeks of daily facial 'yoga' improved mid-face fullness in a small dermatology study (average participant age 57). The honest read: plausible modest effect for mid-face firmness in older faces, unproven in young faces, and no evidence at all for 'skull expansion' or bone change.",
     why: [
       "The Alam (Northwestern) study: self-performed facial exercises 30 min daily for 20 weeks produced modest dermatologist-rated improvements in cheek fullness.",
@@ -484,6 +552,7 @@ export const LOOKS_TIPS: Tip[] = [
   {
     id: "dandruff", title: "Kill Dandruff Properly — It's A Fungal Issue, Not Dryness", icon: "shower-head", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["dandruff", "flakes", "itchy scalp", "seborrheic dermatitis", "fungal"],
     summary: "Dandruff is usually seborrheic dermatitis — an inflammatory reaction to a yeast (Malassezia) that eats scalp oils. That's why moisturizing does nothing and antifungals fix it. Zinc pyrithione, ketoconazole 2%, or selenium sulfide shampoos, used with real contact time, clear most cases in weeks.",
     why: [
       "Scalp-condition reviews identify Malassezia and individual susceptibility as the core of dandruff — antifungal shampoos are the guideline first-line.",

@@ -7,6 +7,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "cut-rate", title: "Lose 0.5–1% Of Bodyweight Per Week — No Faster", icon: "scale", category: "Fat Loss",
     goals: ["fatloss", "looksmax", "fitness"], minutes: 3,
+    keywords: ["weight loss rate", "cutting speed", "per week loss", "safe rate"],
     summary: "Crash cuts shed muscle along with fat, tank training, and rebound. A 0.5–1% weekly loss rate preserves muscle, keeps hunger manageable, and produces the 'you look great' result that actually lasts. Slow is the fast way when keeping the result is part of the goal.",
     why: [
       "Research on athletes and dieters shows aggressive deficits cost disproportionate lean mass — the faster the scale falls, the worse the muscle-to-fat ratio of what you lose.",
@@ -29,6 +30,12 @@ export const FATLOSS_TIPS: Tip[] = [
       "Every 5kg lost: recalculate (see the adaptive-thermo protocol).",
       "Every 8–10 weeks: 1–2 week diet break at maintenance (see the diet-break protocol).",
     ],
+    safety: [
+    "If you lose more than ~1.5% of bodyweight per week for several weeks, eat more. Faster than that means losing muscle, hair, sleep, and health.",
+    "Do not cut while sick, injured, or under heavy life stress — recovery demand is already high.",
+    "If you have any history of disordered eating, do not run aggressive deficits without professional support — and teens, pregnant, or breastfeeding women should not cut at all.",
+    "Warning signs you are going too fast: constant cold hands, hair shedding, poor sleep, heart palpitations, loss of libido. Slow down immediately.",
+    ],
     refs: [
       "Helms ER et al. J Int Soc Sports Nutr 2014 — evidence-based recommendations for natural bodybuilding contest prep.",
       "Garthe I et al. Med Sci Sports Exerc 2011 — rate of weight change in athletes & body composition.",
@@ -37,6 +44,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "cutting-protein", title: "Protein Goes UP While Cutting: 2.2–2.6g/kg", icon: "drumstick", category: "Fat Loss",
     goals: ["fatloss", "muscle", "looksmax"], minutes: 2,
+    keywords: ["protein while cutting", "muscle retention", "high protein diet"],
     summary: "In a deficit, protein is armor. Research on lean dieters and lifters points toward the upper end: roughly 2.2g/kg (and up to ~2.6g/kg when very lean and training hard). It preserves muscle, blunts hunger, and costs more calories to digest.",
     why: [
       "Reviews of lean, training populations converge on higher protein during deficits than during maintenance — requirements scale with energy restriction.",
@@ -59,6 +67,11 @@ export const FATLOSS_TIPS: Tip[] = [
       "Ongoing: keep protein constant while carbs/fat absorb the deficit adjustments.",
       "Very lean (<12% men / <22% women): push toward 2.6g/kg lean mass.",
     ],
+    safety: [
+    "Healthy kidneys handle 2.2–2.6 g/kg protein without any problem — but if you have diagnosed kidney disease, your doctor must set your protein target, not a fitness guideline.",
+    "Work up to the higher target over about a week — a sudden jump can upset your digestion.",
+    "Keep the rest of the plate intact: protein is the priority on a cut, but vegetables, fiber, and healthy fats still matter.",
+    ],
     refs: [
       "Helms ER et al. J Int Soc Sports Nutr 2014 — protein requirements for lean, training dieters.",
       "Longland TM et al. Am J Clin Nutr 2016 — higher protein + deficit: fat loss with lean mass gain RCT.",
@@ -67,6 +80,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "lift-while-cutting", title: "Lift Heavy Through The Entire Cut", icon: "zap", category: "Fat Loss",
     goals: ["fatloss", "muscle", "strength"], minutes: 2,
+    keywords: ["lifting on a cut", "strength maintenance", "muscle retention"],
     summary: "In a deficit, the lifting signal tells your body which tissue to keep. Cut calories and stop lifting and you'll lose fat and muscle indiscriminately. Cut calories and lift heavy and the muscle survives. Cardio doesn't send this signal — the bar does.",
     why: [
       "The Longland trial paired a deficit with resistance training and preserved — even gained — lean mass while losing fat; deficits without lifting show much worse retention.",
@@ -97,6 +111,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "neat-cut", title: "Deficits Shrink Your Movement — Guard Your Steps", icon: "footprints", category: "Fat Loss",
     goals: ["fatloss", "fitness"], minutes: 2,
+    keywords: ["NEAT", "daily movement", "calorie burn", "activity drop"],
     summary: "The hidden enemy of every cut is NEAT — the non-exercise movement (walking, fidgeting, standing) that quietly drops by hundreds of calories when you diet. Your body economizes before you notice. A daily step floor pins it down.",
     why: [
       "Classic research shows spontaneous daily movement falls substantially during caloric restriction — part of the adaptive response to deficit.",
@@ -127,6 +142,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "daily-weigh", title: "Weigh Daily — Judge Only The Weekly Average", icon: "trending-down", category: "Fat Loss",
     goals: ["fatloss", "fitness"], minutes: 2,
+    keywords: ["daily weigh-in", "weight fluctuations", "weekly average", "scale"],
     summary: "Bodyweight swings 1–2kg daily on water, sodium, carbs, and... timing. Daily weighing under fixed conditions gives you a trend line that actually means something — and the research says daily weighers lose more and keep it off better than weekly or never.",
     why: [
       "RCTs of daily self-weighing show greater weight loss and better maintenance versus less frequent monitoring.",
@@ -157,6 +173,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "diet-break", title: "Schedule 1–2 Week Maintenance Breaks Every 8–10 Weeks", icon: "refresh-cw", category: "Fat Loss",
     goals: ["fatloss", "fitness", "muscle"], minutes: 3,
+    keywords: ["diet break", "maintenance phase", "reverse diet", "plateau fix"],
     summary: "Continuous dieting erodes hormones, mood, and adherence. Planned diet breaks — 1–2 weeks eating at maintenance — interrupt that erosion without meaningfully slowing fat loss across the whole journey. The trials back it: equal fat lost, better retention and less binge risk.",
     why: [
       "The MATRIX trial: intermittent dieting (2-week breaks) matched continuous dieting for fat loss while producing greater weight and fat-mass losses vs continuous in some measures, with better adherence.",
@@ -187,6 +204,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "satiety-per-meal", title: "Build Every Meal On The Satiety Ladder", icon: "salad", category: "Fat Loss",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["satiety", "fullness", "hunger control", "meal design"],
     summary: "Same calories, wildly different fullness: a chicken-and-vegetable plate with fruit keeps you satisfied for hours; the same calories as a pastry leave you grazing by 4 PM. Rank foods by satiety per calorie and build meals from the top.",
     why: [
       "The classic satiety index research found enormous differences in fullness per calorie across common foods — protein, fiber, and water content dominate the ranking.",
@@ -217,6 +235,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "soup-preload", title: "Start Lunch & Dinner With Volume", icon: "soup", category: "Fat Loss",
     goals: ["fatloss", "fitness"], minutes: 1,
+    keywords: ["soup", "broth", "appetite", "low calorie start"],
     summary: "A broth-based soup or large salad before the main course measurably cuts the calories you eat at that meal — Rolls' lab has replicated it across forms and populations. Five minutes of starter, hundreds of calories saved, same fullness.",
     why: [
       "Penn State trials found soup preloads reduced total meal energy intake across soup types — the effect is robust to recipe variety.",
@@ -247,6 +266,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "plateau-protocol", title: "The 2-Week Plateau Protocol — Audit Before You Panic", icon: "mountain", category: "Fat Loss",
     goals: ["fatloss"], minutes: 3,
+    keywords: ["weight loss plateau", "stalled", "fat loss audit", "debug"],
     summary: "Every cut stalls for 2–3 weeks at some point — usually water retention masking real loss, not a broken metabolism. Before slashing calories, run the audit: intake honestly, steps honestly, sleep, and the trend line. Then change exactly one variable.",
     why: [
       "Most 'plateaus' are measurement artifacts: untracked bites, shrinking NEAT, or sodium/water masking fat loss for up to 3 weeks.",
@@ -277,6 +297,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "no-crash", title: "No Sub-1200 Crash Cuts — Ever", icon: "ban", category: "Fat Loss",
     goals: ["fatloss", "fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["crash diet", "1200 calories", "starvation", "extreme cut"],
     summary: "Very-low-calorie crashes (below ~1,200 kcal for most adults, without medical supervision) trade weeks of fast scale movement for muscle loss, hormonal disruption, hair shedding, and a rebound with interest. The body you want is built by the deficit you can hold for months.",
     why: [
       "Sports-nutrition research shows aggressive deficits disproportionately sacrifice lean mass — the tissue that shapes the body you're trying to reveal.",
@@ -299,6 +320,12 @@ export const FATLOSS_TIPS: Tip[] = [
       "If fatigue crushes training after 2 weeks, raise intake 100–150 kcal — the cut is long, pace it.",
       "Every 8–10 weeks: diet break (see the diet-break protocol).",
     ],
+    safety: [
+    "Eating under 1,200 kcal a day is not a diet, it is a medical procedure — it needs a doctor and supervision, full stop.",
+    "Crash-cutting costs you muscle, gallstones, nutrient deficiencies, and a rebound binge that erases the loss. The math never works in your favor.",
+    "Damage check: always feeling cold, hair falling out, no energy or libido, wrecked sleep — these are signs to raise calories now, not push harder.",
+    "If you have any history of disordered eating, skip aggressive dieting entirely and work with a professional.",
+    ],
     refs: [
       "Garthe I et al. Med Sci Sports Exerc 2011 — rate of weight loss & body composition in athletes.",
       "Helms ER et al. J Int Soc Sports Nutr 2014 — deficit size & lean mass retention.",
@@ -307,6 +334,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "nns", title: "Diet Drinks & Sweeteners: Tool, Not Threat", icon: "cup-soda", category: "Fat Loss",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["diet soda", "sweeteners", "artificial sweeteners", "zero calorie drinks"],
     summary: "The evidence is clearer than the internet thinks: replacing sugary drinks with non-nutritive sweeteners supports weight loss in randomized trials and doesn't break ketosis/fat loss by magic. They're a bridge, not a health food — but they beat sugar decisively.",
     why: [
       "Systematic reviews and RCTs find non-nutritive sweeteners help reduce calorie intake and support modest weight loss when replacing sugar — trials, not fear threads.",
@@ -337,6 +365,7 @@ export const FATLOSS_TIPS: Tip[] = [
   {
     id: "fat-floor", title: "Keep Dietary Fat Above ~0.8g/kg For Hormones", icon: "beef", category: "Fat Loss",
     goals: ["fatloss", "muscle", "strength", "looksmax"], minutes: 2,
+    keywords: ["dietary fat", "hormones", "low fat diet", "fats"],
     summary: "Aggressively cutting dietary fat is a classic mistake: very low-fat diets measurably lower testosterone, dry out skin, and wreck satiety. Keep fat at 0.8–1g/kg and let carbs and activity carry the rest of the deficit.",
     why: [
       "Controlled trials show reducing dietary fat from ~40% to ~20% of calories lowers testosterone concentrations measurably — the mechanism is cholesterol and fat-soluble-vitamin dependent steroid synthesis.",
@@ -359,6 +388,11 @@ export const FATLOSS_TIPS: Tip[] = [
       "Ongoing: hold the floor through every phase of the cut.",
       "Symptoms (libido, sleep, dry skin) at adequate calories? Check fat and sleep before blaming 'age'.",
     ],
+    safety: [
+    "Do not go below ~0.8 g of fat per kg of bodyweight. Below that, hormone production, skin, and mood start paying the bill.",
+    "Signs you have been too low for too long: dry flaky skin, dull hair, low energy, low testosterone symptoms, disrupted cycles. Raise fat immediately.",
+    "Very low-fat diets for months also raise gallstone risk — another reason the floor exists.",
+    ],
     refs: [
       "Dorgan JF et al. Am J Clin Nutr 1996 — effects of dietary fat reduction on hormone levels.",
       "Whittaker J, Harris K. Nutr Health 2022 — macronutrient intake & testosterone: systematic review/meta-analysis.",
@@ -370,6 +404,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "zone2", title: "Build The Zone 2 Base — Most Miles Easy", icon: "heart-pulse", category: "Cardio",
     goals: ["fitness", "fatloss", "strength"], minutes: 3,
+    keywords: ["zone 2 cardio", "easy cardio", "aerobic base", "endurance training"],
     summary: "Zone 2 — conversational-pace cardio, roughly 60–75% of max heart rate — builds the aerobic engine everything else runs on. 2–4 sessions of 30–60 minutes weekly: you should be able to hold a conversation the entire time. If you can't, it's not Zone 2.",
     why: [
       "Endurance-science reviews show elite programs run ~80% of volume at low intensity — the easy miles build mitochondria, capillaries, and stroke volume without crushing recovery.",
@@ -400,6 +435,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "vo2max", title: "VO2max Is The Number That Predicts Your Life", icon: "wind", category: "Cardio",
     goals: ["fitness", "fatloss", "strength"], minutes: 2,
+    keywords: ["VO2 max", "cardio fitness", "lifespan", "heart health"],
     summary: "If you chase one fitness metric for longevity, it's cardiorespiratory fitness. Large cohort studies show low VO2max rivals — and often exceeds — smoking and hypertension as a mortality risk factor. The good news: it's among the most trainable.",
     why: [
       "A landmark JAMA meta-analysis (Kodama) found aerobic fitness inversely and strongly associated with all-cause mortality and coronary disease.",
@@ -422,6 +458,12 @@ export const CARDIO_TIPS: Tip[] = [
       "8–12 week block: Zone 2 + 1–2 HIIT weekly.",
       "Re-test, compare, repeat. Every +1 ml/kg/min is meaningful.",
     ],
+    safety: [
+    "All-out efforts (time trials, beep tests, max intervals) stress the heart hardest of anything in fitness — the same clearance rules as HIIT apply, and then some.",
+    "Always warm up 10+ minutes before any max effort, and never test at full intensity when sick, in extreme heat, or dehydrated.",
+    "Chest pain, pressure, or severe breathlessness mid-effort means stop immediately — that is a medical signal, not weakness.",
+    "You do not need max tests to improve — steady Zone 2 plus a couple of hard sessions raises VO2max just as safely.",
+    ],
     refs: [
       "Kodama S et al. JAMA 2009 — cardiorespiratory fitness & mortality meta-analysis.",
       "Mandsager K et al. JAMA Netw Open 2018 — association of fitness & long-term mortality.",
@@ -430,6 +472,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "hiit", title: "Two HIIT Sessions Weekly — Short, Brutal, Done", icon: "bike", category: "Cardio",
     goals: ["fitness", "fatloss", "strength"], minutes: 3,
+    keywords: ["HIIT", "intervals", "sprints", "conditioning"],
     summary: "High-intensity intervals buy big aerobic and metabolic adaptations in little time: 2 sessions weekly of 4–8 × 30s hard efforts with easy recoveries. They're the spice, not the meal — stack them on a Zone 2 base, and keep them away from leg day.",
     why: [
       "Meta-analyses show HIIT improves VO2max and cardiometabolic markers more efficiently per minute than moderate continuous work.",
@@ -452,6 +495,13 @@ export const CARDIO_TIPS: Tip[] = [
       "Weeks 3–8: build to 6–8 rounds.",
       "Ongoing: 2 weekly forever, swapped into any cut or bulk — the most time-efficient lever you own.",
     ],
+    safety: [
+    "Get medical clearance before hard intervals if you have any heart condition, chest pain, high blood pressure, diabetes, or you have been sedentary for years — especially over age 40.",
+    "Cap it at ~2 hard sessions a week. More is not faster progress — it is overuse injuries, burnout, and stalled recovery.",
+    "Never start intervals cold. The 3-minute warm-up rule is non-negotiable before the first hard rep.",
+    "Stop immediately for chest pain, pressure, unusual breathlessness, or dizziness — and get it checked, do not 'walk it off' into the next round.",
+    "Sick, injured, or badly slept? Swap the session for easy cardio. HIIT is a stress you stack on a healthy base, not a punishment.",
+    ],
     refs: [
       "Weston KS et al. Br J Sports Med 2014 — HIIT vs moderate exercise meta-analysis.",
       "Gibala MJ et al. J Physiol 2012 — low-volume interval training adaptations.",
@@ -460,6 +510,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "concurrent", title: "Separate Lifting And Hard Cardio By 6+ Hours", icon: "clock-3", category: "Cardio",
     goals: ["strength", "muscle", "fitness"], minutes: 2,
+    keywords: ["concurrent training", "cardio and lifting", "interference effect"],
     summary: "Strength and endurance adaptations partly interfere — the 'concurrent training effect'. It's real but modest and mostly schedule-dependent: lift first when fresh, separate hard cardio from legs, and keep most cardio easy (Zone 2 barely interferes).",
     why: [
       "Meta-analysis shows interference appears mainly when endurance work is high-volume, high-intensity, and run close to lifting — especially cycling/running on trained legs.",
@@ -490,6 +541,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "post-meal-walk", title: "Walk 10–15 Minutes After Your Biggest Meals", icon: "footprints", category: "Cardio",
     goals: ["fitness", "fatloss", "looksmax"], minutes: 1,
+    keywords: ["walk after meals", "blood sugar", "digestion", "glucose"],
     summary: "A short walk right after eating measurably blunts the blood-sugar spike and quietly stacks steps. Trials show post-meal walking beats the same walking pre-meal for glycemia. It's free, it's pleasant, and it anchors the NEAT floor.",
     why: [
       "RCTs show 10–15 minute post-meal walks significantly reduce postprandial glucose versus sitting — timing after the meal is the active ingredient.",
@@ -520,6 +572,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "fasted-myth", title: "Fasted Cardio Burns The Same Fat (Myth)", icon: "sunrise", category: "Cardio",
     goals: ["fatloss", "fitness"], minutes: 2,
+    keywords: ["fasted cardio", "empty stomach", "fat burning myth"],
     summary: "Training fasted burns more fat during the session but not more fat over the study period — the body rebalances across the day. An RCT directly comparing fasted vs fed cardio found identical fat loss when calories and protein matched. Train when you perform best.",
     why: [
       "The Schoenfeld RCT (20 weeks of cardio, fasted vs fed) found no difference in fat loss — session fuel source didn't matter over time.",
@@ -550,6 +603,7 @@ export const CARDIO_TIPS: Tip[] = [
   {
     id: "talk-test", title: "Gauge Every Cardio Session With The Talk Test", icon: "ear", category: "Cardio",
     goals: ["fitness", "fatloss"], minutes: 1,
+    keywords: ["talk test", "cardio pace", "intensity gauge", "breathing"],
     summary: "Heart-rate zones from watches are estimates stacked on estimates. The talk test is a validated, free, always-calibrated measure of intensity: full sentences = easy base, phrases = threshold work, single words = intervals. Match the zone to the session's purpose.",
     why: [
       "Exercise-science work validates the talk test against ventilatory thresholds — speech capacity tracks physiological zones remarkably well across fitness levels.",

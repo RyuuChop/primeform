@@ -7,6 +7,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "calories", title: "Calories Set The Ceiling — Quality Sets The Pace", icon: "calculator", category: "Nutrition",
     goals: ["muscle", "fatloss", "strength", "fitness", "looksmax"], minutes: 4,
+    keywords: ["calories", "energy balance", "maintenance", "CICO"],
     summary: "No meal plan, superfood, or supplement beats energy balance. Estimate your maintenance, aim 300–500 kcal under it to lose fat or ~200–300 over it to build muscle, then spend those calories on minimally-processed food.",
     why: [
       "Controlled feeding studies show similar fat loss at the same calories regardless of diet type — Sacks et al. compared 4 popular macro splits and found no meaningful difference after 2 years.",
@@ -37,6 +38,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "fiber", title: "Eat 25–38g Fiber Every Single Day", icon: "salad", category: "Nutrition",
     goals: ["fatloss", "fitness", "muscle", "looksmax"], minutes: 3,
+    keywords: ["fiber", "gut health", "digestion", "vegetables"],
     summary: "Fiber is the cheapest appetite controller and health insurance you can buy. Most people eat half the target. Hit 14g per 1,000 kcal and you'll be fuller, more regular, and measurably lower your disease risk.",
     why: [
       "A landmark Lancet meta-analysis of 185 studies found 25–29g/day cuts all-cause mortality, heart disease, and type 2 diabetes risk by 15–30%.",
@@ -59,6 +61,12 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2–4: add one fiber anchor meal daily until you hit 25g+.",
       "Long-term: hold 25–38g. Consistency beats occasional perfect days.",
     ],
+    safety: [
+    "Ramp up slowly over 2–3 weeks. Jumping from low to high fiber overnight guarantees bloating, cramping, and gas.",
+    "Raise your water along with fiber — fiber needs fluid to move things, or it can actually worsen constipation.",
+    "If you have IBS or IBD, introduce fiber gently and consider a dietitian's help — aggressive fiber during a flare makes things worse.",
+    "Fiber supplements (like psyllium) can slow medicine absorption — take medications 1 hour before or 2–4 hours after fiber doses.",
+    ],
     refs: [
       "Reynolds A et al. Lancet 2019 — carbohydrate quality meta-analysis of 185 prospective studies & 58 trials.",
       "Howarth NC et al. Nutr Rev 2001 — dietary fiber & weight regulation.",
@@ -67,6 +75,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "plants30", title: "Rotate 30 Different Plants Each Week", icon: "leaf", category: "Nutrition",
     goals: ["fitness", "looksmax", "fatloss"], minutes: 3,
+    keywords: ["plant diversity", "gut microbiome", "fruits and vegetables", "variety"],
     summary: "Gut microbiome diversity tracks with the variety of plants you eat — not just total vegetables. The American Gut Project found 30+ different plant foods per week is the clearest behavioral marker of a healthy gut.",
     why: [
       "American Gut data (>10,000 participants) showed people eating 30+ plant types weekly had markedly more diverse microbiomes than those eating <10.",
@@ -97,6 +106,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "liquid-calories", title: "Liquid Calories Are The Silent Saboteur", icon: "glass-water", category: "Nutrition",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["soda", "juice", "sugary drinks", "liquid sugar"],
     summary: "Soda, juice, fancy coffee, and alcohol pour in hundreds of calories with almost zero satiety — your body barely registers them as food. Make water, coffee, and tea your default drinks and you remove an entire failure mode.",
     why: [
       "Meta-analyses consistently link sugar-sweetened beverage intake to weight gain — the strongest dietary link obesity research has found.",
@@ -127,6 +137,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "ultra-processed", title: "Cap Ultra-Processed Food At ~20% Of Intake", icon: "cookie", category: "Nutrition",
     goals: ["fatloss", "fitness", "muscle", "looksmax"], minutes: 3,
+    keywords: ["processed food", "junk food", "packaged snacks", "additives"],
     summary: "Ultra-processed foods (chips, candy, soda, packaged snacks, most deli items) are engineered to be overeaten. In the first controlled trial ever run on this, people on an ultra-processed diet ate ~500 extra calories per day — same macros, same taste ratings.",
     why: [
       "Kevin Hall's NIH crossover RCT locked diets to identical protein, carbs, fat, sugar, and fiber — the ultra-processed arm still ate ~508 kcal more per day and gained fat in 2 weeks.",
@@ -157,6 +168,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "energy-density", title: "Eat Big By Eating Light (Energy Density)", icon: "soup", category: "Nutrition",
     goals: ["fatloss", "fitness"], minutes: 3,
+    keywords: ["volume eating", "low calorie foods", "satiety", "portion size"],
     summary: "You get full on the weight of food, not its calories. Vegetables, fruit, broth soups, and lean proteins carry massive volume for few calories; oil, nuts, and cheese carry huge calories for tiny volume. Master the ratio and you'll never diet hungry again.",
     why: [
       "Rolls' laboratory studies show people eat a remarkably constant weight of food daily — lower the calorie density and intake falls while fullness holds.",
@@ -187,6 +199,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "eat-slow", title: "Stretch Every Meal To 20 Minutes", icon: "utensils", category: "Nutrition",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["eating speed", "slow eating", "satiety signals", "mindful meals"],
     summary: "Your brain lags your stomach by ~20 minutes. Eat faster than that and you'll finish 200–500 extra calories before the 'full' signal arrives. Slowing down is free portion control that requires zero discipline after the first bite.",
     why: [
       "Trials show slow eating reduces total intake per meal and increases post-meal satiety — Andrade's work found meaningful calorie reductions just from pace instructions.",
@@ -217,6 +230,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "protein-breakfast", title: "Front-Load Protein At Breakfast", icon: "egg", category: "Nutrition",
     goals: ["muscle", "fatloss", "strength"], minutes: 2,
+    keywords: ["breakfast", "protein first", "morning meal", "appetite control"],
     summary: "A 30–40g protein breakfast crushes mid-morning cravings, steadies energy, and makes your daily protein target nearly automatic by 9 AM. Cereal-and-toast breakfasts do the opposite: spike, crash, snack.",
     why: [
       "RCTs show high-protein breakfasts increase fullness and reduce evening snacking versus low-protein starts (Leidy's trials in teens and adults).",
@@ -247,6 +261,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "meal-plan", title: "Plan Tomorrow's Meals Tonight", icon: "notebook-pen", category: "Nutrition",
     goals: ["fatloss", "muscle", "fitness", "strength"], minutes: 2,
+    keywords: ["meal prep", "planning meals", "next day diet", "food decisions"],
     summary: "Every 'what's for dinner?' decision made while hungry is a decision your cravings make. A 3-minute evening plan removes hundreds of small choices from your hungriest, weakest hours.",
     why: [
       "Research on meal planning shows planners have higher diet quality and lower odds of obesity — the decision structure does the work.",
@@ -277,6 +292,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "grocery-env", title: "Engineer The Cart: Shop Fed, List In Hand", icon: "shopping-basket", category: "Nutrition",
     goals: ["fatloss", "fitness", "muscle"], minutes: 2,
+    keywords: ["shopping list", "supermarket", "grocery shopping", "environment design"],
     summary: "Your kitchen determines your diet more than your willpower does. The grocery store is where you actually set your diet — walk it fed, with a list, and buy what the plan needs, not what the aisle suggests.",
     why: [
       "Food environment research consistently shows availability drives consumption: what's in the house gets eaten, what isn't, doesn't.",
@@ -307,6 +323,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "cook-home", title: "Cook 5+ Meals A Week At Home", icon: "cooking-pot", category: "Nutrition",
     goals: ["fatloss", "fitness", "muscle", "looksmax", "strength"], minutes: 2,
+    keywords: ["home cooking", "cooking at home", "takeout", "restaurant meals"],
     summary: "Restaurant and takeaway food is calibrated to be irresistible: more oil, more salt, more sugar, bigger portions. People who cook most of their meals eat better without trying — the kitchen is the highest-leverage 'diet' that isn't a diet.",
     why: [
       "Analyses of tens of thousands of adults show frequent home cooking is associated with better diet quality, lower body fat, and lower food spending.",
@@ -337,6 +354,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "restaurant-strategy", title: "Decode The Menu Before You're Seated", icon: "pizza", category: "Nutrition",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["eating out", "menu choices", "dining", "restaurant plan"],
     summary: "A single restaurant entrée routinely carries 1,000–2,000 calories before bread, drinks, or dessert. You don't need to skip restaurants — you need a script: decide what you'll order before hunger and menus do the deciding.",
     why: [
       "Lab analyses of chain and independent restaurant meals consistently find single dishes exceeding full daily energy needs — the average plate is far above home equivalents.",
@@ -367,6 +385,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "alcohol", title: "Alcohol: The Closer To Zero The Better", icon: "wine", category: "Nutrition",
     goals: ["fatloss", "fitness", "muscle", "looksmax", "strength"], minutes: 3,
+    keywords: ["drinking", "beer", "wine", "alcohol health"],
     summary: "Alcohol is 7 kcal/g, blunts fat oxidation for hours, fragments deep sleep, and (beyond light intake) shows no health benefit. If results matter, treat alcohol as an occasional deliberate choice — not a weekly default.",
     why: [
       "Meta-analyses link regular alcohol intake to weight gain, and alcohol temporarily suppresses fat oxidation — your body burns the ethanol first.",
@@ -389,6 +408,12 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2–4: cut by half using substitution.",
       "Long-term: a deliberate 1–2/week cap. If cutting feels impossible, that's data — treat it seriously.",
     ],
+    safety: [
+    "Alcohol stacks dangerously with medications — sedatives, sleeping pills, painkillers (especially paracetamol/acetaminophen), and most prescription drugs. Ask your pharmacist or doctor about YOUR medications.",
+    "Never drink and drive, and never operate machinery — even small amounts measurably slow reaction time and judgment.",
+    "Zero during pregnancy or breastfeeding — there is no known safe dose.",
+    "If you are a heavy daily drinker, do NOT stop cold turkey on your own — alcohol withdrawal can cause seizures and can be life-threatening; quitting needs medical supervision. Less is always better, and zero is the healthiest goal.",
+    ],
     refs: [
       "Sayon-Orea C et al. Nutr Rev 2011 — alcohol intake & weight gain meta-analysis.",
       "Ebrahim IO et al. Alcohol Clin Exp Res 2013 — alcohol & sleep meta-analysis.",
@@ -397,6 +422,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "sodium", title: "Watch Sodium — Mostly It Hides In Packages", icon: "droplets", category: "Nutrition",
     goals: ["fitness", "looksmax", "fatloss"], minutes: 2,
+    keywords: ["salt", "blood pressure", "processed food", "hidden sodium"],
     summary: "High blood pressure starts in the kitchen decades before the diagnosis. The salt shaker isn't the enemy — bread, processed meat, sauces, and snacks deliver most of the ~9–12g/day most people eat. Target under 5g salt (2g sodium).",
     why: [
       "A BMJ meta-analysis links high salt intake to significantly higher stroke and cardiovascular disease risk — the dose-response is linear with no threshold.",
@@ -419,6 +445,12 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2–3: swap the two worst offenders for lower-salt versions.",
       "Ongoing: season at the table, cook with acid and herbs, keep takeaway occasional.",
     ],
+    safety: [
+    "If you have heart failure, kidney disease, or take blood-pressure medication, your personal sodium target is set by your doctor — not by general guidelines.",
+    "Be careful with potassium-based salt substitutes — they are dangerous for people on certain BP medications (ACE inhibitors, ARBs, potassium-sparing diuretics). Ask before switching.",
+    "If you sweat heavily in heat, cutting sodium hard can backfire — your needs go up, not down.",
+    "Most sodium hides in packaged food and restaurant meals, not your salt shaker — cooking at home is how you actually control it.",
+    ],
     refs: [
       "Strazzullo P et al. BMJ 2009 — salt intake, stroke & cardiovascular disease meta-analysis.",
       "WHO Sodium Reduction Guideline 2023 — <2g sodium (5g salt) daily target.",
@@ -427,6 +459,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "potassium", title: "Load Potassium-Rich Foods Daily", icon: "banana", category: "Nutrition",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["potassium foods", "bananas", "electrolytes", "blood pressure"],
     summary: "Blood pressure is a sodium-potassium story, and most people fail both halves. Potassium-rich foods — beans, potatoes, bananas, spinach, yogurt — actively counter sodium's pressure effect and support muscle function.",
     why: [
       "BMJ meta-analysis: increased potassium intake lowers blood pressure, with the strongest effects alongside higher sodium — food potassium beats supplements for safety.",
@@ -449,6 +482,11 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2: hit two anchors daily (beans + greens + fruit covers it).",
       "Ongoing: keep the default plate plant-heavy; the ratio fixes itself.",
     ],
+    safety: [
+    "If you have kidney disease or take BP medications (ACE inhibitors, ARBs, potassium-sparing diuretics), do NOT load potassium foods or take supplements without your doctor — excess potassium can trigger dangerous heart-rhythm problems.",
+    "Get potassium from food, not pills. Food is safe and self-limiting; supplements are where people get into trouble.",
+    "Potassium-based salt substitutes are concentrated potassium — the same warning applies to them.",
+    ],
     refs: [
       "Aburto NJ et al. BMJ 2013 — potassium intake, blood pressure & stroke meta-analysis.",
       "Yang Q et al. Arch Intern Med 2011 — sodium & potassium intake and mortality (US cohort).",
@@ -457,6 +495,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "whole-grains", title: "Swap Refined For Whole Grains — Same Meals, Better Engine", icon: "wheat", category: "Nutrition",
     goals: ["fitness", "fatloss", "muscle"], minutes: 2,
+    keywords: ["whole grains", "brown rice", "oats", "bread swap"],
     summary: "You don't need to fear carbs — you need to respect their packaging. Whole grains carry the bran and germ: more fiber, more micronutrients, slower absorption. The meal looks identical; the metabolic response doesn't.",
     why: [
       "A BMJ meta-analysis of 45 studies found 90g/day of whole grains (about 3 servings) cuts heart disease, cancer, and all-cause mortality risk by ~15–20%.",
@@ -487,6 +526,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "fish", title: "Oily Fish Twice A Week — Or Plan B", icon: "fish", category: "Nutrition",
     goals: ["fitness", "looksmax", "muscle", "strength"], minutes: 2,
+    keywords: ["fish", "salmon", "sardines", "omega-3", "mercury"],
     summary: "EPA and DHA — the omega-3s that actually matter — come almost exclusively from oily fish. Two servings a week is the evidence-based dose for heart, brain, and inflammation support. Salmon, sardines, mackerel, herring.",
     why: [
       "Cohort and trial data associate regular oily fish intake with lower cardiovascular mortality — the effect tracks the long-chain omega-3 content, not fish per se.",
@@ -509,6 +549,11 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2: two servings on fixed days.",
       "Ongoing: keep the calendar slots; rotate 3–4 species for variety and contaminant spread.",
     ],
+    safety: [
+    "If pregnant, trying to conceive, or feeding young children: stick to low-mercury fish (salmon, sardines, trout) and strictly limit high-mercury ones (shark, swordfish, king mackerel, bigeye tuna).",
+    "Fish allergy? Skip fish entirely and get your EPA/DHA from algae oil — same omega-3s, no allergy risk.",
+    "Avoid raw or undercooked fish during pregnancy or if your immune system is weakened.",
+    ],
     refs: [
       "Mozaffarian D, Rimm EB. JAMA 2006 — fish intake, contaminants & human health.",
       "Swanson D et al. Crit Rev Food Sci Nutr 2012 — omega-3 EPA/DHA biology & sources.",
@@ -517,6 +562,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "nuts", title: "One Daily Handful Of Nuts (30g, Measured)", icon: "nut", category: "Nutrition",
     goals: ["fitness", "muscle", "fatloss", "looksmax"], minutes: 2,
+    keywords: ["nuts", "almonds", "walnuts", "healthy fats", "snack"],
     summary: "Nuts are the rare snack where the evidence and the snack food agree. A measured 30g daily handful is linked to lower mortality, better cholesterol, and better satiety — but 'handful from the bag' is 800 calories waiting to happen. Measure once, enjoy daily.",
     why: [
       "A NEJM analysis of 120,000+ people found daily nut eaters were less likely to die over 30 years — independent of other diet factors.",
@@ -539,6 +585,12 @@ export const NUTRITION_TIPS: Tip[] = [
       "Week 2: install at the hunger hour that used to find biscuits.",
       "Ongoing: keep it 30g; if weight stalls or drops too fast, it's an easy +200 quality calories.",
     ],
+    safety: [
+    "Nut allergy — even a mild one — means no nuts at all, and check labels for cross-contamination warnings.",
+    "Measure the 30 g. Nuts are dense in calories, and 'a bowl' instead of 'a handful' can quietly double your intake.",
+    "Choose plain, unsalted nuts — salted and flavored versions undo the heart benefit.",
+    "Whole nuts are a choking hazard for children under ~4–5 years — use nut butters instead.",
+    ],
     refs: [
       "Bao Y et al. N Engl J Med 2013 — nut consumption & total/m cause-specific mortality.",
       "Aune D et al. BMC Med 2016 — nut consumption & risk of cardiovascular disease meta-analysis.",
@@ -547,6 +599,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "added-sugar", title: "Keep Added Sugar Under 10% Of Calories", icon: "candy", category: "Nutrition",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["sugar", "sweets", "dessert", "hidden sugar", "daily limit"],
     summary: "Sugar isn't poison — it's empty weight-gain leverage. WHO advises under 10% of calories from free sugars (ideally 5%): about 50g, ideally 25g. One soda plus one dessert clears both limits. Spend the budget deliberately.",
     why: [
       "BMJ meta-analysis: reducing free-sugar intake is associated with lower weight; increasing it, higher — via simple calorie displacement.",
@@ -577,6 +630,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "adaptive-thermo", title: "Your Body Fights Fat Loss — Budget For It", icon: "gauge", category: "Nutrition",
     goals: ["fatloss"], minutes: 3,
+    keywords: ["metabolic adaptation", "plateau", "starvation mode", "thrifty metabolism"],
     summary: "As you lose weight, your metabolism adapts: a smaller body burns less, and hunger hormones climb while fullness hormones fall. This is physiology, not failure. Expect it, measure it, and counter it with protein, lifting, and planned diet breaks.",
     why: [
       "Classic metabolic-ward work (Leibel) shows every 10% drop in bodyweight triggers a ~10–15% larger-than-expected drop in energy expenditure — the body defends its set point.",
@@ -607,6 +661,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "mindful-eating", title: "Eat Without Screens", icon: "eye", category: "Nutrition",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["distracted eating", "screens", "mindful meals", "phone"],
     summary: "Distracted eating is a proven intake multiplier: people eat measurably more when attention is on a screen, and the effect compounds at the next meal because your brain never logged the last one. Meals are 20 minutes. Give them the 20.",
     why: [
       "A systematic review in AJCN found distraction reliably increases immediate and later intake — memory of eating is part of satiety.",
@@ -637,6 +692,7 @@ export const NUTRITION_TIPS: Tip[] = [
   {
     id: "water-before", title: "A Glass Of Water Before Every Meal", icon: "droplet", category: "Nutrition",
     goals: ["fatloss", "fitness"], minutes: 1,
+    keywords: ["water before meals", "appetite", "hydration trick", "fullness"],
     summary: "500ml of water 20–30 minutes before eating measurably reduces how much you eat at that meal — one of the few zero-cost, zero-side-effect appetite tools with randomized-trial backing. Your daily hydration target gets easier at the same time.",
     why: [
       "In an RCT in adults with obesity, pre-meal water produced significantly greater weight loss over 12 weeks versus a control group imagining fullness.",

@@ -7,6 +7,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "supercompensation", title: "Stress + Rest = Growth. Cut Either Half And It's Just Soreness", icon: "refresh-cw", category: "Recovery",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["stress and rest", "adaptation", "recovery balance", "training cycle"],
     summary: "Training is the stimulus; adaptation happens between sessions — during sleep, food, and easy days. The rhythm of stress and recovery is the entire game: skip the rest half and you're not 'extra dedicated', you're just interrupting the build.",
     why: [
       "The workload-fatigue model shows fitness accrues when training stress is followed by recovery — chronic overload without recovery produces staleness and injury risk.",
@@ -37,6 +38,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "doms-care", title: "Treat DOMS With Movement — Not Stretching", icon: "flame", category: "Recovery",
     goals: ["muscle", "fitness", "strength"], minutes: 2,
+    keywords: ["sore muscles", "DOMS relief", "recovery from soreness", "movement"],
     summary: "Stretching before or after training barely touches next-day soreness — the Cochrane review is blunt about it. What actually helps: light movement of the sore muscles, sleep, and time. Soreness is not damage to fear or a badge to chase (see the DOMS-myth protocol).",
     why: [
       "The Cochrane systematic review found stretching produces negligible reduction in muscle soreness — pre- and post-exercise.",
@@ -67,6 +69,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "foam-roll", title: "Foam Rolling: Real But Modest — Use It Right", icon: "waves", category: "Recovery",
     goals: ["fitness", "muscle", "strength"], minutes: 2,
+    keywords: ["foam rolling", "mobility", "tight muscles", "self massage"],
     summary: "Foam rolling doesn't 'release fascia' or fix posture, but trials do show it reduces soreness perception and briefly improves range of motion without performance loss. Treat it as a warm-up tool and a comfort tool — not therapy.",
     why: [
       "Meta-analyses show foam rolling reduces delayed-onset muscle soreness perception and slightly improves ROM in the short term.",
@@ -97,6 +100,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "sauna", title: "Sauna 2–4x Weekly — The Best-Supported Heat Habit", icon: "flame-kindling", category: "Recovery",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["sauna", "heat therapy", "cardiovascular", "post workout heat"],
     summary: "Regular sauna use shows some of the best observational data of any recovery ritual: large Finnish cohorts link frequent sessions to lower cardiovascular and all-cause mortality. 15–20 minutes at ~80°C, 2–4 times weekly. Post-training or separate days — hydrate and don't treat records as the goal.",
     why: [
       "The Kuopio Ischaemic Heart Disease cohort found men using sauna 4–7×/week had substantially lower fatal cardiovascular and all-cause mortality versus 1×/week.",
@@ -119,6 +123,12 @@ export const RECOVERY_TIPS: Tip[] = [
       "Weeks 3–8: 3–4 × 15 min.",
       "Ongoing: 2–4 weekly as a standing ritual; skip when ill or severely dehydrated.",
     ],
+    safety: [
+    "Hydrate before and after. Never combine alcohol with sauna — blood-pressure crashes and heart-rhythm problems in the heat are a real, documented danger.",
+    "Keep sessions to 15–20 minutes to start. Leave immediately if you feel dizzy, nauseated, or unwell, and cool down gradually.",
+    "If you have a heart condition, very low or high blood pressure, or are pregnant, get your doctor's guidance on duration and temperature first.",
+    "Never sauna while drunk or alone when unwell — fainting in a hot room is an emergency, not a nap.",
+    ],
     refs: [
       "Laukkanen T et al. JAMA Intern Med 2015 — sauna bathing & fatal cardiovascular disease/all-cause mortality.",
       "Kunutsor SK et al. Neurology 2018 — sauna bathing & reduced stroke risk.",
@@ -127,6 +137,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "cold-immersion", title: "Cold Plunges: Real Effects, Right Timing", icon: "snowflake", category: "Recovery",
     goals: ["fitness", "looksmax"], minutes: 3,
+    keywords: ["ice bath", "cold plunge", "cold shower", "cold water"],
     summary: "Cold water immersion (5–15°C, 2–5 min) reliably reduces soreness and leaves you alert — but taken immediately after lifting, it can blunt strength and muscle gains. Time it: after endurance days, on rest days, or 4–6+ hours after lifting. Morning plunges are fine on non-lifting days.",
     why: [
       "Trials show cold water immersion immediately post-resistance-training attenuates muscle and strength gains (Roberts) — vasoconstriction and reduced inflammatory signaling cut both ways.",
@@ -149,6 +160,13 @@ export const RECOVERY_TIPS: Tip[] = [
       "Weeks 3–8: 2–3 × 2–3 min at 12–15°C, rest-day or evening timing.",
       "Ongoing: keep it 2–3× weekly around training, never daily post-lift in a growth phase.",
     ],
+    safety: [
+    "Cold shock is real and fast: gasping, panic, and a heart-rate spike hit in the first seconds. Never plunge alone, always have someone nearby, and enter gradually while controlling your breathing.",
+    "1–3 minutes is the useful range. Longer is not stronger — beyond that you are losing heat, not gaining benefit, and hypothermia risk climbs.",
+    "If you have a heart condition, high blood pressure, or Raynaud's disease, or are pregnant, talk to a doctor first — cold water spikes heart rate and blood pressure hard.",
+    "Warm up afterwards with movement and dry clothes — not an immediate hot shower, which can drop blood pressure suddenly.",
+    "In open water, know the depth, currents, and your exit before you get in. Ice baths: use a thermometer, not guesswork.",
+    ],
     refs: [
       "Roberts LA et al. J Physiol 2015 — cold water immersion attenuates hypertrophy/strength adaptations.",
       "Fyfe JJ et al. J Appl Physiol 2019 — post-exercise cold water immersion & training adaptations.",
@@ -157,6 +175,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "active-recovery", title: "Easy Days: The Underrated Accelerator", icon: "leaf", category: "Recovery",
     goals: ["fitness", "muscle", "fatloss"], minutes: 2,
+    keywords: ["rest days", "easy movement", "recovery day", "light activity"],
     summary: "A genuinely easy day — 20–40 minute walk, easy cycling, mobility flow — outperforms both couch-lock and accidental workouts. It moves blood, loosens stiff tissue, and adds NEAT without adding recovery debt. The hard part is keeping it genuinely easy.",
     why: [
       "Recovery meta-analyses find active recovery reduces soreness perception versus passive rest — movement is medicine here.",
@@ -187,6 +206,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "otw-signs", title: "Know The Overtraining Red Flags", icon: "alert-triangle", category: "Recovery",
     goals: ["strength", "muscle", "fitness"], minutes: 2,
+    keywords: ["overtraining", "burnout", "fatigue signs", "warning flags"],
     summary: "Overreaching is common; true overtraining syndrome is rare but ruins months. The skill is reading early signals: performance falling for 2+ weeks despite eating and sleeping adequately, resting pulse drifting up, mood and sleep degrading. Answer: rest and food, not more willpower.",
     why: [
       "The joint ECSS/ACSM consensus distinguishes functional overreaching (recoverable in days–weeks) from overtraining syndrome (months) — the response to early signs determines which you get.",
@@ -217,6 +237,7 @@ export const RECOVERY_TIPS: Tip[] = [
   {
     id: "stress-bucket", title: "Life Stress Borrows From Recovery — Budget It", icon: "battery-charging", category: "Recovery",
     goals: ["fitness", "muscle", "strength", "fatloss"], minutes: 2,
+    keywords: ["life stress", "recovery budget", "burnout", "mental load"],
     summary: "Your body doesn't separate 'work stress' from 'squat stress' — recovery capacity is one budget. Deadline weeks, relationship strain, and poor sleep all draw from it. Training hard through every storm is how plateaus get made; scaling load to the stress budget is how they get avoided.",
     why: [
       "Research on stress and recovery shows high life-stress individuals respond to training with more fatigue, injuries, and illness — the stress response is systemic.",
@@ -250,6 +271,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "sleep-regularity", title: "Same Sleep Window Daily — Regularity Beats Duration", icon: "calendar-check-2", category: "Sleep",
     goals: ["fitness", "looksmax", "muscle", "fatloss"], minutes: 2,
+    keywords: ["sleep schedule", "consistent bedtime", "wake time", "circadian"],
     summary: "New large-cohort data suggest sleep regularity — going to bed and waking at consistent times — predicts health outcomes even more strongly than total duration. Anchor your wake time 7 days a week and a consistent bed window follows. Same time, even weekends. That's the whole protocol.",
     why: [
       "A 2024 analysis of ~60,000 people found sleep regularity predicted mortality risk more strongly than sleep duration in their models.",
@@ -280,6 +302,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "caffeine-cutoff", title: "Caffeine Has A Curfew: 8–10 Hours Before Bed", icon: "coffee", category: "Sleep",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["caffeine", "coffee", "sleep quality", "curfew"],
     summary: "Caffeine's half-life is ~5 hours, so the 4 PM double espresso is still a quarter-active at midnight — measurably cutting deep sleep even when you fall asleep fine. Cutoff: 8–10 hours before bed (1–2 PM for a 10–11 PM bedtime). Decaf exists and is good now.",
     why: [
       "A controlled trial showed 400mg caffeine 6h before bed objectively destroyed sleep quality while subjects didn't notice — subjective 'I sleep fine on caffeine' is unreliable.",
@@ -310,6 +333,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "alcohol-sleep", title: "Alcohol Is A Sleep Tax — Even Two Drinks", icon: "wine", category: "Sleep",
     goals: ["looksmax", "fitness", "muscle"], minutes: 2,
+    keywords: ["alcohol", "sleep quality", "drinking", "REM sleep"],
     summary: "Alcohol sedates you into sleep, then fragments the second half of the night: REM and deep sleep both suffer, breathing worsens, and you wake less restored. Meta-analysis of 27 trials is unambiguous. 'Nightcap' is a loan you repay at 3 AM.",
     why: [
       "The definitive meta-analysis found alcohol reduces sleep latency but suppresses REM in the first half of the night and fragments sleep in the second half, at every dose.",
@@ -332,6 +356,13 @@ export const SLEEP_TIPS: Tip[] = [
       "Week 2: enforce the 3-hour rule.",
       "Ongoing: most people settle at 0–2 drinks weekly, earlier in the evening, once they see the data.",
     ],
+    safety: [
+      "Do not use alcohol as a sleep aid — it lights you up at first but fragments the second half of the night. Never stack it with sleeping pills (like zolpidem) or sedatives; the combination suppresses breathing.",
+      "It interacts with many medications — sleep medicines, antidepressants, painkillers, and anxiety drugs. Ask your doctor or pharmacist about your specific prescriptions.",
+      "Plan your ride: even the morning after, alcohol still slows reaction time while driving or operating machinery.",
+      "Zero during pregnancy or breastfeeding — there is no known safe dose.",
+      "If you are a heavy daily drinker, do NOT stop cold turkey on your own — alcohol withdrawal can cause seizures and needs medical supervision.",
+    ],
     refs: [
       "Ebrahim IO et al. Alcohol Clin Exp Res 2013 — alcohol & sleep meta-analysis of 27 studies.",
     ],
@@ -339,6 +370,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "cool-room", title: "Sleep Cold: 17–19°C Room, Warm Bed", icon: "thermometer", category: "Sleep",
     goals: ["looksmax", "fitness", "muscle"], minutes: 1,
+    keywords: ["bedroom temperature", "cold room", "sleep environment", "degrees"],
     summary: "Your core temperature must drop ~1°C to initiate and hold deep sleep. A cool room (17–19°C) with warm bedding is the fastest lever most people haven't pulled. Hot stuffy bedrooms quietly shred sleep quality — especially for looks-conscious lifters whose recovery depends on it.",
     why: [
       "Reviews of thermal environment research show heat exposure consistently degrades sleep quality and continuity; the cool-but-comfortable zone is 17–19°C for most adults.",
@@ -369,6 +401,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "wind-down", title: "Build A 60-Minute Wind-Down You Don't Negotiate", icon: "lamp", category: "Sleep",
     goals: ["looksmax", "fitness", "muscle"], minutes: 2,
+    keywords: ["bedtime routine", "evening ritual", "relax", "unwind"],
     summary: "Sleep doesn't toggle on — it ramps down. A fixed final hour: dim lights, no work inputs, low-stimulation ritual (reading, stretching, shower), then bed at the same time. Behavioral sleep guidelines put routines like this at the core of non-drug insomnia treatment.",
     why: [
       "Clinical practice guidelines for insomnia place stimulus control and wind-down routines among the first-line, evidence-based treatments — better supported than any supplement.",
@@ -399,6 +432,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "stimulus-control", title: "Bed = Sleep Only (The 20-Minute Rule)", icon: "bed-double", category: "Sleep",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["insomnia", "cant sleep", "bed association", "20 minute rule"],
     summary: "Can't sleep after ~20 minutes in bed? Get up, dim room, do something dull, return when sleepy. Bed must mean one thing or your brain learns bed = worrying. This 'stimulus control' rule is among the most effective non-drug insomnia treatments ever tested.",
     why: [
       "Stimulus control is a first-line component of CBT-I, the gold-standard insomnia treatment endorsed by clinical guidelines.",
@@ -429,6 +463,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "screens-honest", title: "Screens: It's The Light AND The Content", icon: "smartphone", category: "Sleep",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["screens", "blue light", "phone before bed", "scrolling"],
     summary: "Evening screens hurt sleep two ways: bright light delays your clock, and engaging content keeps your mind in daytime mode. The honest fix covers both — brightness down and night mode, yes, but the bigger lever is ending the feed 60 minutes before bed (see the wind-down protocol).",
     why: [
       "The controlled PNAS study found evening e-reader use on backlit devices delayed melatonin, shifted the clock, and impaired next-morning alertness versus paper books.",
@@ -459,6 +494,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "naps", title: "Nap Like A Pro: 10–20 Minutes, Before 3 PM", icon: "moon", category: "Sleep",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["nap", "power nap", "siesta", "afternoon sleep"],
     summary: "A short early-afternoon nap measurably restores alertness and mood without stealing tonight's sleep. The rules are strict: 10–20 minutes (or a full 90), and before ~3 PM. Thirty-minute 5 PM naps are the worst of both worlds.",
     why: [
       "Trials show brief naps (10–20 min) improve alertness and performance with minimal sleep inertia — you wake before deep sleep begins.",
@@ -489,6 +525,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "sleep-appetite", title: "Short Sleep Feeds Fat Gain — Hunger Rises, Willpower Falls", icon: "ice-cream-bowl", category: "Sleep",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["sleep and hunger", "cravings", "appetite hormones", "junk food"],
     summary: "Sleep restriction is a fat-loss sabotage machine: hunger hormones shift toward appetite, cravings skew to calorie-dense food, and — cruelly — the weight you do lose skews toward muscle. The trials are striking: same diet, different sleep, different body composition.",
     why: [
       "Controlled studies show sleep restriction raises ghrelin, lowers leptin, and increases subjective hunger — subjects eat measurably more the next day.",
@@ -519,6 +556,7 @@ export const SLEEP_TIPS: Tip[] = [
   {
     id: "apnea-flag", title: "Loud Snoring + Daytime Fog? Get Checked For Sleep Apnea", icon: "volume-x", category: "Sleep",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["sleep apnea", "snoring", "CPAP", "breathing during sleep"],
     summary: "If you snore loudly, wake unrefreshed despite hours in bed, or fight daytime sleepiness, sleep apnea is a real possibility — it's common, underdiagnosed, and it quietly crushes recovery, testosterone, blood pressure, and mood. No supplement or protocol beats a proper diagnosis.",
     why: [
       "Population studies estimate nearly a billion adults worldwide have obstructive sleep apnea, with most cases undiagnosed — prevalence rises steeply with body fat and age.",

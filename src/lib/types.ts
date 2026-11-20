@@ -16,6 +16,8 @@ export interface Tip {
   steps: string[];
   mistakes: string[];
   progression: string[];
+  safety?: string[]; // optional — only tips with real health/skin/supplement risk carry one
+  keywords?: string[]; // curated search keywords (synonyms + related terms)
   refs: string[];
 }
 

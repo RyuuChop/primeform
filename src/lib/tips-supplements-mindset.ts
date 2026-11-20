@@ -7,6 +7,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "caffeine-protocol", title: "Caffeine: 3–6 mg/kg, 45–60 Minutes Out", icon: "coffee", category: "Supplements",
     goals: ["strength", "muscle", "fitness", "fatloss"], minutes: 2,
+    keywords: ["pre-workout", "caffeine dose", "energy", "coffee timing"],
     summary: "Caffeine is the most proven performance supplement in existence: reliable improvements in strength, endurance, and perceived effort. Dose 3–6mg/kg bodyweight, 45–60 minutes pre-training — and respect the sleep curfew (see the caffeine-cutoff protocol).",
     why: [
       "The ISSN position stand concludes caffeine acutely enhances muscular endurance, strength, and aerobic performance across modalities, with the strongest effects at 3–6mg/kg.",
@@ -29,6 +30,13 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Ongoing: titrate to effect; cap at 6mg/kg; deload caffeine entirely every 8–10 weeks for a week.",
       "Judge by the log: do key lifts improve on dosed days? If not, sleep and programming are the problem.",
     ],
+    safety: [
+    "Keep total caffeine under ~400 mg a day (healthy adults) — that includes coffee, tea, energy drinks, pre-workout, and pills combined.",
+    "If pregnant, stay under 200 mg a day and confirm with your doctor.",
+    "Signs you have taken too much: jitters, racing heart, anxiety, or shaky hands. Cut your dose in half next time — sensitivity varies a lot between people.",
+    "If you have a heart condition, high blood pressure, or an anxiety disorder, talk to your doctor before using caffeine for training.",
+    "Take it at least 8–10 hours before bed (this protocol's curfew) — a late dose quietly destroys your sleep, which costs you more than the boost helps.",
+    ],
     refs: [
       "Grgic J et al. J Int Soc Sports Nutr 2019 — wake up and smell the coffee: caffeine supplementation & exercise.",
       "Guest NS et al. J Int Soc Sports Nutr 2021 — ISSN position stand: caffeine & exercise performance.",
@@ -37,6 +45,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "beta-alanine", title: "Beta-Alanine For The Burn (60–240s Efforts)", icon: "test-tube", category: "Supplements",
     goals: ["fitness", "muscle"], minutes: 2,
+    keywords: ["beta-alanine", "tingling", "endurance", "muscle burn"],
     summary: "Beta-alanine buffers muscle acidity, and the evidence supports it for one specific job: high-intensity efforts lasting 1–4 minutes — metcons, 400–1500m runs, high-rep sets. Dose 3.2–6.4g/day split up (tingles are harmless), for 4+ weeks. Outside that window, it does little.",
     why: [
       "The ISSN position stand concludes beta-alanine reliably raises muscle carnosine and improves high-intensity exercise capacity, particularly in the 1–4 minute range.",
@@ -59,6 +68,13 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Weeks 5–12: raise to 4.8–6.4g/day if training matches the 1–4 min window.",
       "Ongoing: cycle off 4 weeks after long blocks if you like — carnosine decays slowly; benefits persist for weeks.",
     ],
+    safety: [
+    "The skin tingling (it feels like harmless pins and needles) is normal and not an allergy. Use sustained-release capsules or split the dose to reduce it.",
+    "Stay inside the studied range: 3.2–6.4 g per day, split into smaller doses. Mega-dosing has never been tested and gains nothing.",
+    "Take it daily for weeks — beta-alanine works by building up in muscle over time, not like a pre-workout buzz.",
+    "If you have any chronic medical condition or take regular medication, check with your doctor before adding it.",
+    "Buy third-party tested brands only.",
+    ],
     refs: [
       "Trexler ET et al. J Int Soc Sports Nutr 2015 — ISSN position stand: beta-alanine.",
       "Saunders B et al. Br J Sports Med 2017 — beta-alanine & exercise performance meta-analysis.",
@@ -67,6 +83,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "citrulline", title: "Citrulline: More Reps In The Tank", icon: "droplets", category: "Supplements",
     goals: ["muscle", "fitness"], minutes: 2,
+    keywords: ["citrulline", "pump", "pre-workout", "blood flow"],
     summary: "L-citrulline (6–10g, ~60 minutes pre-training) reliably increases nitric-oxide availability, blood flow, and total reps on hard sets. Effect sizes are moderate but consistent — one of the few pump ingredients with real trial support. Skip the 'malate math' marketing; dose by L-citrulline grams.",
     why: [
       "Meta-analysis of acute citrulline trials shows improved strength-endurance (more reps/volume) and reduced soreness, strongest at 8g+ doses.",
@@ -89,6 +106,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Weeks 2–4: titrate to 8–10g if you respond.",
       "Ongoing: keep it for high-volume phases; skip on deloads — budget sanity.",
     ],
+    safety: [
+    "Stay in the studied range: 6–8 g of citrulline malate about an hour before training. More than that mainly buys you stomach upset and loose stools.",
+    "It mildly lowers blood pressure. If you already take blood-pressure medication, ask your doctor first.",
+    "Some people get a light headache on first use — drink water and start at the lower end of the dose.",
+    "Buy third-party tested brands only.",
+    ],
     refs: [
       "Trexler ET et al. Sports Med 2019 — acute L-citrulline supplementation & exercise performance: meta-analysis.",
       "Pérez-Guisado J et al. J Strength Cond Res 2010 — citrulline malate & bench press reps RCT.",
@@ -97,6 +120,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "whey-casein", title: "Whey Fast, Casein Slow — Use The Speeds", icon: "blender", category: "Supplements",
     goals: ["muscle", "strength", "fatloss"], minutes: 2,
+    keywords: ["whey", "casein", "protein powder", "shake", "slow protein"],
     summary: "Protein powders are food with a nutrition label — whey hits fast (ideal around training, breakfast), casein drips slowly (ideal pre-bed or as a thick hunger-killing pudding). Neither is magic; both make hitting your protein target easier and cheaper than meat-only approaches.",
     why: [
       "The classic Boirie work established the 'fast' (whey) vs 'slow' (casein) protein kinetics — different postprandial amino-acid profiles.",
@@ -119,6 +143,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Ongoing: whey around training, casein/yogurt at night if budget and appetite allow.",
       "Cutting: lean on casein pudding evenings — protein and dessert in one.",
     ],
+    safety: [
+    "If you are lactose intolerant, choose whey isolate (very low lactose) or a plant protein — regular whey concentrate can cause bloating and stomach cramps.",
+    "If you have a true milk allergy, skip dairy proteins completely and use plant-based options.",
+    "If you have kidney disease, your protein targets must be set by your doctor — don't self-prescribe high protein.",
+    "Shakes are a convenience, not a magic food — they still count toward your daily protein and calorie totals.",
+    ],
     refs: [
       "Boirie Y et al. Proc Natl Acad Sci USA 1997 — slow and fast dietary proteins: kinetics.",
       "Res PT et al. J Nutr 2012 — protein ingestion before sleep improves overnight recovery.",
@@ -127,6 +157,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "omega3", title: "Omega-3 (EPA/DHA): 1–2g Combined Daily", icon: "fish", category: "Supplements",
     goals: ["fitness", "looksmax", "strength"], minutes: 2,
+    keywords: ["fish oil", "omega-3", "EPA", "DHA", "heart health"],
     summary: "If your fish intake is unreliable (most people's is), 1–2g combined EPA+DHA daily from fish oil or algae oil is a reasonable insurance policy — with trial support for triglycerides, joint comfort, and possible recovery benefits. Skip 'omega 3-6-9' blends; EPA and DHA are the actives.",
     why: [
       "Reviews of omega-3 biology document EPA/DHA incorporation into cell membranes, triglyceride lowering, and eicosanoid effects — the mechanism layer is well-established.",
@@ -149,6 +180,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Ongoing: hold 1–2g daily; raise fish, lower capsules over time.",
       "Blood-thinning medication? Doctor first — the only serious interaction to check.",
     ],
+    safety: [
+    "Stay near 1–2 g of combined EPA+DHA daily. High doses (3 g+) thin the blood — if you take blood thinners like warfarin, or aspirin daily, talk to your doctor before supplementing.",
+    "Have surgery scheduled? Tell your surgeon you take fish oil — they may ask you to stop it beforehand.",
+    "Take capsules with a meal to avoid fishy burps; freezing them helps too. Smell-test the bottle — rancid fish oil is worse than none.",
+    "More is not better — beyond the studied range you add risk without adding benefit.",
+    ],
     refs: [
       "Swanson D et al. Crit Rev Food Sci Nutr 2012 — omega-3 fatty acids EPA and DHA: biology & sources.",
       "Yurko-Mauro K et al. Curr Opin Clin Nutr Metab Care 2015 — DHA & human brain/cognition review.",
@@ -157,6 +194,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "vitamin-d", title: "Vitamin D: Test, Don't Guess", icon: "sun-dim", category: "Supplements",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["vitamin D", "sunshine vitamin", "bones", "immunity", "deficiency"],
     summary: "Vitamin D deficiency is common (office workers, northern latitudes, dark skin tones) and fixable. The evidence supports supplementing when deficient — bone health is settled; the broader claims (testosterone, immunity) are weaker than the internet believes. 1,000–2,000 IU daily is a safe default; blood testing makes it precise.",
     why: [
       "Meta-analyses show vitamin D supplementation reduces mortality modestly in deficient/older populations, with the strongest effects on bone outcomes.",
@@ -179,6 +217,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Month 3: test 25(OH)D; adjust dose to hold 30–50ng/ml.",
       "Ongoing: retest annually (or each winter); adjust for season and sun.",
     ],
+    safety: [
+    "Test first, then dose. A simple blood test (25-OH vitamin D) tells you if you actually need it — guessing leads to megadosing.",
+    "Vitamin D is fat-soluble and can build up to toxic levels over months. Stay in the tested range (typically 1,000–2,000 IU daily) unless a doctor prescribes more.",
+    "Take it with a meal that contains fat — it absorbs far better that way.",
+    "If you have kidney disease, sarcoidosis, or high blood calcium, do not supplement without medical supervision.",
+    ],
     refs: [
       "Holick MF. N Engl J Med 2007 — vitamin D deficiency: clinical review.",
       "Autier P et al. Lancet Diabetes Endocrinol 2014 — vitamin D supplementation & health outcomes meta-analysis.",
@@ -187,6 +231,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "melatonin-low", title: "Melatonin: Low Dose, For Timing — Not As Sleeping Pills", icon: "pill", category: "Supplements",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["melatonin", "jet lag", "sleep timing", "low dose"],
     summary: "Melatonin works — for shifting your clock and shaving minutes off sleep onset at LOW doses (0.5–1mg). The 5–10mg pharmacy tablets are oversized for chronobiology. It's a timing tool for jet lag, shift changes, and delayed sleep — not a sedative, and never a substitute for the behavioral protocols.",
     why: [
       "Meta-analysis of RCTs shows melatonin reduces sleep onset by minutes and increases total sleep modestly — real, small effects, strongest at low doses.",
@@ -209,6 +254,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Weeks 2–3: adjust timing by response (earlier for phase-shifting).",
       "Week 4: taper off; keep the light/wind-down behaviors that carried the benefit.",
     ],
+    safety: [
+    "It makes you drowsy — never drive or operate machinery after taking it.",
+    "Use 0.5–1 mg for timing (jet lag, shifted sleep). It is a clock signal, not a sleeping pill — a bigger dose does not knock you out better, it just adds grogginess.",
+    "It interacts with sleep medications, antidepressants, and blood thinners — if you take any of these, ask your doctor first.",
+    "Not for children or during pregnancy without a doctor's approval.",
+    ],
     refs: [
       "Ferracioli-Oda E et al. PLoS One 2013 — melatonin & sleep: meta-analysis.",
       "Burgess HJ et al. J Clin Endocrinol Metab 2010 — human phase response to daily melatonin.",
@@ -217,6 +268,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "magnesium", title: "Magnesium For Sleep: Modest, Real, Cheap", icon: "battery-charging", category: "Supplements",
     goals: ["looksmax", "fitness"], minutes: 2,
+    keywords: ["magnesium", "sleep support", "glycinate", "relaxation"],
     summary: "Magnesium won't transform bad sleep hygiene, but trials show modest objective sleep improvements — especially in people with low intake (a large fraction of adults). 200–400mg of a well-absorbed form in the evening is a low-risk, reasonable add to the sleep stack.",
     why: [
       "A trial in older adults found magnesium supplementation significantly improved objective sleep measures (time to fall asleep, sleep time) versus placebo.",
@@ -239,6 +291,12 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Weeks 2–4: titrate to 400mg if sleep data/feel improves and gut tolerates.",
       "Ongoing: keep if it earns its slot; drop if you can't tell it apart from placebo after 6 weeks.",
     ],
+    safety: [
+    "Pick the right form: magnesium glycinate or citrate for sleep. Avoid magnesium oxide — it absorbs poorly and mainly causes loose stools.",
+    "Keep supplemental magnesium at or under ~350 mg per day; more mostly means diarrhea.",
+    "If you have kidney disease, do not take magnesium supplements without a doctor — your kidneys clear it, and buildup is dangerous.",
+    "If you take antibiotics or blood-pressure medication, separate the timing — ask your pharmacist how far apart.",
+    ],
     refs: [
       "Abbasi B et al. J Res Med Sci 2012 — magnesium supplementation & primary insomnia (elderly RCT).",
       "Mah J et al. BMC Complement Med Ther 2021 — magnesium & sleep quality: meta-analysis.",
@@ -247,6 +305,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "ashwagandha", title: "Ashwagandha: Real RCTs For Stress & Strength", icon: "leaf", category: "Supplements",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["ashwagandha", "stress", "cortisol", "adaptogen"],
     summary: "Ashwagandha root extract (300–600mg/day of standardized extract) has several legitimate randomized trials: reduced perceived stress and cortisol, and modest strength gains in training men. Effects are real but moderate; buy standardized extracts from tested brands, and know the caution list (thyroid conditions, pregnancy).",
     why: [
       "The Chandrasekhar RCT found significantly reduced cortisol and perceived stress versus placebo over 8 weeks at 300mg twice daily.",
@@ -269,6 +328,13 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Weeks 3–8: 600mg/day split if tolerated and useful.",
       "Week 9+: 2–4 weeks off; compare the same ratings. Keep only what demonstrably works.",
     ],
+    safety: [
+    "Do not use during pregnancy or breastfeeding.",
+    "It shifts thyroid hormones — if you have a thyroid condition or take thyroid medication, use it only with your doctor's supervision.",
+    "Rare liver problems have been reported. Stop immediately and see a doctor if you notice yellowing skin or eyes, dark urine, or ongoing stomach pain.",
+    "It makes some people drowsy — see how you respond before driving, and don't stack it with sedatives or alcohol.",
+    "Use it in blocks (for example 6–8 weeks on, then a break) rather than indefinitely.",
+    ],
     refs: [
       "Chandrasekhar K et al. Indian J Psychol Med 2012 — ashwagandha & stress/cortisol RCT.",
       "Wankhede S et al. J Int Soc Sports Nutr 2015 — ashwagandha & strength/muscle RCT.",
@@ -277,6 +343,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "nitrate", title: "Beetroot/Nitrate For Endurance Days", icon: "carrot", category: "Supplements",
     goals: ["fitness", "fatloss"], minutes: 2,
+    keywords: ["beetroot", "beet juice", "nitric oxide", "endurance"],
     summary: "Dietary nitrate (beetroot juice, ~300–600mg nitrate = roughly 500ml juice or concentrated shots) reliably improves endurance economy — same pace costs less oxygen. The effect is real, replicated, and useful for cardio days and long walks. It turns pee and stamina pink; accept both.",
     why: [
       "The nitrate-nitrite-NO pathway reduces the oxygen cost of submaximal exercise — the canonical reviews (Jones and colleagues) document 1–3% economy improvements, meaningful at competitive margins.",
@@ -299,6 +366,11 @@ export const SUPPLEMENT_TIPS: Tip[] = [
       "Ongoing: deploy on key endurance days; greens daily as the base layer.",
       "Track: same heart rate, faster pace? That's the economy effect showing up.",
     ],
+    safety: [
+    "Beetroot juice lowers blood pressure. If you take BP medication or nitrate heart drugs (like nitroglycerin), talk to your doctor first — the effects stack.",
+    "Start with a smaller dose the first few times to check how your stomach handles it.",
+    "Red-tinged urine or stool after beetroot is harmless (it's called beeturia) — don't panic, don't confuse it with blood.",
+    ],
     refs: [
       "Jones AM et al. Annu Rev Nutr 2018 — dietary nitrate & physical performance.",
     ],
@@ -306,6 +378,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "third-party", title: "Buy Only Third-Party Tested Supplements", icon: "badge-check", category: "Supplements",
     goals: ["fitness", "muscle", "strength", "looksmax"], minutes: 2,
+    keywords: ["supplement testing", "quality brands", "NSF certified", "contamination"],
     summary: "The supplement industry is lightly regulated, and analyses repeatedly find products spiked, under-dosed, or contaminated — including with banned substances. The fix costs nothing: buy only products certified by NSF Certified for Sport or Informed Sport. If a brand won't certify, that's the review.",
     why: [
       "Studies of supplement contamination (including IOC lab analyses) have found a meaningful fraction of products contain undeclared substances — prohormones, stimulants, even prescription drugs.",
@@ -335,6 +408,7 @@ export const SUPPLEMENT_TIPS: Tip[] = [
   {
     id: "supp-pyramid", title: "The Supplement Pyramid: Few Tools, Used Well", icon: "package-check", category: "Supplements",
     goals: ["fitness", "muscle", "strength", "fatloss", "looksmax"], minutes: 3,
+    keywords: ["supplement guide", "which supplements", "priority list", "basics"],
     summary: "The evidence-based supplement stack is small: creatine (covered in its own protocol), caffeine, vitamin D if deficient, omega-3 if fish-free, protein powder as food logistics. Everything else is situational. Money spent on the pyramid's wide base — food, sleep, training — beats any bottle on the shelf.",
     why: [
       "Systematic reviews rank the supplement hierarchy consistently: creatine and caffeine carry the strongest performance evidence; most everything else is situational or marginal.",
@@ -368,6 +442,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "when-then", title: "When-Then Plans: The Highest-ROI Sentence In Behavior Change", icon: "key-round", category: "Mindset",
     goals: ["fitness", "fatloss", "muscle", "looksmax", "strength"], minutes: 2,
+    keywords: ["implementation intention", "if then plan", "habit trigger", "planning"],
     summary: "'When X happens, I will do Y' — a sentence format backed by one of behavior science's largest meta-analyses. Implementation intentions roughly double follow-through versus vague goals, because the decision is made once, in advance, instead of 200 times in the moment.",
     why: [
       "The Gollwitzer & Sheeran meta-analysis of 94 studies found implementation intentions produced medium-to-large effects on goal attainment across domains.",
@@ -397,6 +472,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "66-days", title: "Habits Take ~66 Days — Budget Accordingly", icon: "hourglass", category: "Mindset",
     goals: ["fitness", "fatloss", "muscle", "strength", "looksmax"], minutes: 2,
+    keywords: ["habit formation", "66 days", "routine building", "patience"],
     summary: "The '21 days to a habit' line is folklore. The best tracking study found habits take 18–254 days — averaging ~66 — to become automatic. Plan for a 2–3 month grind with good days and bad days built in. Missing once changes nothing; the curve forgives.",
     why: [
       "Lally's habit-formation study tracked real behaviors daily: automaticity rose asymptotically, averaging ~66 days, with huge individual variance.",
@@ -427,6 +503,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "habit-stacking", title: "Stack New Habits On Existing Ones", icon: "blocks", category: "Mindset",
     goals: ["fitness", "fatloss", "looksmax", "muscle"], minutes: 2,
+    keywords: ["habit stacking", "anchor habit", "routine", "trigger"],
     summary: "Existing routines are pre-built cue platforms. 'After I brush my teeth, I do 10 chin tucks. After I pour coffee, I take my creatine. After I close my laptop, I walk 10 minutes.' Anchoring new behaviors to old ones removes the hardest part: remembering.",
     why: [
       "Habit-formation research identifies consistent cue-context pairing as the mechanism of automaticity — existing habits are the most reliable contexts you own.",
@@ -457,6 +534,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "progress-monitor", title: "Monitor Progress Or Watch Motivation Die", icon: "line-chart", category: "Mindset",
     goals: ["fitness", "fatloss", "muscle", "strength", "looksmax"], minutes: 2,
+    keywords: ["progress tracking", "motivation", "feedback loop", "metrics"],
     summary: "A meta-analysis across 138 studies found progress monitoring itself increases goal attainment — and the effect grows when you record and report it. Weigh-ins, training logs, and photos aren't admin; they're the motivational engine running on evidence instead of mood.",
     why: [
       "The Harkin meta-analysis found prompting progress monitoring increased goal attainment, with larger effects when progress is physically recorded.",
@@ -487,6 +565,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "gratitude", title: "Three Good Things: The Cheapest Mood Protocol", icon: "heart", category: "Mindset",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["gratitude", "mood", "happiness", "positive psychology"],
     summary: "Writing down three things that went well each day — and why — looks trivial and performs like an intervention: the original randomized trial found lasting happiness increases and depression decreases for months. Two minutes nightly, before your phone comes out (see the screens protocol).",
     why: [
       "Emmons & McCullough's experiments found weekly gratitude listing increased well-being and optimism versus hassles-listing controls — one of positive psychology's most replicated findings.",
@@ -517,6 +596,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "reappraisal", title: "Reframe Stress As Fuel — The Physiology Follows", icon: "brain", category: "Mindset",
     goals: ["fitness", "strength", "looksmax"], minutes: 2,
+    keywords: ["stress mindset", "reframing", "anxiety", "performance"],
     summary: "Pre-race nerves and pre-set pressure are the same arousal either way — but studies show people taught to read it as 'my body fueling up' perform better and show healthier cardiovascular responses than those taught to suppress it. The feeling stays; the story changes the output.",
     why: [
       "Jamieson's experiments found arousal reappraisal improved performance under pressure and produced more challenge-type cardiovascular responses (efficient, adaptive).",
@@ -547,6 +627,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "meditation", title: "Ten Minutes Of Stillness — Measured, Modest, Real", icon: "flower", category: "Mindset",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["meditation", "mindfulness", "breathing", "anxiety", "focus", "calm"],
     summary: "Mindfulness practice earned its reputation carefully: the landmark JAMA meta-analysis found moderate evidence for improved anxiety, depression, and pain — not enlightenment, but a real, trainable effect. 10 minutes daily, guided apps are fine. Think of it as pull-ups for attention.",
     why: [
       "The Goyal meta-analysis (47 trials) found mindfulness programs produce moderate improvements in anxiety, depression, and pain versus active controls.",
@@ -577,6 +658,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "movement-mood", title: "Exercise Rivals Medication For Depression & Anxiety", icon: "heart-pulse", category: "Mindset",
     goals: ["fitness", "muscle", "strength"], minutes: 2,
+    keywords: ["depression", "anxiety", "mental health", "exercise mood"],
     summary: "Large meta-analyses now place regular exercise among the most effective interventions for depression and anxiety — comparable to medication and therapy effects in pooled data, and superior to doing nothing by a mile. This isn't 'go for a jog to clear your head' folk wisdom anymore; it's clinical-grade evidence.",
     why: [
       "The 2018 meta-analysis in the American Journal of Psychiatry found physical activity protective against developing depression, with benefits across all age groups — and trials show treatment-level effects for existing depression.",
@@ -599,6 +681,13 @@ export const MINDSET_TIPS: Tip[] = [
       "Weeks 5–12: add a fourth session or strength progression.",
       "Ongoing: exercise as standing maintenance — the best-evidenced relapse-prevention tool you already own.",
     ],
+    safety: [
+    "Exercise is powerful support for mild-to-moderate depression and anxiety — but it is a complement to treatment, not a replacement for therapy or prescribed medication.",
+    "Never stop prescribed antidepressants or medication because workouts are 'working'. Any change goes through your doctor.",
+    "If you are starting from a low place, 5–10 minutes counts as a full session. All-or-nothing thinking kills the habit before it helps you.",
+    "If exercise becomes compulsive, punitive, or ties into food control, or you have an eating-disorder history — work with a professional instead of self-directing.",
+    "If you are in crisis or having thoughts of self-harm, contact a doctor or crisis line now — exercise is not the tool for that moment.",
+    ],
     refs: [
       "Schuch FB et al. Am J Psychiatry 2018 — physical activity & depression: meta-analysis.",
       "Blumenthal JA et al. Psychosom Med 2007 — exercise vs sertraline for major depression (SMILE study).",
@@ -607,6 +696,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "phone-away", title: "Your Phone's Presence Taxes Your Focus", icon: "phone-off", category: "Mindset",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["phone distraction", "focus", "attention", "digital detox"],
     summary: "Experiments found merely having your phone visible — even face-down, even off — measurably reduces working-memory capacity and fluid intelligence measures versus having it in another room. For training, reading, and deep work, 'out of sight' is a measurable performance setting, not a lifestyle aesthetic.",
     why: [
       "The Ward 'brain drain' experiments showed phone presence reduced available cognitive capacity — part of attention is spent suppressing the pull.",
@@ -636,6 +726,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "nature-pill", title: "The 20-Minute Nature Pill", icon: "trees", category: "Mindset",
     goals: ["fitness", "looksmax"], minutes: 2,
+    keywords: ["nature walk", "outdoors", "green space", "stress relief"],
     summary: "Twenty to thirty minutes in a green space measurably lowers stress hormones — the urban 'nature pill' studies found cortisol drops most efficiently in the 20–30 minute window. Combined with a walk, it stacks with half the protocols in this library. Free, repeatable, proven.",
     why: [
       "The Hunter study found a 20–30 minute nature experience significantly reduced salivary cortisol, with the steepest drop in that window — the basis of the 'nature pill' prescription.",
@@ -666,6 +757,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "connection", title: "Loneliness Shortens Lives — Treat Connection As Training", icon: "users", category: "Mindset",
     goals: ["fitness", "looksmax", "muscle"], minutes: 2,
+    keywords: ["loneliness", "social", "friends", "relationships", "community"],
     summary: "The meta-analysis is stark: weak social ties raise mortality risk comparably to smoking and exceed obesity's effect size. Connection isn't a soft extra on the path to a better body — it's a health behavior with survival-grade data, and training works better with people in it.",
     why: [
       "Holt-Lunstad's meta-analysis (148 studies, 300,000+ people) found strong social relationships associated with ~50% increased survival odds — an effect in smoking territory.",
@@ -696,6 +788,7 @@ export const MINDSET_TIPS: Tip[] = [
   {
     id: "journaling", title: "Dump The Day On Paper — 5 Minutes", icon: "pen-line", category: "Mindset",
     goals: ["fitness", "looksmax", "fatloss"], minutes: 2,
+    keywords: ["journaling", "worry dump", "reflection", "sleep quality"],
     summary: "Expressive writing — 5–15 minutes of unfiltered writing about what's on your mind — has decades of trial data: less rumination, better working memory, and even fewer health visits in some studies. It slots perfectly into the wind-down (see that protocol) and costs a notebook.",
     why: [
       "Pennebaker's original trial found emotional writing produced fewer health-center visits and improved measures versus trivial-topic controls — replicated across dozens of studies since.",

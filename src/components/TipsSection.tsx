@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Activity, Anchor, ArrowDownToLine, ArrowRight, ArrowUpFromLine, ArrowUpDown,
   AlertTriangle, BadgeCheck, Ban, BatteryCharging, BedDouble, Beaker, Beef, Bike,
@@ -72,13 +72,27 @@ function featuredTip(): Tip {
 }
 
 // ─────────────────────────────────────────────────────────────
-//  TipsSection — the whole library: featured, filters, grid.
-//  Cards link to the dedicated static pages (/tip/<id>/).
+//  TipsSection — the whole library: featured, filters, grid, reader
 // ─────────────────────────────────────────────────────────────
+// Library state (search + filters + scroll) persists across page
+// navigations via sessionStorage — returning from a protocol page
+// lands you exactly where you left off.
+const LIB_KEY = "pf.library.v1";
+
+function loadLibraryState(): { q: string; cat: string; goals: Goal[]; scroll: number } | null {
+  try {
+    const raw = sessionStorage.getItem(LIB_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function TipsSection() {
-  const [q, setQ] = useState("");
-  const [cat, setCat] = useState<string>("All");
-  const [goals, setGoals] = useState<Goal[]>([]);
+  const saved = useMemo(loadLibraryState, []);
+  const [q, setQ] = useState(saved?.q ?? "");
+  const [cat, setCat] = useState<string>(saved?.cat ?? "All");
+  const [goals, setGoals] = useState<Goal[]>(saved?.goals ?? []);
 
   const featured = featuredTip();
 
@@ -86,12 +100,47 @@ export default function TipsSection() {
     let l = goals.length ? tipsForGoals(goals) : TIPS;
     if (cat !== "All") l = l.filter((t) => t.category === cat);
     const s = q.trim().toLowerCase();
-    if (s) l = l.filter((t) => `${t.title} ${t.summary} ${t.category}`.toLowerCase().includes(s));
+    if (s)
+      l = l.filter((t) =>
+        [
+          t.title, t.category, t.summary,
+          ...t.goals.map((g) => GOAL_LABEL[g]),
+          ...(t.keywords ?? []),
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(s),
+      );
     return l;
   }, [q, cat, goals]);
 
   const toggleGoal = (g: Goal) =>
     setGoals((prev) => (prev.includes(g) ? prev.filter((x) => x !== g) : [...prev, g]));
+
+  // Persist filters + scroll on every change / scroll tick.
+  useEffect(() => {
+    const save = () => {
+      try {
+        sessionStorage.setItem(LIB_KEY, JSON.stringify({ q, cat, goals, scroll: window.scrollY }));
+      } catch { /* private mode etc. */ }
+    };
+    save();
+    window.addEventListener("scroll", save, { passive: true });
+    return () => window.removeEventListener("scroll", save);
+  }, [q, cat, goals]);
+
+  // Restore exact scroll position once on mount (retry while layout settles).
+  useEffect(() => {
+    const target = saved?.scroll ?? 0;
+    if (target <= 0) return;
+    let tries = 0;
+    const tick = () => {
+      window.scrollTo(0, target);
+      if (++tries < 6 && Math.abs(window.scrollY - target) > 4) setTimeout(tick, 120);
+    };
+    tick();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const resetFilters = () => { setQ(""); setCat("All"); setGoals([]); };
 
@@ -126,7 +175,7 @@ export default function TipsSection() {
           </div>
 
           {/* category chips */}
-          <div className="anim-rise delay-1 mt-7 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="anim-rise delay-1 mt-7 flex flex-wrap gap-2">
             {["All", ...TIP_CATEGORIES].map((c) => (
               <button key={c} onClick={() => setCat(c)}
                 className={cn(

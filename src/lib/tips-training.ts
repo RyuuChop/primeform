@@ -7,6 +7,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "volume", title: "10–20 Hard Sets Per Muscle, Per Week", icon: "layers", category: "Training",
     goals: ["muscle", "strength"], minutes: 3,
+    keywords: ["training volume", "sets per week", "hard sets", "hypertrophy"],
     summary: "Weekly hard sets per muscle is the master variable of hypertrophy. Below ~10 you're maintaining; 10–20 builds; beyond 20 mostly just costs recovery. Count and distribute them — don't guess.",
     why: [
       "Meta-analyses show a dose-response between weekly sets and muscle growth — more sets grow more muscle up to a point of diminishing returns.",
@@ -37,6 +38,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "double-progression", title: "Run Double Progression On Everything", icon: "trending-up", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["progression method", "reps", "logbook", "adding weight"],
     summary: "Double progression is the simplest engine of growth: pick a rep range (say 8–12), add reps until you hit the top on every set, then add weight and drop back to the bottom. Repeat forever. No app, no spreadsheet gymnastics.",
     why: [
       "Progressive overload is the primary training driver identified by every major strength-medicine position statement — the question is only how to systematize it.",
@@ -67,6 +69,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "rir", title: "Leave 1–3 Reps In The Tank", icon: "gauge", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 3,
+    keywords: ["reps in reserve", "training intensity", "training to failure"],
     summary: "Training to absolute failure on every set is not required for growth — and it taxes recovery badly. Stopping 1–3 reps short (RIR 1–3) produces nearly identical hypertrophy for a fraction of the fatigue. Save failure for isolation work and testing weeks.",
     why: [
       "Meta-analysis shows sets taken close to failure grow muscle similarly to failure training — proximity matters more than reaching failure itself.",
@@ -97,6 +100,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "rest-intervals", title: "Rest 2–3 Minutes On The Big Lifts", icon: "timer", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["rest between sets", "rest time", "strength recovery"],
     summary: "Rest is a training variable, not laziness. One-minute rests on squats turn every set after the first into a cardio compromise. 2–3 minutes on compounds and 1–2 on isolation lets you lift more per set — and lifting more is the whole point.",
     why: [
       "RCT and meta-analysis data show longer rests (2–3 min) produce greater strength and hypertrophy than 60s when volume is self-paced — you complete more quality reps.",
@@ -127,6 +131,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "frequency", title: "Hit Each Muscle Twice A Week", icon: "repeat", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["training frequency", "twice a week", "muscle groups", "split"],
     summary: "For equal weekly volume, spreading a muscle's sets across two sessions beats cramming them into one. Twice-weekly frequency also makes 10–20 weekly sets physically completable with quality reps.",
     why: [
       "Meta-analysis finds 2×/week frequency superior to 1× for hypertrophy when weekly volume isn't equated — and volume-equated trials show the practical benefit of spreading high volumes.",
@@ -157,6 +162,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "loading-spectrum", title: "5–30 Reps All Build — Pick Per Exercise", icon: "arrow-up-down", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["rep ranges", "heavy or light", "repetition range", "hypertrophy"],
     summary: "Muscle grows across a huge rep spectrum as long as sets are hard and progression happens. Heavy low-rep work builds maximal strength efficiently; moderate reps (6–15) offer the best size-to-fatigue ratio; high reps (15–30) suit joints, machines, and home training.",
     why: [
       "Meta-analyses of loading trials show hypertrophy is broadly similar from ~5 to ~30 reps when sets approach failure — strength, however, favors heavy loads.",
@@ -187,6 +193,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "exercise-order", title: "Compounds First, While You're Fresh", icon: "list-checks", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["compound lifts", "exercise order", "isolation", "priority"],
     summary: "The first exercises of a session get your best energy, focus, and nervous system. Put the highest-value lifts there — squats before leg extensions, weighted pull-ups before curls. Priority is an ordering decision, not a hope.",
     why: [
       "Program-design reviews consistently place exercise selection and order among the highest-impact variables; fatigue accumulated early degrades everything after it.",
@@ -217,6 +224,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "training-log", title: "Log Every Set Or You're Guessing", icon: "notebook-pen", category: "Training",
     goals: ["muscle", "strength", "fitness", "fatloss"], minutes: 2,
+    keywords: ["workout log", "tracking lifts", "progress notebook"],
     summary: "A training log converts effort into data: what you lifted, how many reps, how hard it felt. Without it, progressive overload is folklore — you'll repeat the same sessions for months and call it a plateau. Paper, app, notes file: any system you'll actually keep.",
     why: [
       "Self-monitoring is among the most validated behavior-change techniques across health psychology taxonomies — what gets recorded improves.",
@@ -247,6 +255,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "ramp-sets", title: "Ramp To A Top Set — Warm Up Like It Matters", icon: "activity", category: "Training",
     goals: ["strength", "muscle", "fitness"], minutes: 2,
+    keywords: ["warm-up sets", "top set", "working weight", "ramp up"],
     summary: "Cold muscles under heavy bars are how injuries and ego-checks happen. A proper ramp — empty bar, then progressive jumps to your working weight — primes the nervous system, rehearses the groove, and measurably improves the set it protects.",
     why: [
       "Systematic reviews find warm-ups reliably enhance performance; even brief general + specific warm-ups improve power output.",
@@ -277,6 +286,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "deload", title: "Deload Before You're Forced To", icon: "pause", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["deload week", "planned recovery", "fatigue", "plateau"],
     summary: "Fatigue accumulates faster than adaptation if you never back off. A planned deload — same movements, ~50–60% of normal volume or load, for one week every 6–8 weeks — lets fitness surface instead of burying it under grinding exhaustion.",
     why: [
       "The training-injury 'workload paradox' shows rapid spikes in workload predict injury — planned fluctuations protect you.",
@@ -307,6 +317,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "leg-day-myth", title: "The Leg-Day Hormone Myth (Still Train Legs)", icon: "triangle", category: "Training",
     goals: ["muscle", "strength"], minutes: 2,
+    keywords: ["leg day", "legs", "testosterone myth", "squats"],
     summary: "'Heavy squats spike hormones and grow your whole body' is a myth that survived too long: studies equating exercise show the acute hormone bump doesn't drive extra growth elsewhere. Train legs anyway — they're half your muscle, your structural base, and the biggest visual game-changer there is.",
     why: [
       "Trials adding heavy leg exercise to arm training found no extra arm hypertrophy despite larger transient hormone responses — the 'anabolic spill-over' doesn't cash out.",
@@ -337,6 +348,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "neck-training", title: "Train Your Neck Like An Athlete", icon: "shield", category: "Training",
     goals: ["muscle", "looksmax", "fitness"], minutes: 3,
+    keywords: ["neck training", "neck strength", "harness", "athlete neck"],
     summary: "The neck responds to training like any muscle group — and thicker, stronger necks are linked to lower concussion risk in contact sports, better crash resilience, and a visibly stronger frame. 2–3 short sessions weekly is all it takes.",
     why: [
       "Research in high-school athletes found greater neck strength was associated with lower concussion incidence — a trainable protective factor.",
@@ -359,6 +371,12 @@ export const TRAINING_TIPS: Tip[] = [
       "Weeks 3–8: add harness/band load, progress reps first, weight second.",
       "Ongoing: 2× weekly forever — 15 minutes, real returns.",
     ],
+    safety: [
+    "Progress like a beginner even if you are advanced elsewhere — the neck adapts slower than big muscles and its spine is unforgiving.",
+    "Start with isometrics (pushing against your own hand) and light harness work. Leave the heavy-plate neck bridges to supervised athletes.",
+    "Train range-of-motion slowly, never explosively — bouncy reps load the cervical spine in ways it hates.",
+    "Stop at once for sharp pain, dizziness, numbness, or tingling anywhere in the arms. A prior neck injury or whiplash history means get physio clearance first.",
+    ],
     refs: [
       "Collins CL et al. J Prim Prev 2014 — neck strength & concussion in high school athletes.",
     ],
@@ -366,6 +384,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "grip-longevity", title: "Grip Strength Predicts Everything — Train It", icon: "hand", category: "Training",
     goals: ["strength", "fitness", "muscle", "looksmax"], minutes: 2,
+    keywords: ["grip strength", "forearms", "longevity marker", "dead hang"],
     summary: "Grip strength is one of the strongest single predictors of all-cause mortality and functional independence ever measured — and it's almost never trained directly. Loaded carries and dead hangs fix that in 10 minutes a week.",
     why: [
       "The PURE study across 17 countries found grip strength predicted cardiovascular mortality more strongly than systolic blood pressure — every 5kg drop raised risk materially.",
@@ -395,6 +414,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "machines-vs-free", title: "Machines And Free Weights Both Build Muscle", icon: "dumbbell", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["machines", "free weights", "dumbbells", "barbells"],
     summary: "The free-weights-vs-machines holy war is marketing, not science. Head-to-head trials show comparable hypertrophy when effort and progression match. Use free weights for fundamentals and loading capacity; use machines for convenience, isolation, and joint-friendly volume.",
     why: [
       "A trial directly comparing free-weight and machine-based training found similar gains in muscle and strength over 8+ weeks with matched programming.",
@@ -425,6 +445,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "doms-myth", title: "Soreness Is Not The Scoreboard", icon: "flame", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["soreness", "DOMS", "muscle damage", "scoreboard"],
     summary: "Chasing soreness is chasing a side effect. DOMS tracks novelty and eccentric novelty especially — not stimulus quality. Sore legs from a new machine prove nothing; progressive logs over months prove everything.",
     why: [
       "Expert reviews are explicit: post-exercise soreness is not a valid indicator of muscle adaptation — it correlates more with exercise novelty than growth.",
@@ -455,6 +476,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "weighted-core", title: "Load Your Abs Like Any Other Muscle", icon: "weight", category: "Training",
     goals: ["muscle", "looksmax", "strength"], minutes: 2,
+    keywords: ["abs", "core training", "weighted ab work", "six pack"],
     summary: "Abs are skeletal muscle: they respond to progressive tension. Endless planks train endurance; weighted crunches, hanging leg raises, and cable work build the visible blocks. Visibility still depends on body fat — but the muscle underneath is trainable.",
     why: [
       "Core-training reviews treat the abdominals as loadable hypertrophy muscle — progressive resistance builds thickness; endless low-load reps build little.",
@@ -485,6 +507,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "calisthenics-ladder", title: "Progress Bodyweight Skills On A Ladder", icon: "footprints", category: "Training",
     goals: ["fitness", "muscle", "strength"], minutes: 3,
+    keywords: ["bodyweight skills", "skill progressions", "muscle-up", "advanced calisthenics"],
     summary: "Bodyweight training works exactly like barbell training — when you treat variations as a progression ladder instead of collecting push-up totals. Move up a rung when you clear the current one's standard, with reps clean.",
     why: [
       "Progression-model position stands apply to all resistance training: increasing mechanical demand over time drives adaptation, whatever provides the resistance.",
@@ -515,6 +538,7 @@ export const TRAINING_TIPS: Tip[] = [
   {
     id: "program-hopping", title: "Run A Program For 8–12 Weeks Minimum", icon: "anchor", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["training program", "program consistency", "stick to plan", "8 weeks"],
     summary: "Every new program feels good for two weeks — that's novelty, not progress. Adaptation needs repeated exposure to the same stimulus with progression. Pick a sane program and run it until the log, not your boredom, decides it's done.",
     why: [
       "Progression-model science requires measurable repeated stimuli; constantly rotating exercises resets the progression clock to zero.",

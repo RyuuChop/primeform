@@ -16,6 +16,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "protein", title: "Eat 1.6–2.2g Protein Per Kg", icon: "beef", category: "Nutrition",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 3,
+    keywords: ["protein intake", "macros", "muscle growth", "grams per kg", "whey"],
     summary: "Protein is the raw material for muscle and the most satiating macro. Hit 1.6–2.2 g per kg of bodyweight, every day, before worrying about anything else.",
     why: [
       "Meta-analyses (Morton et al., 2018) show muscle gain plateaus beyond ~1.6 g/kg/day — that's the floor, not the ceiling.",
@@ -47,6 +48,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "sleep", title: "Sleep 7–9 Hours Like It's Your Job", icon: "moon", category: "Recovery",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 4,
+    keywords: ["sleep hours", "bedtime", "rest", "sleep duration"],
     summary: "Muscle is built while you sleep, not while you train. Under 7 hours measurably tanks testosterone, recovery, skin quality, and hunger control.",
     why: [
       "One week of 5h/night sleep cut testosterone 10–15% in young men (Leproult & Van Cauter, 2011).",
@@ -79,6 +81,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "overload", title: "Progressive Overload Is The Whole Game", icon: "trending-up", category: "Training",
     goals: ["muscle", "strength", "fitness"], minutes: 3,
+    keywords: ["progressive overload", "gains", "strength progress", "adding weight"],
     summary: "Your body adapts to stress and then stops changing. If the workload doesn't go up, neither do you. Add a rep, a set, or a harder variation — every week.",
     why: [
       "Muscle and strength adapt to imposed demand (Selye's GAS). Same demand = same body.",
@@ -109,6 +112,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "form", title: "Own The Eccentric (Lowering) Phase", icon: "arrow-down-to-line", category: "Form",
     goals: ["muscle", "strength"], minutes: 2,
+    keywords: ["eccentric", "lowering phase", "tempo", "technique"],
     summary: "The lowering half of every rep causes the most muscle damage — the trigger for growth. Drop fast and you throw away half the exercise.",
     why: [
       "Eccentric contractions produce greater force and greater hypertrophy stimulus per unit of effort.",
@@ -138,6 +142,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "chestcue", title: "Push-Up Form Cues That Actually Matter", icon: "move-horizontal", category: "Form",
     goals: ["muscle", "fitness", "strength"], minutes: 2,
+    keywords: ["push-up", "pushup form", "chest exercise", "cues"],
     summary: "One line of body, elbows at 45°, chest to floor. Master the standard push-up before touching any variation — it's the foundation everything sits on.",
     why: [
       "Body line: hips sagging means your core isn't braced — you're doing a shorter, easier rep.",
@@ -168,6 +173,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "pullupprog", title: "The Zero-To-Pull-Up Roadmap", icon: "arrow-up-from-line", category: "Training",
     goals: ["muscle", "strength", "looksmax"], minutes: 3,
+    keywords: ["pull-ups", "calisthenics", "back training", "progression plan"],
     summary: "Can't do a pull-up? The path is dead hangs → scapular pulls → negatives → full reps. Everyone who can do 10 started at zero.",
     why: [
       "Pull-ups train lats, biceps, upper back, and grip simultaneously — the V-taper movement.",
@@ -198,6 +204,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "consistency", title: "Consistency Beats Intensity — By A Mile", icon: "flame", category: "Mindset",
     goals: ["muscle", "fatloss", "fitness", "looksmax", "strength"], minutes: 2,
+    keywords: ["discipline", "routine", "motivation", "habits"],
     summary: "Three average sessions a week for a year destroys one monster workout followed by two weeks off. Your training streak is the most important number in your log.",
     why: [
       "Adaptations are dose-cumulative: total weekly volume predicts growth better than single-workout effort.",
@@ -228,6 +235,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "steps", title: "8–10k Steps: The Silent Fat-Loss Lever", icon: "footprints", category: "Fat Loss",
     goals: ["fatloss", "fitness", "looksmax"], minutes: 2,
+    keywords: ["walking", "daily steps", "NEAT", "fat loss lever"],
     summary: "Walking burns more fat over a week than almost any 'fat-burning workout' — without eating into recovery. Raise daily steps before cutting a single calorie.",
     why: [
       "NEAT (non-exercise activity thermogenesis) varies by up to 800–2000 kcal/day between individuals — it's the hidden half of your metabolism.",
@@ -257,6 +265,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "hydration", title: "Water, Sodium & Skin: The Dry Look", icon: "droplets", category: "Looks",
     goals: ["looksmax", "fitness", "fatloss"], minutes: 2,
+    keywords: ["water intake", "dry skin", "glow", "sodium balance"],
     summary: "Dehydration makes skin look flat and dull; random sodium swings cause facial puffiness. Stable water + stable salt = consistently sharper face.",
     why: [
       "Skin turgor and sub-dermal water balance are directly hydration-dependent.",
@@ -279,6 +288,11 @@ const CORE_TIPS: Tip[] = [
       "Week 2: stabilize meal saltiness.",
       "Ongoing: judge by morning face in the mirror — you'll calibrate within weeks.",
     ],
+    safety: [
+    "Do not force extreme amounts of plain water — overdrinking can dilute blood sodium (hyponatremia), which is genuinely dangerous. Thirst and light-yellow urine are your best guides.",
+    "Deliberate sodium and water manipulation is for people training hard and sweating heavily. If you have high blood pressure or kidney issues, keep changes moderate and check with your doctor.",
+    "If you feel dizzy, nauseated, or confused while drinking a lot of water, stop and seek medical care — that is a warning sign, not a detox feeling.",
+    ],
     refs: [
       "Popkin BM et al. Nutr Rev 2010 — water, hydration & health.",
       "Palma L et al. Clin Cosmet Investig Dermatol 2015 — dietary water & skin physiology.",
@@ -287,6 +301,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "posture", title: "Fix Forward-Head Posture (The Looksmax Tax)", icon: "scan-line", category: "Posture",
     goals: ["looksmax", "fitness"], minutes: 3,
+    keywords: ["forward head", "text neck", "hunched posture", "alignment"],
     summary: "Forward-head posture hides your jawline, rounds your frame, and reads as low status. Chin tucks + upper-back work reclaim it in weeks.",
     why: [
       "Every 2.5 cm of forward head carriage roughly doubles effective load on the cervical spine.",
@@ -317,6 +332,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "jawline", title: "The Actual Science of a Sharper Jawline", icon: "smile", category: "Looks",
     goals: ["looksmax", "fatloss"], minutes: 3,
+    keywords: ["jaw", "chewing", "face shape", "TMJ"],
     summary: "Jaw definition = facial fat % + masseter size + posture + water balance. No chewing toy rewrites your bone structure — but 10–15% body fat rewrites your face.",
     why: [
       "Subcutaneous facial fat is the #1 variable under your control. Lean faces read as more defined, full stop.",
@@ -339,6 +355,11 @@ const CORE_TIPS: Tip[] = [
       "Phase 2: add direct neck training 2–3x/week.",
       "Phase 3: photo every 4 weeks in the same light — track the angle under the jaw sharpening.",
     ],
+    safety: [
+    "Stop immediately if you feel jaw pain, clicking, locking, or headaches — forcing through pain risks real TMJ (jaw-joint) problems that are far harder to fix than they look.",
+    "Keep sessions short at the start — minutes of chewing practice, not hours of gum. Overuse causes soreness and joint strain.",
+    "If you already have jaw pain, an uneven bite, or a TMJ history, see a dentist first before doing any jaw work.",
+    ],
     refs: [
       "Windhager S et al. Am J Hum Biol 2011 — facial adiposity perception studies.",
       "Kiliaridis S. Acta Odontol Scand 1995 — masticatory muscle function & craniofacial morphology.",
@@ -347,6 +368,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "skin", title: "Skincare In 3 Steps (Not 13)", icon: "sparkles", category: "Looks",
     goals: ["looksmax"], minutes: 3,
+    keywords: ["skincare routine", "cleanser", "moisturizer", "face care"],
     summary: "Cleanser, moisturizer, sunscreen. That's 90% of dermatology's anti-aging and clear-skin advice compressed into $30 and 3 minutes a day.",
     why: [
       "UV exposure is the single largest driver of visible facial aging (photoaging) — daily SPF is the highest-ROI 'looks' product in existence.",
@@ -377,6 +399,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "hair", title: "Hair: Keep It, Frame It, Don't Fight It", icon: "scissors", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["haircare", "shampoo", "hairline", "thinning hair"],
     summary: "Your haircut should match your face shape and hairline reality. And if you're thinning: early finasteride/minoxidil (doctor) beats late cope.",
     why: [
       "Hair frames the face — a cut matched to your face shape (fade for round, texture for square, volume for narrow) measurably changes attractiveness ratings.",
@@ -407,6 +430,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "deficit", title: "Fat Loss = Small Deficit + High Protein + Patience", icon: "scale", category: "Fat Loss",
     goals: ["fatloss", "looksmax"], minutes: 3,
+    keywords: ["calorie deficit", "weight loss", "cutting", "diet basics"],
     summary: "A 300–500 kcal daily deficit loses ~0.5 kg/week while keeping muscle and sanity. Crash diets burn your face's collagen and your willpower simultaneously.",
     why: [
       "1 kg of fat ≈ 7,700 kcal. A 500 kcal/day deficit ≈ 0.5 kg/week — fast enough to see, slow enough to keep muscle.",
@@ -437,6 +461,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "creatine", title: "Creatine Monohydrate: The One Legal Cheat Code", icon: "pill", category: "Supplements",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["creatine monohydrate", "strength", "muscle", "supplement"],
     summary: "5 g daily, any time, forever. The most studied supplement in sports science: +5–15% strength and power output, slight lean-mass gain, near-zero downside.",
     why: [
       "Creatine saturates muscle phosphocreatine stores → more ATP for high-intensity sets → more reps → more growth stimulus.",
@@ -458,6 +483,13 @@ const CORE_TIPS: Tip[] = [
       "Week 4: most users notice stronger final reps.",
       "Ongoing: just keep taking it. This one's simple.",
     ],
+    safety: [
+    "Stick to 3–5g of creatine monohydrate daily — taking more does not work better and just wastes money.",
+    "Drink plenty of water through the day. Creatine pulls water into your muscles, so dehydration headaches are the most common side effect.",
+    "A sudden 1–2 kg gain on the scale in the first weeks is normal — it is water inside your muscles, not fat.",
+    "If you have kidney, liver, or heart disease, or take regular medications, ask your doctor before starting. In healthy people, decades of research show no harm at standard doses.",
+    "Buy only third-party tested brands (see the supplement testing protocol) — cheap untested powders are the real risk.",
+    ],
     refs: [
       "Kreider RB et al. JISSN 2017 — ISSN position stand on creatine.",
       "Branch JD. Int J Sport Nutr Exerc Metab 2003 — meta-analysis of body composition effects.",
@@ -466,6 +498,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "wings", title: "Wide Shoulders Are The Cheat Code (V-Taper)", icon: "triangle", category: "Looks",
     goals: ["looksmax", "muscle"], minutes: 2,
+    keywords: ["shoulders", "deltoids", "V-taper", "wide frame"],
     summary: "The shoulder-to-waist ratio drives 'that physique shape' more than chest or arm size. Lateral delts + lats + low waist = the silhouette. Train accordingly.",
     why: [
       "Cross-cultural attractiveness research shows shoulder-to-waist ratio (~1.4–1.6) strongly predicts male bodily attractiveness ratings.",
@@ -496,6 +529,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "recovery", title: "Train Hard, Recover Harder", icon: "battery-charging", category: "Recovery",
     goals: ["muscle", "strength", "fitness"], minutes: 2,
+    keywords: ["recovery", "rest days", "adaptation", "growth"],
     summary: "You don't grow from training — you grow from recovering from training. Minimum effective dose + maximum effective recovery beats daily destruction.",
     why: [
       "Muscle protein synthesis stays elevated ~24–48h post-session. Training a muscle hard again before it recovers adds fatigue, not growth.",
@@ -526,6 +560,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "warmup", title: "The 3-Minute Warm-Up That Prevents 3-Month Injuries", icon: "gauge", category: "Form",
     goals: ["muscle", "fitness", "strength"], minutes: 1,
+    keywords: ["warm-up", "injury prevention", "mobility prep"],
     summary: "Cold tissue tears; warm tissue performs. Three minutes of ramping beats a foam-roller dissertation — and saves you from the injury that erases months of progress.",
     why: [
       "Dynamic warm-ups improve force output ~2–5% and reduce soft-tissue strain risk.",
@@ -556,6 +591,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "eyes", title: "De-Puff & Wake Up Your Face (Mornings)", icon: "eye", category: "Looks",
     goals: ["looksmax"], minutes: 2,
+    keywords: ["eye bags", "dark circles", "puffiness", "tired eyes"],
     summary: "Periorbital puffiness and a foggy face are mostly sleep, salt, alcohol, and congestion — fixable levers, not genetics. Run the morning protocol.",
     why: [
       "Fluid pools in the thin under-eye tissue overnight, especially with high-sodium dinners, alcohol, or sleeping flat.",
@@ -586,6 +622,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "grip-neck", title: "Neck Training: The Ignored 5% That Changes Photos", icon: "anchor", category: "Looks",
     goals: ["looksmax", "strength"], minutes: 2,
+    keywords: ["neck size", "grip strength", "forearms", "thick neck"],
     summary: "A thick neck signals athleticism even in a t-shirt and frames the jaw. Direct neck work 2–3×/week is safe when loaded progressively — and it repays the effort faster than almost any other muscle.",
     why: [
       "Combat and collision sports use direct neck training routinely — it measurably increases neck circumference (+2–4 cm typical over months) and reduces injury risk.",
@@ -608,6 +645,12 @@ const CORE_TIPS: Tip[] = [
       "Phase 2: add a light plate (towel on forehead) once 25 strict bodyweight reps are easy.",
       "Measure track: soft tape around neck monthly — 0.5 cm changes are noticeable.",
     ],
+    safety: [
+    "The neck is trained light, slow, and controlled — heavy loads on the cervical spine are how people get hurt. Bodyweight and light bands first.",
+    "Never do weighted neck bridges or bouncy movements at home without coaching.",
+    "Any sharp pain, numbness, or tingling in the arms or hands means stop immediately and get checked.",
+    "If you have had a neck injury or whiplash, get a physio's sign-off before training it.",
+    ],
     refs: [
       "Hrysomallis C. Sports Med 2016 — neck strength & injury reduction.",
       "NSCA guidance on cervical strengthening for athletes.",
@@ -616,6 +659,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "track", title: "Measure Everything (Weekly, Not Daily)", icon: "notebook-pen", category: "Mindset",
     goals: ["muscle", "fatloss", "looksmax", "fitness", "strength"], minutes: 2,
+    keywords: ["tracking progress", "measurements", "weekly weigh-in", "body data"],
     summary: "What gets measured gets managed. Weight, waist, progress photos, and a simple training log — captured weekly, judged monthly.",
     why: [
       "Self-monitoring is one of the strongest predictors of weight-loss and training success across behavioral studies.",
@@ -646,6 +690,7 @@ const CORE_TIPS: Tip[] = [
   {
     id: "sunlight", title: "Morning Light: Free Hormone & Sleep Lever", icon: "sun", category: "Recovery",
     goals: ["fitness", "looksmax", "fatloss"], minutes: 1,
+    keywords: ["morning light", "circadian rhythm", "sunrise", "hormones"],
     summary: "Ten minutes of outdoor light within an hour of waking anchors your circadian clock — deeper sleep at night, steadier energy, better skin via better sleep.",
     why: [
       "Morning photons hitting the retina set the suprachiasmatic clock → properly timed cortisol peak and melatonin release ~14–16h later.",

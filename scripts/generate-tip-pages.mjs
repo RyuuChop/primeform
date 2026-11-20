@@ -59,6 +59,8 @@ padding:10px 18px;border-radius:999px;box-shadow:0 10px 30px -10px rgba(216,180,
 font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
 .crumbs a:hover{color:var(--gold2)}
 .crumbs .d{color:rgba(216,180,106,.6);font-size:8px}
+.back{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:9px 16px;transition:.2s}
+.back:hover{color:var(--gold2);border-color:rgba(216,180,106,.5)}
 h1.title{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(2rem,5.5vw,3rem);line-height:1.14;margin:14px 0 0;letter-spacing:-.01em}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .chip{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
@@ -67,6 +69,11 @@ border:1px solid var(--line2);border-radius:999px;padding:4px 11px;color:var(--m
 .chip.goal{color:var(--gc);border-color:color-mix(in srgb,var(--gc) 35%,transparent);background:color-mix(in srgb,var(--gc) 8%,transparent)}
 .brief{margin-top:30px;border-left:2px solid var(--gold);background:rgba(216,180,106,.05);border-radius:0 14px 14px 0;padding:20px 24px}
 .brief p{font-size:15.5px;line-height:1.7;color:rgba(244,244,242,.92)}
+.safety{margin-top:26px;background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.3);border-radius:14px;padding:20px 24px}
+.safety .k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#fbbf24;margin-bottom:12px}
+.safety ul{list-style:none}
+.safety li{position:relative;padding-left:24px;font-size:14px;line-height:1.7;color:rgba(254,243,199,.92);margin-bottom:10px}
+.safety li::before{content:"!";position:absolute;left:0;top:0;width:14px;height:14px;border:1px solid rgba(251,191,36,.5);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fbbf24;font-family:'JetBrains Mono',monospace}
 .brief .k,.sec .k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
 .sec{margin-top:46px}
 .sechead{display:flex;align-items:center;gap:14px}
@@ -125,14 +132,14 @@ function tipPage(tip) {
     "@context": "https://schema.org", "@type": "Article",
     headline: tip.title, description: desc,
     articleSection: tip.category,
-    keywords: tip.goals.map((g) => GOAL_LABEL[g]).join(", "),
+    keywords: [...(tip.keywords ?? []), ...tip.goals.map((g) => GOAL_LABEL[g])].join(", "),
     author: { "@type": "Organization", name: "Primeform", url: `${SITE}/` },
     publisher: { "@type": "Organization", name: "Primeform", url: `${SITE}/` },
     datePublished: TODAY, dateModified: TODAY,
     mainEntityOfPage: canonical,
   };
   const rel = related(tip).map(
-    (r) => `<a class="relcard" href="${SITE}/tip/${r.id}/">
+    (r) => `<a class="relcard" href="/tip/${r.id}/">
       <span class="c">${esc(r.category)} · ${r.minutes} min</span>
       <h3>${esc(r.title)}</h3>
       <p>${esc(clip(r.summary, 90))}</p>
@@ -156,7 +163,7 @@ function tipPage(tip) {
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="${esc(tip.title)}"/>
 <meta name="twitter:description" content="${esc(desc)}"/>
-<link rel="icon" type="image/png" href="${SITE}/logo.png"/>
+<link rel="icon" type="image/png" href="/logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
@@ -165,16 +172,17 @@ function tipPage(tip) {
 </head>
 <body>
 <header class="site"><div class="hrow">
-  <a class="brand" href="${SITE}/">
-    <img src="${SITE}/logo.png" alt="Primeform logo"/>
+  <a class="brand" href="/">
+    <img src="/logo.png" alt="Primeform logo"/>
     <span>Primeform</span>
   </a>
-  <a class="sup" href="${process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen'}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
+  <a class="sup" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Support</a>
 </div></header>
 
 <main class="wrap">
+  <a class="back" href="/">← Back to Library</a>
   <nav class="crumbs">
-    <a href="${SITE}/">Library</a><span class="d">◆</span>
+    <a href="/">Library</a><span class="d">◆</span>
     <span>${esc(tip.category)}</span><span class="d">◆</span>
     <span>Protocol N°${pad(n)}</span>
   </nav>
@@ -187,6 +195,7 @@ function tipPage(tip) {
   </div>
 
   <div class="brief"><p class="k">The Protocol — In Brief</p><p>${esc(tip.summary)}</p></div>
+  ${tip.safety ? `<aside class="safety"><p class="k">Safety &amp; Usage Note</p><ul>${tip.safety.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></aside>` : ""}
 
   <section class="sec">
     <div class="sechead"><span class="rn">I</span><span class="ln"></span><h2>Why It Works</h2></div>
@@ -222,8 +231,8 @@ function tipPage(tip) {
     <h2 class="serif">149 more where this came from.</h2>
     <p>The full library — training, nutrition, recovery, sleep and more. Every claim sourced.</p>
     <div class="btnrow">
-      <a class="btn gold" href="${SITE}/">Browse The Library</a>
-      <a class="btn ghost" href="${process.env.VITE_PATREON_URL || 'https://patreon.com/RyuuDen'}?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
+      <a class="btn gold" href="/">Browse The Library</a>
+      <a class="btn ghost" href="https://www.patreon.com/PrimeForm12?utm_source=primeform&amp;utm_medium=tip_page" target="_blank" rel="noopener noreferrer">♥ Become a Supporter</a>
     </div>
   </section>
 </main>
@@ -231,7 +240,7 @@ function tipPage(tip) {
 <footer class="site"><div class="in">
   <span>Primeform — The Protocol Library</span><span>◆</span>
   <span>Educational only · Not medical advice</span><span>◆</span>
-  <a href="${SITE}/" style="color:var(--gold2)">Help &amp; Requests</a>
+  <a href="/" style="color:var(--gold2)">Help &amp; Requests</a>
 </div></footer>
 </body>
 </html>`;
