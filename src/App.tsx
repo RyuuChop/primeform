@@ -1,7 +1,8 @@
-import { Component, useMemo, useState, type ReactNode } from "react";
+import { Component, useEffect, useMemo, useState, type ReactNode } from "react";
 import { ArrowDown, CircleHelp, Heart, RefreshCw, Sparkles, Star } from "lucide-react";
 import TipsSection from "./components/TipsSection";
 import HelpModal from "./components/HelpModal";
+import AdminStudio from "./components/AdminStudio";
 import { Btn, LogoMark, SupportLink } from "./ui";
 import { TIPS, TIP_CATEGORIES } from "./lib/tips";
 
@@ -188,6 +189,27 @@ function Main() {
 }
 
 export default function App() {
+  const [hash, setHash] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  if (hash === "#admin-studio") {
+    return (
+      <ErrorBoundary>
+        <AdminStudio
+          onExit={() => {
+            window.location.hash = "";
+            setHash("");
+          }}
+        />
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <Main />

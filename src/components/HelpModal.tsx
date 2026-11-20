@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import AdminStudio from "./AdminStudio";
 import {
   BookOpen, Check, ChevronDown, Copy, Mail,
   SendHorizontal, ShieldCheck,
@@ -8,7 +7,6 @@ import { Btn, Overlay, Tag } from "../ui";
 import { cn } from "../utils/cn";
 import { TIP_CATEGORIES, TIPS } from "../lib/tips";
 
-// ── Request inbox — requests go straight here via the mail app ──
 const CONTACT_EMAIL = "lenenstew@gmail.com";
 
 type ReqType = "Tip Request" | "New Category" | "Bug Report" | "Something Else";
@@ -49,19 +47,29 @@ function buildLinks(type: ReqType, message: string, contact: string) {
   };
 }
 
+export function openAdminStudioPage() {
+  window.location.hash = "#admin-studio";
+}
+
 export default function HelpModal({ onClose }: { onClose: () => void }) {
-  const [adminVisible, setAdminVisible] = useState(false);
   const [headerClicks, setHeaderClicks] = useState(0);
+
+  const launchStudio = () => {
+    setHeaderClicks(0);
+    onClose();
+    openAdminStudioPage();
+  };
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "a") {
         event.preventDefault();
-        setAdminVisible(true);
+        launchStudio();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  });
 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [type, setType] = useState<ReqType>("Tip Request");
@@ -83,7 +91,6 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(CONTACT_EMAIL);
       } else {
-        // iframe / non-secure contexts: legacy path
         const ta = document.createElement("textarea");
         ta.value = CONTACT_EMAIL;
         ta.style.position = "fixed";
@@ -111,12 +118,17 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
     <Overlay onClose={onClose} wide>
       <div className="px-6 pb-9 pt-11 sm:px-10">
         {/* header */}
-        <header className="flex items-center gap-4" onClick={() => {
-          if (!adminVisible) {
-            if (headerClicks + 1 >= 5) { setAdminVisible(true); setHeaderClicks(0); }
-            else setHeaderClicks(headerClicks + 1);
-          }
-        }}>
+        <header
+          className="flex items-center gap-4"
+          onClick={() => {
+            const next = headerClicks + 1;
+            if (next >= 5) {
+              launchStudio();
+            } else {
+              setHeaderClicks(next);
+            }
+          }}
+        >
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] text-gold-2 shadow-[0_0_30px_-8px_rgba(216,180,106,0.5)]">
             <Mail size={22} />
           </div>
@@ -128,8 +140,6 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
           </div>
         </header>
 
-        {adminVisible && <AdminStudio onExit={() => { setAdminVisible(false); setHeaderClicks(0); }} />}
-
         {/* FAQ */}
         <section className="mt-8">
           <p className="flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-2">
@@ -139,21 +149,29 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
             {FAQS.map((f, i) => {
               const open = openFaq === i;
               return (
-                <div key={i}
+                <div
+                  key={i}
                   className={cn(
                     "overflow-hidden rounded-xl border transition-colors duration-200",
                     open ? "border-gold/35 bg-gold/[0.04]" : "border-line bg-ink-2/60 hover:border-line-2",
-                  )}>
-                  <button onClick={() => setOpenFaq(open ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 px-4.5 py-3.5 text-left cursor-pointer">
+                  )}
+                >
+                  <button
+                    onClick={() => setOpenFaq(open ? null : i)}
+                    className="flex w-full items-center justify-between gap-4 px-4.5 py-3.5 text-left cursor-pointer"
+                  >
                     <span className="text-sm font-semibold text-fg">{f.q}</span>
-                    <ChevronDown size={16}
-                      className={cn("shrink-0 text-faint transition-transform duration-300", open && "rotate-180 text-gold-2")} />
+                    <ChevronDown
+                      size={16}
+                      className={cn("shrink-0 text-faint transition-transform duration-300", open && "rotate-180 text-gold-2")}
+                    />
                   </button>
-                  <div className={cn(
-                    "grid transition-all duration-300",
-                    open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                  )}>
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300",
+                      open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    )}
+                  >
                     <div className="overflow-hidden">
                       <p className="px-4.5 pb-4 text-sm leading-relaxed text-muted">{f.a}</p>
                     </div>
@@ -171,22 +189,23 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
           </p>
 
           <div className="mt-5 space-y-4">
-            {/* type chips */}
             <div className="flex flex-wrap gap-2">
               {REQ_TYPES.map((t) => (
-                <button key={t} onClick={() => setType(t)}
+                <button
+                  key={t}
+                  onClick={() => setType(t)}
                   className={cn(
                     "rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer",
                     type === t
                       ? "border-gold/60 bg-gold/10 text-gold-2 shadow-[0_0_20px_-8px_rgba(216,180,106,0.55)]"
                       : "border-line-2 bg-panel text-muted hover:border-gold/30 hover:text-fg",
-                  )}>
+                  )}
+                >
                   {type === t ? "◆ " : ""}{t}
                 </button>
               ))}
             </div>
 
-            {/* message */}
             <label className="block">
               <span className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
                 What are you looking for?
@@ -204,7 +223,6 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
               </span>
             </label>
 
-            {/* contact */}
             <label className="block">
               <span className="mb-1.5 flex items-baseline justify-between font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
                 Your name or WhatsApp
@@ -226,18 +244,21 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
               <ShieldCheck size={12} className="text-gold-2/70" /> Opens your email app — message pre-filled, you stay in control
             </p>
 
-            {/* fallback — always visible, works in embedded previews too */}
             <div className="rounded-xl border border-gold/25 bg-gold/[0.04] p-4">
               <p className="text-sm leading-relaxed text-muted">
                 Mail app didn't open? Send the same request from Gmail in your browser — or copy the address:
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <button onClick={openGmail}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gold-2 transition-colors hover:bg-gold/[0.16] cursor-pointer">
+                <button
+                  onClick={openGmail}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gold-2 transition-colors hover:bg-gold/[0.16] cursor-pointer"
+                >
                   <Mail size={12} /> Open In Gmail
                 </button>
-                <button onClick={copyEmail}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-line-2 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer">
+                <button
+                  onClick={copyEmail}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line-2 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors hover:border-gold/40 hover:text-gold-2 cursor-pointer"
+                >
                   {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
                   {copied ? "Copied!" : CONTACT_EMAIL}
                 </button>
@@ -262,7 +283,9 @@ export default function HelpModal({ onClose }: { onClose: () => void }) {
             Already on the shelf —
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {TIP_CATEGORIES.map((c) => <Tag key={c} className="border-line-2 text-faint">{c}</Tag>)}
+            {TIP_CATEGORIES.map((c) => (
+              <Tag key={c} className="border-line-2 text-faint">{c}</Tag>
+            ))}
           </div>
         </section>
       </div>
